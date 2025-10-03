@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOIN - COMPANY</title>
+
+    <!-- Fonts -->
+    <link href="{% static 'fonts/css2' %}" rel="stylesheet">
+    <link href="{% static 'fonts/bootstrap-icons.woff' %}" rel="stylesheet">
+    <link href="{% static 'fonts/bootstrap-icons.woff2' %}" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    {#    <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">#}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="{% static 'css/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Main CSS File from template -->
+    <link href="{% static 'css/main(1).css' %}" rel="stylesheet">
+</head>
+<body class="index-page">
+{% block header %}
+    {% include 'header.html' %}
+{% endblock %}
+
+<main class="main">
+
+    {% block hero %}{% include 'pages/hero.html' %}{% endblock hero %}
+    {% block about %}{% include 'pages/about.html' %}{% endblock about %}
+    {% block services %}{% include 'pages/services.html' %}{% endblock services %}
+    {% block product %}{% include 'pages/product.html' %}{% endblock product %}
+    {% block team %}{% include 'pages/team.html' %}{% endblock team %}
+    {% block contact %}{% include 'pages/contact.html' %}{% endblock contact %}
+
+</main>
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}
+
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'js/bootstrap.bundle.min.js.download' %}"></script>
+<script src="{% static 'js/validate.js.download' %}"></script>
+<script src="{% static 'js/aos.js.download' %}"></script>
+<script src="{% static 'js/glightbox.min.js.download' %}"></script>
+<script src="{% static 'js/noframework.waypoints.js.download' %}"></script>
+<script src="{% static 'js/purecounter_vanilla.js.download' %}"></script>
+<script src="{% static 'js/swiper-bundle.min.js.download' %}"></script>
+<script src="{% static 'js/imagesloaded.pkgd.min.js.download' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js.download' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'js/main(1).js.download' %}"></script>
+</body>
+</html>
