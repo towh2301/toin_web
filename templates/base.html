@@ -1,4 +1,9 @@
 {% load static %}
+{% load i18n %}
+
+<script>
+    const csrf_token = '{{ csrf_token }}';
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +26,16 @@
 
     <!-- Main CSS File from template -->
     <link href="{% static 'css/main(1).css' %}" rel="stylesheet">
+
+    <!-- Custom CSS Files -->
+    <link href="{% static 'css/custom/base.css' %}" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="{% static 'images/toin_logo/favicon/favicon.ico' %}">
+
 </head>
 <body class="index-page">
+
 {% block header %}
     {% include 'header.html' %}
 {% endblock %}
@@ -55,6 +68,7 @@
 <script src="{% static 'js/swiper-bundle.min.js.download' %}"></script>
 <script src="{% static 'js/imagesloaded.pkgd.min.js.download' %}"></script>
 <script src="{% static 'js/isotope.pkgd.min.js.download' %}"></script>
+
 
 <!-- Main JS File -->
 <script src="{% static 'js/main(1).js.download' %}"></script>

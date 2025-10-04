@@ -1,0 +1,14 @@
+.lang-switch .btn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}
+
+.lang-switch .btn.active {
+    background-color: #006953; /* green */
+    color: #fff;
+}
+
+.lang-switch .btn:not(.active) {
+    background-color: #e0e0e0; /* gray */
+    color: #333;
+}

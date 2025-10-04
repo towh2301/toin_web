@@ -34,6 +34,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'django.middleware.locale.LocaleMiddleware',  # For translation
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -102,7 +105,7 @@ USE_TZ = True
 LANGUAGES = [
     ("en", "English"),
     ("vi", "Vietnamese"),
-    ("fr", "French"),
+    ("jp", "Japanese"),
 ]
 
 # Where Django will store translation files
