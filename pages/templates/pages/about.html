@@ -1,39 +1,128 @@
 {% load static %}
+{% load i18n %}
 
 {% block about %}
-    <section id="about" class="about section light-background">
+
+    <section id="about" class=" about portfolio section light-background">
         <div class="container section-title" data-aos="fade-up">
-            <h2>About</h2>
-            <p><span>Discover</span> <span class="description-title">Our Story</span></p>
+            <h2>{% trans 'ABOUT' %} {{ about_data }}</h2>
+            <p><span>{% trans 'Discover' %}</span> <span class="description-title">{% trans 'Our Story' %}</span></p>
         </div>
         <div class="container">
-            <div class="row gy-3">
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <img src="{% static 'images/about.jpg' %}" alt="About" class="img-fluid">
-                </div>
-                <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="about-content ps-0 ps-lg-3">
-                        <h3>Innovative Solutions for Modern Businesses</h3>
-                        <p class="fst-italic">We are a team dedicated to delivering high-quality web solutions tailored
-                            to your needs.</p>
-                        <ul>
-                            <li>
-                                <i class="bi bi-diagram-3"></i>
-                                <div>
-                                    <h4>Custom Web Development</h4>
-                                    <p>Building scalable and secure websites with cutting-edge technology.</p>
+            <div class="isotope-layout" data-default-filter=".filter-history" data-layout="masonry"
+                 data-sort="original-order">
+                <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                    <li data-filter=".filter-history" class="filter-active">{% trans 'Company History' %}</li>
+                    <li data-filter=".filter-company">{% trans 'Company Information' %}</li>
+                    <li data-filter=".filter-offices">{% trans 'Vietnam Offices' %}</li>
+                </ul>
+                <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                    <!-- History Item -->
+                    <div class="isotope-item filter-history bg-white rounded-3 shadow-sm p-4 transition">
+                        <div class="portfolio-info d-flex flex-column gap-3">
+                            <h4 class="fs-4 fw-semibold text-dark mb-0">{% trans 'Company History' %}</h4>
+                            <p class="fs-6 text-secondary mb-0">{% trans 'Explore key milestones of TOIN CO., LTD.' %}</p>
+                            <div class="history-details mt-3">
+                                {% for his in history %}
+                                    <div class="border-top border-bottom py-3">
+                                        <dl class="row align-items-center mb-0">
+                                            <dt class="col-sm-3 fw-semibold text-dark">{{ his.year }}</dt>
+                                            <dd class="col-sm-9 text-secondary mb-0">{{ his.get_description }}</dd>
+                                        </dl>
+                                    </div>
+                                {% empty %}
+                                    <p class="text-muted mb-0">No history available.</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Company Information Item -->
+                    <div class="isotope-item filter-company bg-white rounded-3 shadow-sm p-4 transition">
+                        <div class="portfolio-info d-flex flex-column gap-3">
+                            <h4 class="fs-4 fw-semibold text-dark mb-0">{% trans 'Company Information' %}</h4>
+                            <p class="fs-6 text-secondary mb-0">{% trans 'Discover some information of TOIN VIETNAM CO,. LTD.' %}</p>
+                            <div class="history-details mt-3">
+                                <div class="border-top border-bottom py-3">
+                                    <dl class="row align-items-center mb-0">
+                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Company Name' %}</dt>
+                                        <dd class="col-sm-9 text-secondary mb-0">{{ company_profile.company_name }}</dd>
+                                    </dl>
                                 </div>
-                            </li>
-                            <li>
-                                <i class="bi bi-fullscreen-exit"></i>
-                                <div>
-                                    <h4>Creative Design Solutions</h4>
-                                    <p>Designing visually appealing and user-friendly interfaces.</p>
+                                <div class="border-top border-bottom py-3">
+                                    <dl class="row align-items-center mb-0">
+                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Address' %}</dt>
+                                        <dd class="col-sm-9 text-secondary mb-0">{{ company_profile.get_address }}
+                                        </dd>
+                                    </dl>
                                 </div>
-                            </li>
-                        </ul>
-                        <p>Our mission is to empower businesses with robust digital solutions. We combine creativity and
-                            technology to deliver exceptional results.</p>
+                                <div class="border-top border-bottom py-3">
+                                    <dl class="row align-items-center mb-0">
+                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Founded' %}</dt>
+                                        <dd class="col-sm-9 text-secondary mb-0">{{ company_profile.foundation_date }}</dd>
+                                    </dl>
+                                </div>
+                                <div class="border-top border-bottom py-3">
+                                    <dl class="row align-items-center mb-0">
+                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Capital' %}</dt>
+                                        <dd class="col-sm-9 text-secondary mb-0">{{ company_profile.capital }}</dd>
+                                    </dl>
+                                </div>
+                                <div class="border-top border-bottom py-3">
+                                    <dl class="row align-items-center mb-0">
+                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Industry' %}</dt>
+                                        <dd class="col-sm-9 text-secondary mb-0">{{ company_profile.get_productions_operations }}</dd>
+                                    </dl>
+                                </div>
+                                <div class="border-top border-bottom py-3">
+                                    <dl class="row align-items-center mb-0">
+                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Mission' %}</dt>
+                                        <dd class="col-sm-9 text-secondary mb-0">To empower businesses with cutting-edge
+                                            technology solutions for a sustainable future.
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="border-top border-bottom py-3">
+                                    <dl class="row align-items-center mb-0">
+                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Contact' %}</dt>
+                                        <dd class="col-sm-9 text-secondary mb-0">Email:
+                                            <a href="mailto:toin-vn@toin-vn.com.vn">toin-vn@toin-vn.com.vn</a> |
+                                            Phone:
+                                            (0084) 274-222-0590
+                                        </dd>
+                                    </dl>
+                                </div>
+                                <div class="border-top border-bottom py-3">
+                                    <dl class="row align-items-center mb-0">
+                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Parent Companies' %}</dt>
+
+                                        <!-- Parent Webs -->
+                                        {% for corp in company_profile.parent_corporations.all %}
+                                            <dd class="col-sm-9 text-secondary mb-0">
+                                                <a href="{{ corp.website }}"
+                                                   target="_blank">{{ corp.get_name }}</a>
+                                            </dd>
+                                            <dt class="col-sm-3 fw-semibold text-dark"></dt>
+                                        {% empty %}
+                                            <dd>No parent corporations for this company.</dd>
+                                        {% endfor %}
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- Offices Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-offices">
+                        <img src="{% static 'images/office-1.jpg' %}" class="img-fluid" alt="Tokyo Office">
+                        <div class="portfolio-info">
+                            <h4>Tokyo Office</h4>
+                            <p>Headquarters located in Hatchobori, Chuo Ward, Tokyo.</p>
+                            <a href="{% static 'images/office-1.jpg' %}" title="Tokyo Office"
+                               data-gallery="portfolio-gallery-offices" class="glightbox preview-link"><i
+                                    class="bi bi-zoom-in"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>

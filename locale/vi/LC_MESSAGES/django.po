@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-04 14:43+0700\n"
+"POT-Creation-Date: 2025-10-06 16:22+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,125 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-#: .\templates\header.html:30
-msgid "About Us"
-msgstr "Về chúng tôi"
 
-#: .\templates\header.html:32
-msgid "Services"
-msgstr "Dịch vụ"
+#: .\pages\templates\pages\about.html:8
+msgid "ABOUT"
+msgstr "VỀ CHÚNG TÔI"
 
-#: .\templates\header.html:35
-msgid "Portfolio"
-msgstr "Thông tin"
+#: .\pages\templates\pages\about.html:9
+msgid "Discover"
+msgstr "Hành trình"
 
-#: .\templates\header.html:37
-msgid "Our Businesses"
-msgstr "Tập đoàn"
+#: .\pages\templates\pages\about.html:9
+msgid "Our Story"
+msgstr "của Chúng tôi"
 
-#: .\templates\header.html:38
+#: .\pages\templates\pages\about.html:15 .\pages\templates\pages\about.html:23
+msgid "Company History"
+msgstr "Lịch sử Công ty"
+
+#: .\pages\templates\pages\about.html:16 .\pages\templates\pages\about.html:43
+msgid "Company Information"
+msgstr "Thông tin chung"
+
+#: .\pages\templates\pages\about.html:17
+msgid "Vietnam Offices"
+msgstr "Văn phòng ở Việt Nam"
+
+#: .\pages\templates\pages\about.html:24
+msgid "Explore key milestones of TOIN CO., LTD."
+msgstr "Khám phá những cột mốc quan trọng của TOIN CO., LTD."
+
+#: .\pages\templates\pages\about.html:44
+msgid "Discover some information of TOIN VIETNAM CO,. LTD."
+msgstr "Khám phá một số thông tin về CÔNG TY TNHH TOIN VIỆT NAM."
+
+#: .\pages\templates\pages\about.html:48
+msgid "Company Name"
+msgstr "Tên công ty"
+
+#: .\pages\templates\pages\about.html:54
+msgid "Address"
+msgstr "Địa chỉ"
+
+#: .\pages\templates\pages\about.html:61
+msgid "Founded"
+msgstr "Được thành lập"
+
+#: .\pages\templates\pages\about.html:67
+msgid "Capital"
+msgstr "Vốn điều lệ"
+
+#: .\pages\templates\pages\about.html:73
+msgid "Industry"
+msgstr "Ngành công nghiệp"
+
+#: .\pages\templates\pages\about.html:79
+msgid "Mission"
+msgstr "Nhiệm vụ"
+
+#: .\pages\templates\pages\about.html:87 .\templates\header.html:39
 msgid "Contact"
 msgstr "Liên hệ"
 
-#: .\toin\urls.py:11
-msgid "admin/"
+#: .\pages\templates\pages\about.html:95
+msgid "Parent Companies"
+msgstr "Tập đoàn"
+
+#: .\pages\templates\pages\hero.html:10
+msgid "Welcome to"
+msgstr "Chào mừng đến với"
+
+#: .\pages\templates\pages\hero.html:11 .\templates\footer.html:16
+msgid ""
+"JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
+"value-added packages under quality and manufacturing control systems with "
+"Japanese standards."
 msgstr ""
+"Vận hành theo Tiêu chuẩn Nhật Bản trong sản xuất, CÔNG TY TNHH TOIN VIỆT NAM "
+"tạo ra các sản phẩm bao bì với giá trị vượt trội dưới sự kiểm soát chặt chẽ "
+"của hệ thống quản lý chất lượng và sản xuất."
+
+#: .\pages\templates\pages\hero.html:13
+msgid "Explore"
+msgstr "Khám phá"
+
+#: .\templates\footer.html:14
+msgid "ABOUT US"
+msgstr "VỀ CHÚNG TÔI"
+
+#: .\templates\footer.html:28
+msgid "OUR BUSINESSES"
+msgstr "TẬP ĐOÀN"
+
+#: .\templates\footer.html:30 .\templates\header.html:31
+msgid "About Us"
+msgstr "Về chúng tôi"
+
+#: .\templates\footer.html:31 .\templates\header.html:33
+msgid "Services"
+msgstr "Dịch vụ"
+
+#: .\templates\footer.html:32 .\templates\header.html:36
+msgid "Portfolio"
+msgstr "Thông tin"
+
+#: .\templates\footer.html:33 .\templates\header.html:38
+msgid "Our Businesses"
+msgstr "Tập đoàn"
+
+#: .\templates\footer.html:39
+msgid "FEATURES"
+msgstr "ĐẶC TRƯNG"
+
+#: .\templates\footer.html:50
+msgid "CONTACT"
+msgstr "LIÊN HỆ"
+
+#, fuzzy
+#~| msgid "History"
+#~ msgid "History"
+#~ msgstr "Lịch sử"
+
+#~ msgid "admin/"
+#~ msgstr "admin/"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-04 14:44+0700\n"
+"POT-Creation-Date: 2025-10-06 16:22+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,123 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\templates\header.html:30
-msgid "About Us"
-msgstr ""
+#: .\pages\templates\pages\about.html:8
+msgid "ABOUT"
+msgstr "について"
 
-#: .\templates\header.html:32
-msgid "Services"
-msgstr ""
+#: .\pages\templates\pages\about.html:9
+msgid "Discover"
+msgstr "発見する"
 
-#: .\templates\header.html:35
-msgid "Portfolio"
-msgstr ""
+#: .\pages\templates\pages\about.html:9
+msgid "Our Story"
+msgstr "私たちの物語"
 
-#: .\templates\header.html:37
-msgid "Our Businesses"
-msgstr ""
+#: .\pages\templates\pages\about.html:15 .\pages\templates\pages\about.html:23
+msgid "Company History"
+msgstr "会社沿革"
 
-#: .\templates\header.html:38
+#: .\pages\templates\pages\about.html:16 .\pages\templates\pages\about.html:43
+msgid "Company Information"
+msgstr "会社情報"
+
+#: .\pages\templates\pages\about.html:17
+msgid "Vietnam Offices"
+msgstr "ベトナムオフィス"
+
+#: .\pages\templates\pages\about.html:24
+msgid "Explore key milestones of TOIN CO., LTD."
+msgstr "株式会社トーインの主要なマイルストーンをご覧ください。"
+
+#: .\pages\templates\pages\about.html:44
+msgid "Discover some information of TOIN VIETNAM CO,. LTD."
+msgstr "TOIN VIETNAM CO,. LTD. の詳細情報をご覧ください。"
+
+#: .\pages\templates\pages\about.html:48
+msgid "Company Name"
+msgstr "会社名"
+
+#: .\pages\templates\pages\about.html:54
+msgid "Address"
+msgstr "住所"
+
+#: .\pages\templates\pages\about.html:61
+msgid "Founded"
+msgstr "設立"
+
+#: .\pages\templates\pages\about.html:67
+msgid "Capital"
+msgstr "資本"
+
+#: .\pages\templates\pages\about.html:73
+msgid "Industry"
+msgstr "業界"
+
+#: .\pages\templates\pages\about.html:79
+msgid "Mission"
+msgstr "ミッション"
+
+#: .\pages\templates\pages\about.html:87 .\templates\header.html:39
 msgid "Contact"
-msgstr ""
+msgstr "接触"
 
-#: .\toin\urls.py:11
-msgid "admin/"
+#: .\pages\templates\pages\about.html:95
+msgid "Parent Companies"
+msgstr "親会社"
+
+#: .\pages\templates\pages\hero.html:10
+msgid "Welcome to"
+msgstr "ようこそ"
+
+#: .\pages\templates\pages\hero.html:11 .\templates\footer.html:16
+msgid ""
+"JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
+"value-added packages under quality and manufacturing control systems with "
+"Japanese standards."
 msgstr ""
+"TOIN VIETNAM CO.,LTD. は、日本の基準による品質・製造管理体制のもと、付加価値"
+"の高いパッケージ製品を生産しています。"
+
+#: .\pages\templates\pages\hero.html:13
+msgid "Explore"
+msgstr "探検する"
+
+#: .\templates\footer.html:14
+msgid "ABOUT US"
+msgstr "私たちについて"
+
+#: .\templates\footer.html:28
+msgid "OUR BUSINESSES"
+msgstr "当社の事業"
+
+#: .\templates\footer.html:30 .\templates\header.html:31
+msgid "About Us"
+msgstr "私たちについて"
+
+#: .\templates\footer.html:31 .\templates\header.html:33
+msgid "Services"
+msgstr "サービス"
+
+#: .\templates\footer.html:32 .\templates\header.html:36
+msgid "Portfolio"
+msgstr "ポートフォリオ"
+
+#: .\templates\footer.html:33 .\templates\header.html:38
+msgid "Our Businesses"
+msgstr "当社の事業"
+
+#: .\templates\footer.html:39
+msgid "FEATURES"
+msgstr "特徴"
+
+#: .\templates\footer.html:50
+msgid "CONTACT"
+msgstr "接触"
+
+#, fuzzy
+#~| msgid "History"
+#~ msgid "History"
+#~ msgstr "歴史"
+
+#~ msgid "admin/"
+#~ msgstr "admin/"

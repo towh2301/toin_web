@@ -1,51 +1,61 @@
 {% load static %}
+{% load i18n %}
+{% block scripts %}
+    <Link rel="stylesheet" href="../css/contact-custom.css">
+{% endblock scripts %}
 
 {% block contact %}
-
     <section id="contact" class="contact section">
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Contact</h2>
-            <p><span>Get in Touch</span> <span class="description-title">With Us</span></p>
-        </div>
+        <div class="container section-title" data-aos="fade-up"><h2>Contact</h2>
+            <p><span>Get in Touch</span> <span class="description-title">With Us</span></p></div>
         <div class="container">
             <div class="row gy-4">
-                <div class="col-lg-6">
-                    <div class="info-item" data-aos="fade-up" data-aos-delay="100">
-                        <i class="bi bi-geo-alt"></i>
-                        <h3>Address</h3>
-                        <p>123 Business Street, Tech City, TC 12345</p>
+                <div class="col-lg-6 d-flex flex-column gap-3">
+
+                    <div class="info-item d-flex align-items-start" data-aos="fade-up"
+                         data-aos-delay="100">
+                        <i class="bi bi-geo-alt fs-4"></i>
+                        <div>
+                            <h3 class="fw-semibold mb-1">Address</h3>
+                            <p class="mb-0 text-muted">123 Business Street, Tech City, TC 12345</p>
+                        </div>
                     </div>
-                    <div class="info-item" data-aos="fade-up" data-aos-delay="200">
-                        <i class="bi bi-telephone"></i>
-                        <h3>Call Us</h3>
-                        <p>+1 1234 56789 00</p>
+
+                    <div class="info-item d-flex align-items-start" data-aos="fade-up"
+                         data-aos-delay="200">
+                        <i class="bi bi-telephone fs-4"></i>
+                        <div>
+                            <h3 class="fw-semibold mb-1">Call Us</h3>
+                            <p class="mb-0 text-muted">+1 1234 56789 00</p>
+                        </div>
                     </div>
-                    <div class="info-item" data-aos="fade-up" data-aos-delay="300">
-                        <i class="bi bi-envelope"></i>
-                        <h3>Email Us</h3>
-                        <p>info@bizland.com</p>
+
+                    <div class="info-item d-flex align-items-start" data-aos="fade-up"
+                         data-aos-delay="300">
+                        <i class="bi bi-envelope fs-4"></i>
+                        <div>
+                            <h3 class="fw-semibold mb-1">Email Us</h3>
+                            <p class="mb-0 text-muted">info@bizland.com</p>
+                        </div>
                     </div>
+
                 </div>
+
                 <div class="col-lg-6">
                     <form action="" method="post" class="contact-form" data-aos="fade-up"
                           data-aos-delay="400">
                         {% csrf_token %}
                         <div class="row gy-4">
-                            <div class="col-md-6">
-                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-                            </div>
-                            <div class="col-12">
-                                <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control" name="message" rows="6" placeholder="Message"
-                                          required></textarea>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-get-started">Send Message</button>
+                            <div class="col-md-6"><input type="text" name="name" class="form-control"
+                                                         placeholder="Your Name" required></div>
+                            <div class="col-md-6"><input type="email" name="email" class="form-control"
+                                                         placeholder="Your Email" required></div>
+                            <div class="col-12"><input type="text" name="subject" class="form-control"
+                                                       placeholder="Subject" required></div>
+                            <div class="col-12"><textarea class="form-control" name="message" rows="6"
+                                                          placeholder="Message" required></textarea></div>
+                            <div class="col-12 text-center ">
+                                <button type="submit" class="btn btn-success ">Send Message</button>
                             </div>
                         </div>
                     </form>

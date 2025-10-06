@@ -1,17 +1,29 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render
+from django.utils.translation import get_language
+from .models import Hero, Post, Business, Feature, Product, CompanyProfile, History, Progress
 
-from pages.models import Hero
-from django.utils.translation import gettext as _, activate
-
+app_name = 'pages'
 
 def index(request):
-    return render(request, "base.html")
+    current_language = get_language()
+    heroes = Hero.objects.all()
+    posts = Post.objects.all()
+    businesses = Business.objects.all()
+    features = Feature.objects.all()
+    products = Product.objects.all()
+    company_profile = CompanyProfile.objects.first()  # Use .first() if expecting a single profile
+    history = History.objects.all()
+    progresses = Progress.objects.all()
 
-
-def set_language(request):
-    language = request.POST.get("language")
-    if language:
-        activate(language)
-        request.session['django_language'] = language
-    return redirect(reverse(''))
+    context = {
+        'current_language': current_language,
+        'heroes': heroes,
+        'posts': posts,
+        'businesses': businesses,
+        'features': features,
+        'products': products,
+        'company_profile': company_profile,
+        'history': history,
+        'progresses': progresses,
+    }
+    return render(request, 'base.html', context)

@@ -8,10 +8,10 @@ from django.utils.translation import gettext_lazy as _
 from pages import views
 
 urlpatterns = [
-    path('i18n/', include('django.conf.urls.i18n')), # Language switcher route
+    path('i18n/', include('django.conf.urls.i18n')),  # Language switcher route
 ]
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
-    path('', views.index, name="index"),  # Your app routes
+    path('', include('pages.urls')),  # Your app routes
 )

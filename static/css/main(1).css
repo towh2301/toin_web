@@ -880,11 +880,14 @@ section,
     font-size: 20px;
     font-weight: 400;
 }
+.custom-btn-send-message {
+    background: var(--accent-color);
+}
 
 .hero .btn-get-started {
     color: var(--contrast-color);
     background: var(--accent-color);
-    font-family: var(--heading-font);
+    font-family: var(--heading-font), serif;
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 1px;
@@ -895,7 +898,7 @@ section,
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
 }
 
-.hero .btn-get-started:hover {
+.hero .btn-get-started:hover .custom-btn-send-message:hover{
     color: var(--contrast-color);
     background: color-mix(in srgb, var(--accent-color), transparent 15%);
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-04 14:43+0700\n"
+"POT-Creation-Date: 2025-10-06 16:22+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,26 +17,125 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\templates\header.html:30
-msgid "About Us"
-msgstr "About Us"
 
-#: .\templates\header.html:32
-msgid "Services"
-msgstr "Services"
+#: .\pages\templates\pages\about.html:8
+msgid "ABOUT"
+msgstr "ABOUT"
 
-#: .\templates\header.html:35
-msgid "Portfolio"
-msgstr "Portfolio"
+#: .\pages\templates\pages\about.html:9
+msgid "Discover"
+msgstr "Discover"
 
-#: .\templates\header.html:37
-msgid "Our Businesses"
-msgstr "Our Businesses"
+#: .\pages\templates\pages\about.html:9
+msgid "Our Story"
+msgstr "Our Story"
 
-#: .\templates\header.html:38
+#: .\pages\templates\pages\about.html:15 .\pages\templates\pages\about.html:23
+msgid "Company History"
+msgstr "Company History"
+
+#: .\pages\templates\pages\about.html:16 .\pages\templates\pages\about.html:43
+msgid "Company Information"
+msgstr "Company Information"
+
+#: .\pages\templates\pages\about.html:17
+msgid "Vietnam Offices"
+msgstr "Vietnam Offices"
+
+#: .\pages\templates\pages\about.html:24
+msgid "Explore key milestones of TOIN CO., LTD."
+msgstr "Explore key milestones of TOIN CO., LTD."
+
+#: .\pages\templates\pages\about.html:44
+msgid "Discover some information of TOIN VIETNAM CO,. LTD."
+msgstr "Discover some information of TOIN VIETNAM CO,. LTD."
+
+#: .\pages\templates\pages\about.html:48
+msgid "Company Name"
+msgstr "Company Name"
+
+#: .\pages\templates\pages\about.html:54
+msgid "Address"
+msgstr "Address"
+
+#: .\pages\templates\pages\about.html:61
+msgid "Founded"
+msgstr "Founded"
+
+#: .\pages\templates\pages\about.html:67
+msgid "Capital"
+msgstr "Capital"
+
+#: .\pages\templates\pages\about.html:73
+msgid "Industry"
+msgstr "Industry"
+
+#: .\pages\templates\pages\about.html:79
+msgid "Mission"
+msgstr "Mission"
+
+#: .\pages\templates\pages\about.html:87 .\templates\header.html:39
 msgid "Contact"
 msgstr "Contact"
 
-#: .\toin\urls.py:11
-msgid "admin/"
+#: .\pages\templates\pages\about.html:95
+msgid "Parent Companies"
+msgstr "Parent Companies"
+
+#: .\pages\templates\pages\hero.html:10
+msgid "Welcome to"
+msgstr "Welcome to"
+
+#: .\pages\templates\pages\hero.html:11 .\templates\footer.html:16
+msgid ""
+"JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
+"value-added packages under quality and manufacturing control systems with "
+"Japanese standards."
 msgstr ""
+"JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
+"value-added packages under quality and manufacturing control systems with "
+"Japanese standards."
+
+#: .\pages\templates\pages\hero.html:13
+msgid "Explore"
+msgstr "Explore"
+
+#: .\templates\footer.html:14
+msgid "ABOUT US"
+msgstr "ABOUT US"
+
+#: .\templates\footer.html:28
+msgid "OUR BUSINESSES"
+msgstr "OUR BUSINESSES"
+
+#: .\templates\footer.html:30 .\templates\header.html:31
+msgid "About Us"
+msgstr "About Us"
+
+#: .\templates\footer.html:31 .\templates\header.html:33
+msgid "Services"
+msgstr "Services"
+
+#: .\templates\footer.html:32 .\templates\header.html:36
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: .\templates\footer.html:33 .\templates\header.html:38
+msgid "Our Businesses"
+msgstr "Our Businesses"
+
+#: .\templates\footer.html:39
+msgid "FEATURES"
+msgstr "FEATURES"
+
+#: .\templates\footer.html:50
+msgid "CONTACT"
+msgstr "CONTACT"
+
+#, fuzzy
+#~| msgid "History"
+#~ msgid "History"
+#~ msgstr "History"
+
+#~ msgid "admin/"
+#~ msgstr "admin/"

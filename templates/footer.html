@@ -1,17 +1,19 @@
+{% load i18n %}
 {% load static %}
+
 {% block script %}
     <link rel="stylesheet" href="{% static 'css/custom/footer-custom.css' %}">
 {% endblock script %}
+
 <!-- Footer -->
 <footer id="footer" class="footer text-light pt-5">
     <div class="container">
         <div class="row gy-4">
             <!-- Company Info -->
             <div class="col-lg-4 col-md-6">
-                <h5 class="text-uppercase fw-bold mb-3  text-white">About Us</h5>
+                <h5 class="text-uppercase fw-bold mb-3  text-white">{% trans 'ABOUT US' %}</h5>
                 <p class="small">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam.
+                    {% trans 'JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly value-added packages under quality and manufacturing control systems with Japanese standards.' %}
                 </p>
                 <div class="d-flex gap-3">
                     <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
@@ -21,20 +23,20 @@
                 </div>
             </div>
 
-            <!-- Quick Links -->
+            <!-- Our Businesses -->
             <div class="col-lg-2 col-md-6">
-                <h5 class="text-uppercase fw-bold mb-3  text-white">Quick Links</h5>
+                <h5 class="text-uppercase fw-bold mb-3  text-white">{% trans 'OUR BUSINESSES' %}</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#about" class="text-light text-decoration-none">About</a></li>
-                    <li><a href="#services" class="text-light text-decoration-none">Services</a></li>
-                    <li><a href="#portfolio" class="text-light text-decoration-none">Portfolio</a></li>
-                    <li><a href="#team" class="text-light text-decoration-none">Our Team</a></li>
+                    <li><a href="#about" class="text-light text-decoration-none">{% trans 'About Us' %}</a></li>
+                    <li><a href="#services" class="text-light text-decoration-none">{% trans 'Services' %}</a></li>
+                    <li><a href="#portfolio" class="text-light text-decoration-none">{% trans 'Portfolio' %}</a></li>
+                    <li><a href="#team" class="text-light text-decoration-none">{% trans 'Our Businesses' %}</a></li>
                 </ul>
             </div>
 
             <!-- Resources -->
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-uppercase fw-bold mb-3  text-white">Resources</h5>
+                <h5 class="text-uppercase fw-bold mb-3  text-white">{% trans 'FEATURES' %}</h5>
                 <ul class="list-unstyled">
                     <li><a href="#!" class="text-light text-decoration-none">Blog</a></li>
                     <li><a href="#!" class="text-light text-decoration-none">FAQs</a></li>
@@ -45,7 +47,7 @@
 
             <!-- Contact -->
             <div class="col-lg-3 col-md-6">
-                <h5 class="text-uppercase fw-bold mb-3  text-white">Contact</h5>
+                <h5 class="text-uppercase fw-bold mb-3  text-white">{% trans 'CONTACT' %}</h5>
                 <p class="small mb-1"><i class="bi bi-geo-alt-fill me-2"></i> 123 Street, City, Country</p>
                 <p class="small mb-1"><i class="bi bi-telephone-fill me-2"></i> +1 234 567 890</p>
                 <p class="small"><i class="bi bi-envelope-fill me-2"></i> info@example.com</p>
