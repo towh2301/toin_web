@@ -142,6 +142,9 @@ class CompanyProfile(models.Model):
     foundation_date = models.DateField()
     representative = models.CharField(max_length=100)
     capital = models.DecimalField(max_digits=12, decimal_places=2)
+    en_mission = models.CharField(max_length=200, null=True, blank=True)
+    vi_mission = models.CharField(max_length=200, null=True, blank=True)
+    jp_mission = models.CharField(max_length=200, null=True, blank=True)
     en_productions_operations = models.TextField(null=True, blank=True)
     vi_productions_operations = models.TextField(null=True, blank=True)
     jp_productions_operations = models.TextField(null=True, blank=True)
@@ -155,7 +158,11 @@ class CompanyProfile(models.Model):
 
     def get_address(self):
         language = get_language()
-        return getattr(self, f'{language}_productions_operations', None) or "No Data"
+        return getattr(self, f'{language}_address', None) or "No Data"
+
+    def get_mission(self):
+        language = get_language()
+        return getattr(self, f'{language}_mission', None) or "No Data"
 
     def __str__(self):
         return self.company_name
