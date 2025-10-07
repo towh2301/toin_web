@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-06 16:22+0700\n"
+"POT-Creation-Date: 2025-10-07 14:55+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,7 @@ msgstr "Discover some information of TOIN VIETNAM CO,. LTD."
 msgid "Company Name"
 msgstr "Company Name"
 
-#: .\pages\templates\pages\about.html:54
+#: .\pages\templates\pages\about.html:54 .\pages\templates\pages\about.html:141
 msgid "Address"
 msgstr "Address"
 
@@ -74,13 +74,25 @@ msgstr "Industry"
 msgid "Mission"
 msgstr "Mission"
 
-#: .\pages\templates\pages\about.html:87 .\templates\header.html:39
+#: .\pages\templates\pages\about.html:90 .\pages\templates\pages\about.html:155
+#: .\templates\header.html:39
 msgid "Contact"
 msgstr "Contact"
 
-#: .\pages\templates\pages\about.html:95
+#: .\pages\templates\pages\about.html:105
 msgid "Parent Companies"
 msgstr "Parent Companies"
+
+#: .\pages\templates\pages\features.html:7
+#: .\pages\templates\pages\features.html:8 .\templates\header.html:33
+msgid "Features"
+msgstr "Features"
+
+#: .\pages\templates\pages\features.html:8
+#, fuzzy
+#| msgid "Explore Our"
+msgid "Explore Our"
+msgstr "Explore Our"
 
 #: .\pages\templates\pages\hero.html:10
 msgid "Welcome to"
@@ -112,7 +124,7 @@ msgstr "OUR BUSINESSES"
 msgid "About Us"
 msgstr "About Us"
 
-#: .\templates\footer.html:31 .\templates\header.html:33
+#: .\templates\footer.html:31
 msgid "Services"
 msgstr "Services"
 

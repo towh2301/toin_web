@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-06 16:22+0700\n"
+"POT-Creation-Date: 2025-10-07 14:55+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "TOIN VIETNAM CO,. LTD. の詳細情報をご覧ください。"
 msgid "Company Name"
 msgstr "会社名"
 
-#: .\pages\templates\pages\about.html:54
+#: .\pages\templates\pages\about.html:54 .\pages\templates\pages\about.html:141
 msgid "Address"
 msgstr "住所"
 
@@ -73,13 +73,23 @@ msgstr "業界"
 msgid "Mission"
 msgstr "ミッション"
 
-#: .\pages\templates\pages\about.html:87 .\templates\header.html:39
+#: .\pages\templates\pages\about.html:90 .\pages\templates\pages\about.html:155
+#: .\templates\header.html:39
 msgid "Contact"
 msgstr "接触"
 
-#: .\pages\templates\pages\about.html:95
+#: .\pages\templates\pages\about.html:105
 msgid "Parent Companies"
 msgstr "親会社"
+
+#: .\pages\templates\pages\features.html:7
+#: .\pages\templates\pages\features.html:8 .\templates\header.html:33
+msgid "Features"
+msgstr "特徴"
+
+#: .\pages\templates\pages\features.html:8
+msgid "Explore Our"
+msgstr "探索する"
 
 #: .\pages\templates\pages\hero.html:10
 msgid "Welcome to"
@@ -110,7 +120,7 @@ msgstr "当社の事業"
 msgid "About Us"
 msgstr "私たちについて"
 
-#: .\templates\footer.html:31 .\templates\header.html:33
+#: .\templates\footer.html:31
 msgid "Services"
 msgstr "サービス"
 

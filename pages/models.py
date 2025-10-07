@@ -82,9 +82,15 @@ class Feature(models.Model):
     vi_description = models.TextField(null=True, blank=True)
     jp_description = models.TextField(null=True, blank=True)
     pdf = models.FileField(upload_to='feature/', blank=True, null=True)
+    image = models.FileField(upload_to='feature/', blank=True, null=True)
+    web = models.URLField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.en_title or self.vi_title or self.jp_title or "Unnamed Feature"
+
+    def get_title(self):
+        language = get_language()
+        return getattr(self, f'{language}_title', None)
 
     def get_description(self):
         language = get_language()
@@ -95,9 +101,17 @@ class Feature(models.Model):
             "No description available"
 
 
+class Type(models.Model):
+    id = models.AutoField(primary_key=True)
+    en_title = models.CharField(max_length=200, null=True, blank=True)
+    vi_title = models.CharField(max_length=200, null=True, blank=True)
+    jp_title = models.CharField(max_length=200, null=True, blank=True)
+
+
 # Product model for product listings
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
+    type = models.ForeignKey(Type, on_delete=models.CASCADE, related_name='products')
     en_title = models.CharField(max_length=200, null=True, blank=True)
     vi_title = models.CharField(max_length=200, null=True, blank=True)
     jp_title = models.CharField(max_length=200, null=True, blank=True)
@@ -120,6 +134,7 @@ class Product(models.Model):
 
 # ParentCorporation model to store multiple parent entities
 class ParentCorporation(models.Model):
+    id = models.AutoField(primary_key=True)
     company_profile = models.ForeignKey('CompanyProfile', on_delete=models.CASCADE, related_name='parent_corporations')
     en_name = models.CharField(null=True, blank=True, max_length=200)
     vi_name = models.CharField(null=True, blank=True, max_length=200)
@@ -138,6 +153,7 @@ class ParentCorporation(models.Model):
 
 # CompanyProfile model for company details
 class CompanyProfile(models.Model):
+    id = models.AutoField(primary_key=True)
     company_name = models.CharField(max_length=200)
     foundation_date = models.DateField()
     representative = models.CharField(max_length=100)
@@ -208,3 +224,48 @@ class Progress(models.Model):
             getattr(self, 'vi_description', None) or \
             getattr(self, 'jp_description', None) or \
             "No description available"
+
+
+class Address(models.Model):
+    id = models.AutoField(primary_key=True)
+    company_profile = models.ForeignKey('CompanyProfile', on_delete=models.CASCADE, related_name='office_addresses')
+    en_name = models.CharField(max_length=200, null=True, blank=True)
+    vi_name = models.CharField(max_length=200, null=True, blank=True)
+    jp_name = models.CharField(max_length=200, null=True, blank=True)
+    en_address = models.TextField(null=False, blank=False, default='No Data')
+    vi_address = models.TextField(null=False, blank=False, default='No Data')
+    jp_address = models.TextField(null=False, blank=False, default='No Data')
+    address_link = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.en_name or self.vi_name or self.jp_name or "No Address Link"
+
+    def get_name(self):
+        language = get_language()
+        return getattr(self, f'{language}_name', None) or "No Address"
+
+    def get_address(self):
+        language = get_language()
+        return getattr(self, f'{language}_address', None) or "No Data"
+
+
+class Contact(models.Model):
+    id = models.AutoField(primary_key=True)
+    address = models.ForeignKey('Address', on_delete=models.CASCADE, related_name='contact_addresses')
+    gender = models.CharField(max_length=1, choices=[('M', 'Male'), ('F', 'Female')])
+    contact_name = models.CharField(max_length=200, null=False, blank=False, default='No Data')
+    contact_number = models.CharField(max_length=200, null=False, blank=False, default='No Data')
+    contact_email = models.CharField(max_length=200, null=False, blank=False, default='No Data')
+
+    def __str__(self):
+        return self.contact_name
+
+    def get_full_details(self):
+        if self.gender == 'M':
+            return f'{self.contact_name}(Mr): {self.contact_number}'
+        elif self.gender == 'F':
+            return f'{self.contact_name}(Mrs): {self.contact_number}'
+        return None
+
+    def get_contact(self):
+        return f'{self.contact_name}: {self.contact_number}'

@@ -39,7 +39,7 @@
 
                     <!-- Company Information Item -->
                     <div class="isotope-item filter-company bg-white rounded-3 shadow-sm p-4 transition">
-                        <div class="portfolio-info d-flex flex-column gap-3">
+                        <div class="portfolio-info d-flex flex-column gap-3"-->
                             <h4 class="fs-4 fw-semibold text-dark mb-0">{% trans 'Company Information' %}</h4>
                             <p class="fs-6 text-secondary mb-0">{% trans 'Discover some information of TOIN VIETNAM CO,. LTD.' %}</p>
                             <div class="history-details mt-3">
@@ -81,16 +81,25 @@
                                         </dd>
                                     </dl>
                                 </div>
-                                <div class="border-top border-bottom py-3">
-                                    <dl class="row align-items-center mb-0">
-                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Contact' %}</dt>
-                                        <dd class="col-sm-9 text-secondary mb-0">Email:
-                                            <a href="mailto:toin-vn@toin-vn.com.vn">toin-vn@toin-vn.com.vn</a> |
-                                            Phone:
-                                            (0084) 274-222-0590
-                                        </dd>
-                                    </dl>
-                                </div>
+                                {% for office in company_profile.office_addresses.all %}
+                                    {% if "FACTORY" in office.en_name %}
+                                        {% with contact=office.contact_addresses.first %}
+                                            {% if contact %}
+                                                <div class="border-top border-bottom py-3">
+                                                    <dl class="row align-items-center mb-0">
+                                                        <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Contact' %}</dt>
+                                                        <dd class="col-sm-9 text-secondary mb-0">
+                                                            Email:
+                                                            <a href="mailto:{{ contact.contact_email }}">{{ contact.contact_email }}</a>
+                                                            |
+                                                            Phone: {{ contact.contact_number }}
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            {% endif %}
+                                        {% endwith %}
+                                    {% endif %}
+                                {% endfor %}
                                 <div class="border-top border-bottom py-3">
                                     <dl class="row align-items-center mb-0">
                                         <dt class="col-sm-3 fw-semibold text-dark">{% trans 'Parent Companies' %}</dt>
@@ -109,20 +118,63 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
+
                     <!-- Offices Item -->
-                    <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-offices">
-                        <img src="{% static 'images/office-1.jpg' %}" class="img-fluid" alt="Tokyo Office">
-                        <div class="portfolio-info">
-                            <h4>Tokyo Office</h4>
-                            <p>Headquarters located in Hatchobori, Chuo Ward, Tokyo.</p>
-                            <a href="{% static 'images/office-1.jpg' %}" title="Tokyo Office"
-                               data-gallery="portfolio-gallery-offices" class="glightbox preview-link"><i
-                                    class="bi bi-zoom-in"></i></a>
+                    {% for addr in company_profile.office_addresses.all %}
+                        <div class="col-lg-6 col-md-6 col-sm-12 portfolio-item isotope-item filter-offices">
+                            <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
+                                <div class="ratio ratio-4x3">
+                                    <iframe
+                                            src="{{ addr.address_link }}"
+                                            allowfullscreen
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
+                                <div class="card-body bg-white">
+                                    <h4 class="fw-bold text-uppercase mb-2 text-dark">
+                                        {{ addr.get_name }}
+                                    </h4>
+
+                                    <p class="mb-2">
+                                        <strong>{% trans 'Address' %}:</strong><br>
+                                        {{ addr.get_address }}
+                                    </p>
+
+                                    {% if addr.contact_number %}
+                                        <p class="mb-1"><strong>TEL:</strong> {{ addr.contact_number }}</p>
+                                    {% endif %}
+
+                                    {% if addr.fax_number %}
+                                        <p class="mb-1"><strong>FAX:</strong> {{ addr.fax_number }}</p>
+                                    {% endif %}
+
+                                    {% if addr.contact_addresses.all %}
+                                        <div class="mt-2">
+                                            <strong>{% trans 'Contact' %}:</strong>
+                                            <ul class="list-unstyled mb-0">
+                                                {% for contact in addr.contact_addresses.all %}
+                                                    <li>
+                                                        {% if contact.contact_name != "TOIN" %}
+                                                            <span class="fw-semibold">{{ contact.get_full_details }}</span>
+                                                        {% else %}
+                                                            <span class="fw-semibold">{{ contact.get_contact }}</span>
+                                                        {% endif %}
+                                                        {% if contact.contact_email != "No Data" %}
+                                                            -
+                                                            <a href="mailto:{{ contact.contact_email }}">{{ contact.contact_email }}</a>
+                                                            <br/>
+                                                        {% endif %}
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
