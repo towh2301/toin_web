@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-07 14:55+0700\n"
+"POT-Creation-Date: 2025-10-08 15:51+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,11 +83,12 @@ msgid "Parent Companies"
 msgstr "親会社"
 
 #: .\pages\templates\pages\features.html:7
-#: .\pages\templates\pages\features.html:8 .\templates\header.html:33
+#: .\pages\templates\pages\features.html:8
 msgid "Features"
 msgstr "特徴"
 
 #: .\pages\templates\pages\features.html:8
+#: .\pages\templates\pages\product.html:8
 msgid "Explore Our"
 msgstr "探索する"
 
@@ -108,6 +109,16 @@ msgstr ""
 msgid "Explore"
 msgstr "探検する"
 
+#: .\pages\templates\pages\product.html:7
+#: .\pages\templates\pages\product.html:8 .\templates\footer.html:32
+#: .\templates\header.html:33 .\templates\header.html:36
+msgid "Portfolio"
+msgstr "ポートフォリオ"
+
+#: .\pages\templates\pages\product.html:13
+msgid "All"
+msgstr "全て"
+
 #: .\templates\footer.html:14
 msgid "ABOUT US"
 msgstr "私たちについて"
@@ -123,10 +134,6 @@ msgstr "私たちについて"
 #: .\templates\footer.html:31
 msgid "Services"
 msgstr "サービス"
-
-#: .\templates\footer.html:32 .\templates\header.html:36
-msgid "Portfolio"
-msgstr "ポートフォリオ"
 
 #: .\templates\footer.html:33 .\templates\header.html:38
 msgid "Our Businesses"

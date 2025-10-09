@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-07 15:04+0700\n"
+"POT-Creation-Date: 2025-10-08 15:51+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
 #: .\pages\templates\pages\about.html:8
+#, fuzzy
+#| msgid "ABOUT US"
+msgid "ABOUT"
+msgstr "VỀ CHÚNG TÔI"
+
 #: .\pages\templates\pages\about.html:9
 msgid "Discover"
 msgstr "Hành trình"
@@ -80,11 +86,12 @@ msgid "Parent Companies"
 msgstr "Tập đoàn"
 
 #: .\pages\templates\pages\features.html:7
-#: .\pages\templates\pages\features.html:8 .\templates\header.html:33
+#: .\pages\templates\pages\features.html:8
 msgid "Features"
 msgstr "Đặc trưng"
 
 #: .\pages\templates\pages\features.html:8
+#: .\pages\templates\pages\product.html:8
 msgid "Explore Our"
 msgstr "Khám phá"
 
@@ -106,6 +113,16 @@ msgstr ""
 msgid "Explore"
 msgstr "Khám phá"
 
+#: .\pages\templates\pages\product.html:7
+#: .\pages\templates\pages\product.html:8 .\templates\footer.html:32
+#: .\templates\header.html:33 .\templates\header.html:36
+msgid "Portfolio"
+msgstr "Thông tin"
+
+#: .\pages\templates\pages\product.html:13
+msgid "All"
+msgstr "Tất cả"
+
 #: .\templates\footer.html:14
 msgid "ABOUT US"
 msgstr "VỀ CHÚNG TÔI"
@@ -121,10 +138,6 @@ msgstr "Về chúng tôi"
 #: .\templates\footer.html:31
 msgid "Services"
 msgstr "Dịch vụ"
-
-#: .\templates\footer.html:32 .\templates\header.html:36
-msgid "Portfolio"
-msgstr "Thông tin"
 
 #: .\templates\footer.html:33 .\templates\header.html:38
 msgid "Our Businesses"

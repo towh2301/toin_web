@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils.translation import get_language
-from .models import Hero, Post, Business, Feature, Product, CompanyProfile, History, Progress
+from .models import Hero, Post, Business, Feature, Product, CompanyProfile, History, Progress, Type
 
 app_name = 'pages'
 
@@ -14,6 +14,7 @@ def index(request):
     company_profile = CompanyProfile.objects.first()  # Use .first() if expecting a single profile
     history = History.objects.all()
     progresses = Progress.objects.all()
+    types = Type.objects.all()
 
     context = {
         'current_language': current_language,
@@ -25,5 +26,6 @@ def index(request):
         'company_profile': company_profile,
         'history': history,
         'progresses': progresses,
+        'types': types,
     }
     return render(request, 'base.html', context)

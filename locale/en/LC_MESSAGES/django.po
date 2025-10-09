@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-07 14:55+0700\n"
+"POT-Creation-Date: 2025-10-08 15:51+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,11 +84,12 @@ msgid "Parent Companies"
 msgstr "Parent Companies"
 
 #: .\pages\templates\pages\features.html:7
-#: .\pages\templates\pages\features.html:8 .\templates\header.html:33
+#: .\pages\templates\pages\features.html:8
 msgid "Features"
 msgstr "Features"
 
 #: .\pages\templates\pages\features.html:8
+#: .\pages\templates\pages\product.html:8
 #, fuzzy
 #| msgid "Explore Our"
 msgid "Explore Our"
@@ -112,6 +113,16 @@ msgstr ""
 msgid "Explore"
 msgstr "Explore"
 
+#: .\pages\templates\pages\product.html:7
+#: .\pages\templates\pages\product.html:8 .\templates\footer.html:32
+#: .\templates\header.html:33 .\templates\header.html:36
+msgid "Portfolio"
+msgstr "Portfolio"
+
+#: .\pages\templates\pages\product.html:13
+msgid "All"
+msgstr "All"
+
 #: .\templates\footer.html:14
 msgid "ABOUT US"
 msgstr "ABOUT US"
@@ -127,10 +138,6 @@ msgstr "About Us"
 #: .\templates\footer.html:31
 msgid "Services"
 msgstr "Services"
-
-#: .\templates\footer.html:32 .\templates\header.html:36
-msgid "Portfolio"
-msgstr "Portfolio"
 
 #: .\templates\footer.html:33 .\templates\header.html:38
 msgid "Our Businesses"

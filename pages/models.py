@@ -106,12 +106,22 @@ class Type(models.Model):
     en_title = models.CharField(max_length=200, null=True, blank=True)
     vi_title = models.CharField(max_length=200, null=True, blank=True)
     jp_title = models.CharField(max_length=200, null=True, blank=True)
+    type = models.CharField(max_length=1, choices=[('P', 'Packages'),
+                                                   ('L', 'Labels'), ('I', 'Instructions'), ('T', 'Technologies')],
+                            default='P')
+
+    def get_title(self):
+        language = get_language()
+        return getattr(self, f'{language}_title', None)
+
+    def __str__(self):
+        return self.en_title or self.vi_title or self.jp_title or "Unnamed Type"
 
 
 # Product model for product listings
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
-    type = models.ForeignKey(Type, on_delete=models.CASCADE, related_name='products')
+    type = models.ForeignKey('Type', on_delete=models.CASCADE, related_name='products', default=1)
     en_title = models.CharField(max_length=200, null=True, blank=True)
     vi_title = models.CharField(max_length=200, null=True, blank=True)
     jp_title = models.CharField(max_length=200, null=True, blank=True)
@@ -122,6 +132,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.en_title or self.vi_title or self.jp_title or "Unnamed Product"
+
+    def get_title(self):
+        language = get_language()
+        return getattr(self, f'{language}_title', None)
 
     def get_description(self):
         language = get_language()

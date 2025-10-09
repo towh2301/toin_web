@@ -1,0 +1,93 @@
+# ======================
+# Django / Python
+# ======================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+media/
+staticfiles/
+.env
+.env.*
+*.env
+
+# If you use Django collectstatic output folder
+/static/
+/staticfiles/
+
+# Local settings (if you split settings)
+local_settings.py
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.pytest_cache/
+nosetests.xml
+testdb.sqlite3
+
+# ======================
+# Environments
+# ======================
+
+# Virtualenv
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# ======================
+# Editors / IDEs
+# ======================
+
+# VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# ======================
+# OS / System
+# ======================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# ======================
+# Logs / Backups
+# ======================
+
+*.log
+*.bak
+*.swp
+*.tmp
+*.temp
