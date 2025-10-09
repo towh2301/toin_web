@@ -6,7 +6,8 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
-from pages import views
+from pages import views as pages_views
+from converter import views as converter_views
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),  # Language switcher route
@@ -14,7 +15,9 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
-    path('', include('pages.urls')),  # Your app routes
+    path('', include('pages.urls')),  #  pages app routes
+    path('converter/', include('converter.urls')),  # converter app routes
+    
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
