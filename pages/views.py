@@ -28,4 +28,4 @@ def index(request):
         'progresses': progresses,
         'types': types,
     }
-    return render(request, 'base.html', context)
+    return render(request, 'pages/index.html', context)

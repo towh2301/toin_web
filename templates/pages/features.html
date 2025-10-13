@@ -1,31 +1,40 @@
 {% load i18n %}
 {% load static %}
-
 {% block features %}
     <section id="services" class="services section">
         <div class="container section-title" data-aos="fade-up">
-            <h2>{% trans 'Features' %}</h2>
-            <p><span>{% trans 'Explore Our' %}</span> <span class="description-title">{% trans "Features" %}</span></p>
+            <h2>{% trans "Features" %}</h2>
+            <p>
+                <span>{% trans "Explore Our" %}</span> <span class="description-title">{% trans "Features" %}</span>
+            </p>
         </div>
         <div class="container">
             <div class="row gy-4">
                 {% for feature in features %}
-                    <a href="
-
-                            {% if feature.pdf %}{{ feature.pdf.url }}{% elif feature.web %}{{ feature.web }}{% else %}#{% endif %}"
-                       class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <a href="{% if feature.pdf %}{{ feature.pdf.url }}{% elif feature.web %}{{ feature.web }}{% else %}#{% endif %}"
+                       class="col-lg-4 col-md-6"
+                       data-aos="fade-up"
+                       data-aos-delay="100">
                         {% if feature.image %}
-                            <img src="{{ feature.image.url }}" class="img-fluid mb-2 feature-image"
-                                 alt="
-
-                                         {% if feature.get_title %}{{ feature.get_title }}{% else %}Feature Image{% endif %}">
+                            <img src="{{ feature.image.url }}"
+                                 class="img-fluid mb-2 feature-image"
+                                 alt="{% if feature.get_title %}{{ feature.get_title }}{% else %}Feature Image{% endif %}">
                         {% else %}
-                            <img src="{{ feature.image.url }}" class="img-fluid mb-2 feature-image"
-                                 alt="No image available">
+                            <img src="{{ feature.image.url }}"
+                                 class="img-fluid mb-2 feature-image"
+                                 alt="No image available"
+                                 height=""
+                                 width="">
                         {% endif %}
                         <div class="service-box">
-                            <h3>{% if feature.get_title %}{{ feature.get_title }}{% else %}Unnamed
-                                Feature{% endif %}</h3>
+                            <h3>
+                                {% if feature.get_title %}
+                                    {{ feature.get_title }}
+                                {% else %}
+                                    Unnamed
+                                    Feature
+                                {% endif %}
+                            </h3>
                             {% if feature.get_description %}
                                 <p>
                                     {{ feature.get_description }}

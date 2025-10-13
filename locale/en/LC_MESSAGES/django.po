@@ -8,98 +8,42 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 15:51+0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2025-10-13 10:41+0700\n"
+"PO-Revision-Date: 2025-10-13 10:43+0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\pages\templates\pages\about.html:8
-msgid "ABOUT"
-msgstr "ABOUT"
+#: .\templates\converter\converter.html:13
+msgid "TOIN Word Converter"
+msgstr "TOIN Word Converter"
 
-#: .\pages\templates\pages\about.html:9
-msgid "Discover"
-msgstr "Discover"
+#: .\templates\converter\converter.html:15
+msgid ""
+"Upload your PDF file below to convert it into an editable Word document."
+msgstr "Upload your PDF file below to convert it into an editable Word document."
 
-#: .\pages\templates\pages\about.html:9
-msgid "Our Story"
-msgstr "Our Story"
+#: .\templates\converter\converter.html:22
+msgid "Select a PDF file"
+msgstr "Select a PDF file"
 
-#: .\pages\templates\pages\about.html:15 .\pages\templates\pages\about.html:23
-msgid "Company History"
-msgstr "Company History"
+#: .\templates\converter\converter.html:32
+msgid "Convert Now"
+msgstr "Convert Now"
 
-#: .\pages\templates\pages\about.html:16 .\pages\templates\pages\about.html:43
-msgid "Company Information"
-msgstr "Company Information"
+#: .\templates\converter\converter.html:36
+msgid "Supported formats: PDF"
+msgstr "Supported formats: PDF"
 
-#: .\pages\templates\pages\about.html:17
-msgid "Vietnam Offices"
-msgstr "Vietnam Offices"
+#: .\templates\footer.html:14 .\templates\pages\about.html:6
+msgid "ABOUT US"
+msgstr "ABOUT US"
 
-#: .\pages\templates\pages\about.html:24
-msgid "Explore key milestones of TOIN CO., LTD."
-msgstr "Explore key milestones of TOIN CO., LTD."
-
-#: .\pages\templates\pages\about.html:44
-msgid "Discover some information of TOIN VIETNAM CO,. LTD."
-msgstr "Discover some information of TOIN VIETNAM CO,. LTD."
-
-#: .\pages\templates\pages\about.html:48
-msgid "Company Name"
-msgstr "Company Name"
-
-#: .\pages\templates\pages\about.html:54 .\pages\templates\pages\about.html:141
-msgid "Address"
-msgstr "Address"
-
-#: .\pages\templates\pages\about.html:61
-msgid "Founded"
-msgstr "Founded"
-
-#: .\pages\templates\pages\about.html:67
-msgid "Capital"
-msgstr "Capital"
-
-#: .\pages\templates\pages\about.html:73
-msgid "Industry"
-msgstr "Industry"
-
-#: .\pages\templates\pages\about.html:79
-msgid "Mission"
-msgstr "Mission"
-
-#: .\pages\templates\pages\about.html:90 .\pages\templates\pages\about.html:155
-#: .\templates\header.html:39
-msgid "Contact"
-msgstr "Contact"
-
-#: .\pages\templates\pages\about.html:105
-msgid "Parent Companies"
-msgstr "Parent Companies"
-
-#: .\pages\templates\pages\features.html:7
-#: .\pages\templates\pages\features.html:8
-msgid "Features"
-msgstr "Features"
-
-#: .\pages\templates\pages\features.html:8
-#: .\pages\templates\pages\product.html:8
-#, fuzzy
-#| msgid "Explore Our"
-msgid "Explore Our"
-msgstr "Explore Our"
-
-#: .\pages\templates\pages\hero.html:10
-msgid "Welcome to"
-msgstr "Welcome to"
-
-#: .\pages\templates\pages\hero.html:11 .\templates\footer.html:16
+#: .\templates\footer.html:16 .\templates\pages\hero.html:13
 msgid ""
 "JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
 "value-added packages under quality and manufacturing control systems with "
@@ -108,24 +52,6 @@ msgstr ""
 "JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
 "value-added packages under quality and manufacturing control systems with "
 "Japanese standards."
-
-#: .\pages\templates\pages\hero.html:13
-msgid "Explore"
-msgstr "Explore"
-
-#: .\pages\templates\pages\product.html:7
-#: .\pages\templates\pages\product.html:8 .\templates\footer.html:32
-#: .\templates\header.html:33 .\templates\header.html:36
-msgid "Portfolio"
-msgstr "Portfolio"
-
-#: .\pages\templates\pages\product.html:13
-msgid "All"
-msgstr "All"
-
-#: .\templates\footer.html:14
-msgid "ABOUT US"
-msgstr "ABOUT US"
 
 #: .\templates\footer.html:28
 msgid "OUR BUSINESSES"
@@ -139,6 +65,11 @@ msgstr "About Us"
 msgid "Services"
 msgstr "Services"
 
+#: .\templates\footer.html:32 .\templates\header.html:36
+#: .\templates\pages\product.html:7 .\templates\pages\product.html:8
+msgid "Portfolio"
+msgstr "Portfolio"
+
 #: .\templates\footer.html:33 .\templates\header.html:38
 msgid "Our Businesses"
 msgstr "Our Businesses"
@@ -150,6 +81,109 @@ msgstr "FEATURES"
 #: .\templates\footer.html:50
 msgid "CONTACT"
 msgstr "CONTACT"
+
+#: .\templates\header.html:33 .\templates\pages\features.html:6
+#: .\templates\pages\features.html:8
+msgid "Features"
+msgstr "Features"
+
+#: .\templates\header.html:39 .\templates\pages\about.html:107
+#: .\templates\pages\about.html:169
+msgid "Contact"
+msgstr "Contact"
+
+#: .\templates\header.html:43
+msgid "Others"
+msgstr "Others"
+
+#: .\templates\header.html:46
+msgid "Crecruit"
+msgstr "Recruit"
+
+#: .\templates\header.html:47
+msgid "Blog"
+msgstr "Blog"
+
+#: .\templates\header.html:48
+msgid "PDF - Converter"
+msgstr "PDF - Converter"
+
+#: .\templates\pages\about.html:8
+msgid "Discover"
+msgstr "Discover"
+
+#: .\templates\pages\about.html:8
+msgid "Our Story"
+msgstr "Our Story"
+
+#: .\templates\pages\about.html:19 .\templates\pages\about.html:29
+msgid "Company History"
+msgstr "Company History"
+
+#: .\templates\pages\about.html:20 .\templates\pages\about.html:50
+msgid "Company Information"
+msgstr "Company Information"
+
+#: .\templates\pages\about.html:21
+msgid "Vietnam Offices"
+msgstr "Vietnam Offices"
+
+#: .\templates\pages\about.html:30
+msgid "Explore key milestones of TOIN CO., LTD."
+msgstr "Explore key milestones of TOIN CO., LTD."
+
+#: .\templates\pages\about.html:51
+msgid "Discover some information of TOIN VIETNAM CO,. LTD."
+msgstr "Discover some information of TOIN VIETNAM CO., LTD."
+
+#: .\templates\pages\about.html:55
+msgid "Company Name"
+msgstr "Company Name"
+
+#: .\templates\pages\about.html:63 .\templates\pages\about.html:153
+msgid "Address"
+msgstr "Address"
+
+#: .\templates\pages\about.html:71
+msgid "Founded"
+msgstr "Founded"
+
+#: .\templates\pages\about.html:79
+msgid "Capital"
+msgstr "Capital"
+
+#: .\templates\pages\about.html:87
+msgid "Industry"
+msgstr "Industry"
+
+#: .\templates\pages\about.html:95
+msgid "Mission"
+msgstr "Mission"
+
+#: .\templates\pages\about.html:122
+msgid "Parent Companies"
+msgstr "Parent Companies"
+
+#: .\templates\pages\features.html:8 .\templates\pages\product.html:8
+#, fuzzy
+#| msgid "Explore Our"
+msgid "Explore Our"
+msgstr "Explore Our"
+
+#: .\templates\pages\hero.html:10
+msgid "Welcome to"
+msgstr "Welcome to"
+
+#: .\templates\pages\hero.html:16
+msgid "Explore"
+msgstr "Explore"
+
+#: .\templates\pages\product.html:13
+msgid "All"
+msgstr "All"
+
+#~ msgid "ABOUT"
+#~ msgstr "ABOUT"
 
 #, fuzzy
 #~| msgid "History"

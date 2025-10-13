@@ -22,7 +22,7 @@
 
     <div class="branding d-flex align-items-center">
         <div class="container position-relative d-flex align-items-center justify-content-between">
-            <a href="" class="logo d-flex align-items-center justify-content-between">
+            <a href="/" class="logo d-flex align-items-center justify-content-between">
                 <img src="{% static 'images/toin_logo/logo.png' %}" alt="toin_vn_logo" class="img-fluid">
                 <p class="h3">TOIN VIETNAM</p>
             </a>
@@ -30,13 +30,23 @@
                 <ul>
                     <li class="nav-item"><a class="nav-link" data-section="about" href="">{% trans 'About Us' %}</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" data-section="services" href="">{% trans 'Portfolio' %}</a>
+                    <li class="nav-item"><a class="nav-link" data-section="services" href="">{% trans 'Features' %}</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" data-section="portfolio"
                                             href="">{% trans 'Portfolio' %}</a></li>
                     <li class="nav-item"><a class="nav-link" data-section="team"
                                             href="">{% trans 'Our Businesses' %}</a></li>
                     <li class="nav-item"><a class="nav-link" data-section="contact" href="">{% trans 'Contact' %}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarContactDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% trans 'Others' %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarContactDropdown">
+                            <li><a class="dropdown-item" href="/crecruit">{% trans 'Crecruit' %}</a></li>
+                            <li><a class="dropdown-item" href="/blog">{% trans 'Blog' %}</a></li>
+                            <li><a class="dropdown-item" href="/converter">{% trans 'PDF - Converter' %}</a></li>
+                        </ul>
                     </li>
 
                     <!-- Divider -->

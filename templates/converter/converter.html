@@ -1,0 +1,40 @@
+{% load static %}
+{% load i18n %}
+{% block head %}
+  <meta name="description" content="Convert PDF files for TOIN VIETNAM" />
+  <link rel="icon"
+        type="image/x-icon"
+        href="{% static 'images/favicon.ico' %}">
+{% endblock head %}
+{% block convert_block %}
+  <section id="converter" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-3">
+        PDF <span class="text-primary">→</span> {% trans "TOIN Word Converter" %}
+      </h2>
+      <p class="text-muted mb-4">{% trans "Upload your PDF file below to convert it into an editable Word document." %}</p>
+      <form method="post"
+            enctype="multipart/form-data"
+            action="{% url 'converter:convert_pdf' %}"
+            class=" p-4 shadow-sm bg-white rounded-4 d-inline-block">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="pdf_file" class="form-label fw-semibold">{% trans "Select a PDF file" %}</label>
+          <input type="file"
+                 id="pdf_file"
+                 name="pdf_file"
+                 class="form-control"
+                 accept=".pdf"
+                 required>
+        </div>
+        <div class="btn-group lang-switch" role="group">
+          <button type="submit" class="btn active">
+            <i class="bi bi-file-earmark-word me-2"></i> {% trans "Convert Now" %}
+          </button>
+        </div>
+      </form>
+      <p class="mt-4 text- small fst-italic">{% trans "Supported formats: PDF" %}</p>
+      {% if error_message %}<div class="alert alert-danger mt-3" role="alert">{{ error_message }}</div>{% endif %}
+    </div>
+  </section>
+{% endblock convert_block %}
