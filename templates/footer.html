@@ -1,10 +1,8 @@
 {% load i18n %}
 {% load static %}
-
 {% block script %}
     <link rel="stylesheet" href="{% static 'css/custom/footer-custom.css' %}">
 {% endblock script %}
-
 <!-- Footer -->
 <footer id="footer" class="footer text-light pt-5">
     <div class="container">
@@ -22,56 +20,88 @@
                     <a href="#" class="text-light fs-5"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
-
             <!-- Our Businesses -->
             <div class="col-lg-2 col-md-6">
                 <h5 class="text-uppercase fw-bold mb-3  text-white">{% trans 'OUR BUSINESSES' %}</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#about" class="text-light text-decoration-none">{% trans 'About Us' %}</a></li>
-                    <li><a href="#services" class="text-light text-decoration-none">{% trans 'Services' %}</a></li>
-                    <li><a href="#portfolio" class="text-light text-decoration-none">{% trans 'Portfolio' %}</a></li>
-                    <li><a href="#team" class="text-light text-decoration-none">{% trans 'Our Businesses' %}</a></li>
+                    <li>
+                        <a href="#about" class="text-light text-decoration-none">{% trans 'About Us' %}</a>
+                    </li>
+                    <li>
+                        <a href="#services" class="text-light text-decoration-none">{% trans 'Services' %}</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="text-light text-decoration-none">{% trans 'Portfolio' %}</a>
+                    </li>
+                    <li>
+                        <a href="#team" class="text-light text-decoration-none">{% trans 'Our Businesses' %}</a>
+                    </li>
                 </ul>
             </div>
-
             <!-- Resources -->
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-uppercase fw-bold mb-3  text-white">{% trans 'FEATURES' %}</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#!" class="text-light text-decoration-none">Blog</a></li>
-                    <li><a href="#!" class="text-light text-decoration-none">FAQs</a></li>
-                    <li><a href="#!" class="text-light text-decoration-none">Privacy Policy</a></li>
-                    <li><a href="#!" class="text-light text-decoration-none">Terms & Conditions</a></li>
+                    <li>
+                        <a href="#!" class="text-light text-decoration-none">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-light text-decoration-none">FAQs</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-light text-decoration-none">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-light text-decoration-none">Terms & Conditions</a>
+                    </li>
                 </ul>
             </div>
-
             <!-- Contact -->
-            <div class="col-lg-3 col-md-6">
-                <h5 class="text-uppercase fw-bold mb-3  text-white">{% trans 'CONTACT' %}</h5>
-                <p class="small mb-1"><i class="bi bi-geo-alt-fill me-2"></i> 123 Street, City, Country</p>
-                <p class="small mb-1"><i class="bi bi-telephone-fill me-2"></i> +1 234 567 890</p>
-                <p class="small"><i class="bi bi-envelope-fill me-2"></i> info@example.com</p>
-            </div>
+            {% for office in company_profile.office_addresses.all %}
+                {% if "FACTORY" in office.en_name %}
+                    {% with contact=office.contact_addresses.first %}
+                        {% if contact %}
+                            <div class="col-lg-3 col-md-6">
+                                <h5 class="text-uppercase fw-bold mb-3  text-white">{% trans 'CONTACT' %}</h5>
+                                <p class="small mb-1">
+                                    <i class="bi bi-geo-alt-fill me-2"></i> {{ company_profile.get_address }}
+                                </p>
+                                <p class="small mb-1">
+                                    <i class="bi bi-telephone-fill me-2"></i> {{ contact.contact_number }}
+                                </p>
+                                <a class="small text-white" href="mailto:{{ contact.contact_email }}">
+                                    <i class="bi bi-envelope-fill me-2"></i> {{ contact.contact_email }}
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
         </div>
-
         <hr class="border-light mt-4">
-
         <!-- Certifications -->
         <div id="certificates" class="row gy-4">
             <div class="row justify-content-between align-items-center text-center gy-3">
                 <!-- Logos -->
                 <div class="col-12 col-md-8 d-flex flex-wrap justify-content-start gap-4">
-                    <a href="http://www.iso.org" target="_blank" class="footer-logo">
-                        <img src="{% static 'images/certificates/iso.png' %}" alt="ISO" height="60">
+                    <a href="https://www.iso.org" target="_blank" class="footer-logo">
+                        <img src="{% static 'images/certificates/iso.png' %}"
+                             alt="ISO"
+                             height="60">
                     </a>
-                    <a href="http://www.brcglobalstandards.com" target="_blank" class="footer-logo">
-                        <img src="{% static 'images/certificates/brc.png' %}" alt="BRC" height="60">
+                    <a href="https://www.brcglobalstandards.com"
+                       target="_blank"
+                       class="footer-logo">
+                        <img src="{% static 'images/certificates/brc.png' %}"
+                             alt="BRC"
+                             height="60">
                     </a>
-                    <a href="http://fscus.org" target="_blank" class="footer-logo">
-                        <img src="{% static 'images/certificates/fsc.png' %}" alt="FSC" height="60">
+                    <a href="https://fscus.org" target="_blank" class="footer-logo">
+                        <img src="{% static 'images/certificates/fsc.png' %}"
+                             alt="FSC"
+                             height="60">
                     </a>
                 </div>
-
                 <!-- Copyrights -->
                 <div class="col-12 col-md-4 text-center text-md-end align-items-center">
                     <p class="mb-1 fw-bold">© TOIN VIETNAM CO., LTD.</p>

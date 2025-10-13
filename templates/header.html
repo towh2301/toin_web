@@ -17,7 +17,7 @@
     </div>
     <div class="branding d-flex align-items-center">
         <div class="container position-relative d-flex align-items-center justify-content-between">
-            <a href=""
+            <a href="{% url 'pages:index' %}"
                class="logo d-flex align-items-center justify-content-between">
                 <img src="{% static 'images/toin_logo/logo.png' %}"
                      alt="toin_vn_logo"
@@ -52,7 +52,7 @@
                              aria-labelledby="navbarOthersDropdown">
                             <div class="dropdown-inner">
                                 <div class="dropdown-column">
-                                    <a class="dropdown-item" href={% url 'converter:index' %}>{% trans 'PDF Converter' %} <span>›</span></a>
+                                    <a class="dropdown-item" href={% url 'converter:index' %}>{% trans 'PDF - Converter' %} <span>›</span></a>
                                     <a class="dropdown-item" href="">{% trans 'Blog' %} <span>›</span></a>
                                     <a class="dropdown-item" href="">{% trans 'Crecruit' %} <span>›</span></a>
                                 </div>

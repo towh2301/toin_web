@@ -1,49 +1,34 @@
 {% load static %}
-
+{% load i18n %}
 {% block team %}
     <section id="team" class="team section light-background">
         <div class="container section-title" data-aos="fade-up">
-            <h2>Team</h2>
-            <p><span>Meet Our</span> <span class="description-title">Team</span></p>
+            <h2>{% trans "Our Businesses" %}</h2>
+            <p>
+                <span>{% trans "Meet" %}</span> <span class="description-title">{% trans "Our Businesses" %}</span>
+            </p>
         </div>
         <div class="container">
             <div class="row gy-4">
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <img src="{% static 'images/team-1.jpg' %}" class="img-fluid" alt="">
-                        </div>
-                        <div class="member-info">
-                            <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
-                            <p>Leading with vision and innovation.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <img src="{% static 'images/team-2.jpg' %}" class="img-fluid" alt="">
-                        </div>
-                        <div class="member-info">
-                            <h4>Sarah Johnson</h4>
-                            <span>Lead Designer</span>
-                            <p>Creating stunning and user-friendly designs.</p>
+                {% for partner in partners %}
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch"
+                         data-aos="fade-up"
+                         data-aos-delay="100">
+                        <div class="team-member">
+                            <div class="member-img">
+                                <img src="{{ partner.image.url }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="member-info text-start">
+                                <h4>{{ partner.get_name }}</h4>
+                                <span>{{ partner.get_description }}</span>
+                                <hr class="text-black" />
+                                <p>
+                                    <b>{% trans "Address: " %}</b> {{ partner.get_address }}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                    <div class="team-member">
-                        <div class="member-img">
-                            <img src="{% static 'images/team-3.jpg' %}" class="img-fluid" alt="">
-                        </div>
-                        <div class="member-info">
-                            <h4>James Smith</h4>
-                            <span>Lead Developer</span>
-                            <p>Building robust and scalable solutions.</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

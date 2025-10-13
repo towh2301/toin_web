@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:41+0700\n"
+"POT-Creation-Date: 2025-10-13 15:58+0700\n"
 "PO-Revision-Date: 2025-10-13 10:43+0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English <en@li.org>\n"
@@ -25,7 +25,8 @@ msgstr "TOIN Word Converter"
 #: .\templates\converter\converter.html:15
 msgid ""
 "Upload your PDF file below to convert it into an editable Word document."
-msgstr "Upload your PDF file below to convert it into an editable Word document."
+msgstr ""
+"Upload your PDF file below to convert it into an editable Word document."
 
 #: .\templates\converter\converter.html:22
 msgid "Select a PDF file"
@@ -39,11 +40,11 @@ msgstr "Convert Now"
 msgid "Supported formats: PDF"
 msgstr "Supported formats: PDF"
 
-#: .\templates\footer.html:14 .\templates\pages\about.html:6
+#: .\templates\footer.html:12 .\templates\pages\about.html:6
 msgid "ABOUT US"
 msgstr "ABOUT US"
 
-#: .\templates\footer.html:16 .\templates\pages\hero.html:13
+#: .\templates\footer.html:14 .\templates\pages\hero.html:13
 msgid ""
 "JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
 "value-added packages under quality and manufacturing control systems with "
@@ -53,11 +54,11 @@ msgstr ""
 "value-added packages under quality and manufacturing control systems with "
 "Japanese standards."
 
-#: .\templates\footer.html:28
+#: .\templates\footer.html:25
 msgid "OUR BUSINESSES"
 msgstr "OUR BUSINESSES"
 
-#: .\templates\footer.html:30 .\templates\header.html:31
+#: .\templates\footer.html:28 .\templates\header.html:30
 msgid "About Us"
 msgstr "About Us"
 
@@ -65,20 +66,21 @@ msgstr "About Us"
 msgid "Services"
 msgstr "Services"
 
-#: .\templates\footer.html:32 .\templates\header.html:36
+#: .\templates\footer.html:34 .\templates\header.html:36
 #: .\templates\pages\product.html:7 .\templates\pages\product.html:8
 msgid "Portfolio"
 msgstr "Portfolio"
 
-#: .\templates\footer.html:33 .\templates\header.html:38
+#: .\templates\footer.html:37 .\templates\header.html:39
+#: .\templates\pages\team.html:6 .\templates\pages\team.html:8
 msgid "Our Businesses"
 msgstr "Our Businesses"
 
-#: .\templates\footer.html:39
+#: .\templates\footer.html:43
 msgid "FEATURES"
 msgstr "FEATURES"
 
-#: .\templates\footer.html:50
+#: .\templates\footer.html:65
 msgid "CONTACT"
 msgstr "CONTACT"
 
@@ -87,26 +89,26 @@ msgstr "CONTACT"
 msgid "Features"
 msgstr "Features"
 
-#: .\templates\header.html:39 .\templates\pages\about.html:107
-#: .\templates\pages\about.html:169
+#: .\templates\header.html:42 .\templates\pages\about.html:107
+#: .\templates\pages\about.html:169 .\templates\pages\contact.html:9
 msgid "Contact"
 msgstr "Contact"
 
-#: .\templates\header.html:43
+#: .\templates\header.html:50
 msgid "Others"
 msgstr "Others"
 
-#: .\templates\header.html:46
-msgid "Crecruit"
-msgstr "Recruit"
+#: .\templates\header.html:55
+msgid "PDF - Converter"
+msgstr "PDF - Converter"
 
-#: .\templates\header.html:47
+#: .\templates\header.html:56
 msgid "Blog"
 msgstr "Blog"
 
-#: .\templates\header.html:48
-msgid "PDF - Converter"
-msgstr "PDF - Converter"
+#: .\templates\header.html:57
+msgid "Crecruit"
+msgstr "Recruit"
 
 #: .\templates\pages\about.html:8
 msgid "Discover"
@@ -141,6 +143,7 @@ msgid "Company Name"
 msgstr "Company Name"
 
 #: .\templates\pages\about.html:63 .\templates\pages\about.html:153
+#: .\templates\pages\contact.html:22
 msgid "Address"
 msgstr "Address"
 
@@ -164,6 +167,42 @@ msgstr "Mission"
 msgid "Parent Companies"
 msgstr "Parent Companies"
 
+#: .\templates\pages\contact.html:11
+msgid "Get in Touch"
+msgstr "Get in Touch"
+
+#: .\templates\pages\contact.html:11
+msgid "With Us"
+msgstr "With Us"
+
+#: .\templates\pages\contact.html:37
+msgid "Phone"
+msgstr "Phone"
+
+#: .\templates\pages\contact.html:46
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\pages\contact.html:67
+msgid "Your Name"
+msgstr "Your Name"
+
+#: .\templates\pages\contact.html:74
+msgid "Your Email"
+msgstr "Your Email"
+
+#: .\templates\pages\contact.html:81
+msgid "Subject"
+msgstr "Subject"
+
+#: .\templates\pages\contact.html:88
+msgid "Message"
+msgstr "Message"
+
+#: .\templates\pages\contact.html:92
+msgid "Send Message"
+msgstr "Send Message"
+
 #: .\templates\pages\features.html:8 .\templates\pages\product.html:8
 #, fuzzy
 #| msgid "Explore Our"
@@ -181,6 +220,16 @@ msgstr "Explore"
 #: .\templates\pages\product.html:13
 msgid "All"
 msgstr "All"
+
+#: .\templates\pages\team.html:8
+msgid "Meet"
+msgstr "Meet"
+
+#: .\templates\pages\team.html:26
+#, fuzzy
+#| msgid "Address"
+msgid "Address: "
+msgstr "Address"
 
 #~ msgid "ABOUT"
 #~ msgstr "ABOUT"

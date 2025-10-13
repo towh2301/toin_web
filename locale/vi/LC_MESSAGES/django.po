@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:41+0700\n"
+"POT-Creation-Date: 2025-10-13 15:58+0700\n"
 "PO-Revision-Date: 2025-10-13 10:45+0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -25,7 +25,9 @@ msgstr "Bộ Chuyển đổi Word TOIN"
 #: .\templates\converter\converter.html:15
 msgid ""
 "Upload your PDF file below to convert it into an editable Word document."
-msgstr "Tải lên tệp PDF của bạn dưới đây để chuyển đổi thành tài liệu Word có thể chỉnh sửa."
+msgstr ""
+"Tải lên tệp PDF của bạn dưới đây để chuyển đổi thành tài liệu Word có thể "
+"chỉnh sửa."
 
 #: .\templates\converter\converter.html:22
 msgid "Select a PDF file"
@@ -39,11 +41,11 @@ msgstr "Chuyển đổi ngay"
 msgid "Supported formats: PDF"
 msgstr "Định dạng được hỗ trợ: PDF"
 
-#: .\templates\footer.html:14 .\templates\pages\about.html:6
+#: .\templates\footer.html:12 .\templates\pages\about.html:6
 msgid "ABOUT US"
 msgstr "VỀ CHÚNG TÔI"
 
-#: .\templates\footer.html:16 .\templates\pages\hero.html:13
+#: .\templates\footer.html:14 .\templates\pages\hero.html:13
 msgid ""
 "JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
 "value-added packages under quality and manufacturing control systems with "
@@ -53,11 +55,11 @@ msgstr ""
 "tạo ra các sản phẩm bao bì với giá trị vượt trội dưới sự kiểm soát chặt chẽ "
 "của hệ thống quản lý chất lượng và sản xuất."
 
-#: .\templates\footer.html:28
+#: .\templates\footer.html:25
 msgid "OUR BUSINESSES"
 msgstr "TẬP ĐOÀN"
 
-#: .\templates\footer.html:30 .\templates\header.html:31
+#: .\templates\footer.html:28 .\templates\header.html:30
 msgid "About Us"
 msgstr "Về chúng tôi"
 
@@ -65,20 +67,21 @@ msgstr "Về chúng tôi"
 msgid "Services"
 msgstr "Dịch vụ"
 
-#: .\templates\footer.html:32 .\templates\header.html:36
+#: .\templates\footer.html:34 .\templates\header.html:36
 #: .\templates\pages\product.html:7 .\templates\pages\product.html:8
 msgid "Portfolio"
 msgstr "Thông tin"
 
-#: .\templates\footer.html:33 .\templates\header.html:38
+#: .\templates\footer.html:37 .\templates\header.html:39
+#: .\templates\pages\team.html:6 .\templates\pages\team.html:8
 msgid "Our Businesses"
 msgstr "Tập đoàn"
 
-#: .\templates\footer.html:39
+#: .\templates\footer.html:43
 msgid "FEATURES"
 msgstr "ĐẶC TRƯNG"
 
-#: .\templates\footer.html:50
+#: .\templates\footer.html:65
 msgid "CONTACT"
 msgstr "LIÊN HỆ"
 
@@ -87,26 +90,26 @@ msgstr "LIÊN HỆ"
 msgid "Features"
 msgstr "Đặc trưng"
 
-#: .\templates\header.html:39 .\templates\pages\about.html:107
-#: .\templates\pages\about.html:169
+#: .\templates\header.html:42 .\templates\pages\about.html:107
+#: .\templates\pages\about.html:169 .\templates\pages\contact.html:9
 msgid "Contact"
 msgstr "Liên hệ"
 
-#: .\templates\header.html:43
+#: .\templates\header.html:50
 msgid "Others"
 msgstr "Khác"
 
-#: .\templates\header.html:46
-msgid "Crecruit"
-msgstr "Tuyển dụng"
+#: .\templates\header.html:55
+msgid "PDF - Converter"
+msgstr "PDF - Bộ Chuyển đổi"
 
-#: .\templates\header.html:47
+#: .\templates\header.html:56
 msgid "Blog"
 msgstr "Blog"
 
-#: .\templates\header.html:48
-msgid "PDF - Converter"
-msgstr "PDF - Bộ Chuyển đổi"
+#: .\templates\header.html:57
+msgid "Crecruit"
+msgstr "Tuyển dụng"
 
 #: .\templates\pages\about.html:8
 msgid "Discover"
@@ -141,6 +144,7 @@ msgid "Company Name"
 msgstr "Tên công ty"
 
 #: .\templates\pages\about.html:63 .\templates\pages\about.html:153
+#: .\templates\pages\contact.html:22
 msgid "Address"
 msgstr "Địa chỉ"
 
@@ -164,6 +168,42 @@ msgstr "Nhiệm vụ"
 msgid "Parent Companies"
 msgstr "Tập đoàn"
 
+#: .\templates\pages\contact.html:11
+msgid "Get in Touch"
+msgstr "Kết nối với"
+
+#: .\templates\pages\contact.html:11
+msgid "With Us"
+msgstr "Chúng tôi"
+
+#: .\templates\pages\contact.html:37
+msgid "Phone"
+msgstr "Điện thoại"
+
+#: .\templates\pages\contact.html:46
+msgid "Email"
+msgstr "Hộp thư"
+
+#: .\templates\pages\contact.html:67
+msgid "Your Name"
+msgstr "Tên của bạn / doanh nghiệp"
+
+#: .\templates\pages\contact.html:74
+msgid "Your Email"
+msgstr "Hộp thư của bạn / doanh nghiệp"
+
+#: .\templates\pages\contact.html:81
+msgid "Subject"
+msgstr "Tiêu đề"
+
+#: .\templates\pages\contact.html:88
+msgid "Message"
+msgstr "Lời nhắn"
+
+#: .\templates\pages\contact.html:92
+msgid "Send Message"
+msgstr "Gửi đi"
+
 #: .\templates\pages\features.html:8 .\templates\pages\product.html:8
 msgid "Explore Our"
 msgstr "Khám phá"
@@ -179,6 +219,16 @@ msgstr "Khám phá"
 #: .\templates\pages\product.html:13
 msgid "All"
 msgstr "Tất cả"
+
+#: .\templates\pages\team.html:8
+msgid "Meet"
+msgstr "Gặp"
+
+#: .\templates\pages\team.html:26
+#, fuzzy
+#| msgid "Address"
+msgid "Address: "
+msgstr "Địa chỉ"
 
 #, fuzzy
 #~| msgid "ABOUT US"

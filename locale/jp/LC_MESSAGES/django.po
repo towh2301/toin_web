@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 10:41+0700\n"
-"PO-Revision-Date: 2025-10-13 10:44+0700\n"
+"POT-Creation-Date: 2025-10-13 15:58+0700\n"
+"PO-Revision-Date: 2025-10-13 16:00+0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "Language: ja\n"
@@ -39,24 +39,22 @@ msgstr "今すぐ変換"
 msgid "Supported formats: PDF"
 msgstr "サポートされている形式：PDF"
 
-#: .\templates\footer.html:14 .\templates\pages\about.html:6
+#: .\templates\footer.html:12 .\templates\pages\about.html:6
 msgid "ABOUT US"
 msgstr "私たちについて"
 
-#: .\templates\footer.html:16 .\templates\pages\hero.html:13
+#: .\templates\footer.html:14 .\templates\pages\hero.html:13
 msgid ""
 "JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
 "value-added packages under quality and manufacturing control systems with "
 "Japanese standards."
-msgstr ""
-"TOIN VIETNAM CO.,LTD. は、日本の基準による品質・製造管理体制のもと、付加価値"
-"の高いパッケージ製品を生産しています。"
+msgstr "TOIN VIETNAM CO.,LTD. は、日本の基準による品質・製造管理体制のもと、付加価値の高いパッケージ製品を生産しています。"
 
-#: .\templates\footer.html:28
+#: .\templates\footer.html:25
 msgid "OUR BUSINESSES"
 msgstr "当社の事業"
 
-#: .\templates\footer.html:30 .\templates\header.html:31
+#: .\templates\footer.html:28 .\templates\header.html:30
 msgid "About Us"
 msgstr "私たちについて"
 
@@ -64,20 +62,21 @@ msgstr "私たちについて"
 msgid "Services"
 msgstr "サービス"
 
-#: .\templates\footer.html:32 .\templates\header.html:36
+#: .\templates\footer.html:34 .\templates\header.html:36
 #: .\templates\pages\product.html:7 .\templates\pages\product.html:8
 msgid "Portfolio"
 msgstr "ポートフォリオ"
 
-#: .\templates\footer.html:33 .\templates\header.html:38
+#: .\templates\footer.html:37 .\templates\header.html:39
+#: .\templates\pages\team.html:6 .\templates\pages\team.html:8
 msgid "Our Businesses"
 msgstr "当社の事業"
 
-#: .\templates\footer.html:39
+#: .\templates\footer.html:43
 msgid "FEATURES"
 msgstr "特徴"
 
-#: .\templates\footer.html:50
+#: .\templates\footer.html:65
 msgid "CONTACT"
 msgstr "接触"
 
@@ -86,26 +85,26 @@ msgstr "接触"
 msgid "Features"
 msgstr "特徴"
 
-#: .\templates\header.html:39 .\templates\pages\about.html:107
-#: .\templates\pages\about.html:169
+#: .\templates\header.html:42 .\templates\pages\about.html:107
+#: .\templates\pages\about.html:169 .\templates\pages\contact.html:9
 msgid "Contact"
 msgstr "接触"
 
-#: .\templates\header.html:43
+#: .\templates\header.html:50
 msgid "Others"
 msgstr "その他"
 
-#: .\templates\header.html:46
-msgid "Crecruit"
-msgstr "採用"
+#: .\templates\header.html:55
+msgid "PDF - Converter"
+msgstr "PDF - コンバーター"
 
-#: .\templates\header.html:47
+#: .\templates\header.html:56
 msgid "Blog"
 msgstr "ブログ"
 
-#: .\templates\header.html:48
-msgid "PDF - Converter"
-msgstr "PDF - コンバーター"
+#: .\templates\header.html:57
+msgid "Crecruit"
+msgstr "採用"
 
 #: .\templates\pages\about.html:8
 msgid "Discover"
@@ -140,6 +139,7 @@ msgid "Company Name"
 msgstr "会社名"
 
 #: .\templates\pages\about.html:63 .\templates\pages\about.html:153
+#: .\templates\pages\contact.html:22
 msgid "Address"
 msgstr "住所"
 
@@ -163,6 +163,42 @@ msgstr "ミッション"
 msgid "Parent Companies"
 msgstr "親会社"
 
+#: .\templates\pages\contact.html:11
+msgid "Get in Touch"
+msgstr "連絡を取る"
+
+#: .\templates\pages\contact.html:11
+msgid "With Us"
+msgstr "私たちと"
+
+#: .\templates\pages\contact.html:37
+msgid "Phone"
+msgstr "電話"
+
+#: .\templates\pages\contact.html:46
+msgid "Email"
+msgstr "メール"
+
+#: .\templates\pages\contact.html:67
+msgid "Your Name"
+msgstr "あなたの名前"
+
+#: .\templates\pages\contact.html:74
+msgid "Your Email"
+msgstr "あなたのメール"
+
+#: .\templates\pages\contact.html:81
+msgid "Subject"
+msgstr "件名"
+
+#: .\templates\pages\contact.html:88
+msgid "Message"
+msgstr "メッセージ"
+
+#: .\templates\pages\contact.html:92
+msgid "Send Message"
+msgstr "メッセージを送信"
+
 #: .\templates\pages\features.html:8 .\templates\pages\product.html:8
 msgid "Explore Our"
 msgstr "探索する"
@@ -178,6 +214,16 @@ msgstr "探検する"
 #: .\templates\pages\product.html:13
 msgid "All"
 msgstr "全て"
+
+#: .\templates\pages\team.html:8
+msgid "Meet"
+msgstr "会う"
+
+#: .\templates\pages\team.html:26
+#, fuzzy
+#| msgid "Address"
+msgid "Address: "
+msgstr "住所："
 
 #~ msgid "ABOUT"
 #~ msgstr "について"

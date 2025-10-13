@@ -1,6 +1,19 @@
 from django.contrib import admin
-from .models import Hero, Post, Business, Feature, Product, CompanyProfile, History, Progress, ParentCorporation, \
-    Address, Contact, Type
+from .models import (
+    Hero,
+    Partner,
+    Post,
+    Business,
+    Feature,
+    Product,
+    CompanyProfile,
+    History,
+    Progress,
+    ParentCorporation,
+    Address,
+    Contact,
+    Type,
+)
 
 admin.site.register(Hero)
 admin.site.register(Post)
@@ -14,3 +27,4 @@ admin.site.register(ParentCorporation)
 admin.site.register(Address)
 admin.site.register(Contact)
 admin.site.register(Type)
+admin.site.register(Partner)

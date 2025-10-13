@@ -6,9 +6,9 @@
 {% block contact %}
     <section id="contact" class="contact section">
         <div class="container section-title" data-aos="fade-up">
-            <h2>Contact</h2>
+            <h2>{% trans "Contact" %}</h2>
             <p>
-                <span>Get in Touch</span> <span class="description-title">With Us</span>
+                <span>{% trans "Get in Touch" %}</span> <span class="description-title">{% trans "With Us" %}</span>
             </p>
         </div>
         <div class="container">
@@ -19,28 +19,38 @@
                          data-aos-delay="100">
                         <i class="bi bi-geo-alt fs-4"></i>
                         <div>
-                            <h3 class="fw-semibold mb-1">Address</h3>
-                            <p class="mb-0 text-muted">123 Business Street, Tech City, TC 12345</p>
+                            <h3 class="fw-semibold mb-1">{% trans 'Address' %}</h3>
+                            <p class="mb-0 text-muted">{{ company_profile.get_address }}</p>
                         </div>
                     </div>
-                    <div class="info-item d-flex align-items-start"
-                         data-aos="fade-up"
-                         data-aos-delay="200">
-                        <i class="bi bi-telephone fs-4"></i>
-                        <div>
-                            <h3 class="fw-semibold mb-1">Call Us</h3>
-                            <p class="mb-0 text-muted">+1 1234 56789 00</p>
-                        </div>
-                    </div>
-                    <div class="info-item d-flex align-items-start"
-                         data-aos="fade-up"
-                         data-aos-delay="300">
-                        <i class="bi bi-envelope fs-4"></i>
-                        <div>
-                            <h3 class="fw-semibold mb-1">Email Us</h3>
-                            <p class="mb-0 text-muted">info@bizland.com</p>
-                        </div>
-                    </div>
+                    <!-- Loop through office addresses excluding FACTORY -->
+                    <!-- Assuming office_addresses is a related name for a ForeignKey or ManyToManyField -->
+                    {% for office in company_profile.office_addresses.all %}
+                        {% if "FACTORY" in office.en_name %}
+                            {% with contact=office.contact_addresses.first %}
+                                {% if contact %}
+                                    <div class="info-item d-flex align-items-start"
+                                         data-aos="fade-up"
+                                         data-aos-delay="200">
+                                        <i class="bi bi-telephone fs-4"></i>
+                                        <div>
+                                            <h3 class="fw-semibold mb-1">{% trans 'Phone' %}</h3>
+                                            <p class="mb-0 text-muted">{{ contact.contact_number }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="info-item d-flex align-items-start"
+                                         data-aos="fade-up"
+                                         data-aos-delay="300">
+                                        <i class="bi bi-envelope fs-4"></i>
+                                        <div>
+                                            <h3 class="fw-semibold mb-1">{% trans 'Email' %}</h3>
+                                            <a href="mailto:{{ contact.contact_email }} class="mb-0 text-muted">{{ contact.contact_email }}</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+                        {% endif %}
+                    {% endfor %}
                 </div>
                 <div class="col-lg-6">
                     <form action=""
@@ -54,32 +64,32 @@
                                 <input type="text"
                                        name="name"
                                        class="form-control"
-                                       placeholder="Your Name"
+                                       placeholder="{% trans "Your Name" %}"
                                        required>
                             </div>
                             <div class="col-md-6">
                                 <input type="email"
                                        name="email"
                                        class="form-control"
-                                       placeholder="Your Email"
+                                       placeholder="{% trans "Your Email" %}"
                                        required>
                             </div>
                             <div class="col-12">
                                 <input type="text"
                                        name="subject"
                                        class="form-control"
-                                       placeholder="Subject"
+                                       placeholder="{% trans "Subject" %}"
                                        required>
                             </div>
                             <div class="col-12">
                                 <textarea class="form-control"
                                           name="message"
                                           rows="6"
-                                          placeholder="Message"
+                                          placeholder="{% trans "Message" %}"
                                           required></textarea>
                             </div>
-                            <div class="col-12 text-center ">
-                                <button type="submit" class="btn btn-success ">Send Message</button>
+                            <div class="col-12 text-center btn-group">
+                                <button type="submit" class="btn active">{% trans "Send Message" %}</button>
                             </div>
                         </div>
                     </form>
