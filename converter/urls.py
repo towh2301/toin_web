@@ -7,6 +7,6 @@ from converter import views
 app_name = "converter"
 
 urlpatterns = [
-    path("", views.index, name="converter"),
+    path("", views.index, name="index"),
     path("convert/", views.convert_pdf, name="convert_pdf"),
 ]
