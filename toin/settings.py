@@ -10,13 +10,19 @@ SECRET_KEY = "django-insecure-b!vgt!q$z-k9rwxagd4kv_wqn=dai_uqv1!$5y1!iyzjzaix=i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "192.168.2.76",
+    "toin.onrender.com",
+]
 
 # DIRECTORIES
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -45,6 +51,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "toin.urls"
