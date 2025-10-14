@@ -5,6 +5,8 @@ services:
       buildCommand: |
           pip install -r requirements.txt
           python manage.py collectstatic --noinput
+      preDeployCommand: |
+          python manage.py migrate --noinput
       startCommand: gunicorn toin.wsgi:application
       envVars:
           - key: PYTHON_VERSION
@@ -15,6 +17,8 @@ services:
             value: 'your-secure-secret-key'
           - key: ALLOWED_HOSTS
             value: 'toin.onrender.com'
+          - key: CSRF_TRUSTED_ORIGINS
+            value: 'https://toin.onrender.com'
       headers:
           - path: /static/*
             headers:

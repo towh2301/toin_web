@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import mimetypes
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,12 +10,19 @@ SECRET_KEY = os.getenv(
 )
 DEBUG = os.getenv("DEBUG", "True").lower() == "true"
 
-ALLOWED_HOSTS = [
+_default_allowed_hosts = [
     "127.0.0.1",
     "localhost",
     "192.168.61.147",
     "toin.onrender.com",
 ]
+_env_allowed_hosts = os.getenv("ALLOWED_HOSTS", "")
+if _env_allowed_hosts:
+    ALLOWED_HOSTS = [h.strip() for h in _env_allowed_hosts.split(",") if h.strip()]
+else:
+    ALLOWED_HOSTS = _default_allowed_hosts
+if DEBUG and "*" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("*")
 
 # Security settings
 SECURE_BROWSER_XSS_FILTER = True
@@ -87,6 +95,11 @@ DATABASES = {
     }
 }
 
+# If DATABASE_URL is provided (e.g., by Render), override default database
+_db_config = dj_database_url.config(conn_max_age=600, ssl_require=not DEBUG)
+if _db_config:
+    DATABASES["default"] = _db_config
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
@@ -108,3 +121,21 @@ LOCALE_PATHS = [BASE_DIR / "locale"]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Trust the proxy (Render) and enforce HTTPS in production
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
+SECURE_SSL_REDIRECT = not DEBUG
+
+# CSRF trusted origins (from env or derived from allowed hosts)
+_env_csrf = os.getenv("CSRF_TRUSTED_ORIGINS", "")
+if _env_csrf:
+    CSRF_TRUSTED_ORIGINS = [o.strip() for o in _env_csrf.split(",") if o.strip()]
+else:
+    CSRF_TRUSTED_ORIGINS = []
+    for host in ALLOWED_HOSTS:
+        if host in {"127.0.0.1", "localhost"} or host.startswith("192.168."):
+            CSRF_TRUSTED_ORIGINS.append(f"http://{host}")
+            CSRF_TRUSTED_ORIGINS.append(f"https://{host}")
+        elif host and host != "*":
+            CSRF_TRUSTED_ORIGINS.append(f"https://{host}")
