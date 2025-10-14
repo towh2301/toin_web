@@ -9,7 +9,6 @@
 *.log
 *.pot
 *.pyc
-media/
 staticfiles/
 .env
 .env.*
