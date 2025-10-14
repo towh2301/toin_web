@@ -1,0 +1,21 @@
+services:
+    - type: web
+      name: toin
+      env: python
+      buildCommand: |
+          pip install -r requirements.txt
+          python manage.py collectstatic --noinput
+      startCommand: gunicorn toin.wsgi:application
+      envVars:
+          - key: PYTHON_VERSION
+            value: 3.12.x
+          - key: DEBUG
+            value: 'False'
+          - key: SECRET_KEY
+            value: 'your-secure-secret-key-here' # Generate a new secure key
+          - key: ALLOWED_HOSTS
+            value: 'toin.onrender.com'
+      headers:
+          - path: /static/*
+            headers:
+                Cache-Control: public, max-age=31536000, immutable

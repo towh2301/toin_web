@@ -1,14 +1,15 @@
 import os
 from pathlib import Path
+import mimetypes
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-APP_DIRS = True
-
-SECRET_KEY = "django-insecure-b!vgt!q$z-k9rwxagd4kv_wqn=dai_uqv1!$5y1!iyzjzaix=i"
+SECRET_KEY = os.getenv(
+    "SECRET_KEY", "django-insecure-b!vgt!q$z-k9rwxagd4kv_wqn=dai_uqv1!$5y1!iyzjzaix=i"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "True").lower() == "true"
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -16,6 +17,14 @@ ALLOWED_HOSTS = [
     "192.168.61.147",
     "toin.onrender.com",
 ]
+
+# Security settings for production
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = "DENY"
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 # DIRECTORIES
 STATIC_URL = "/static/"
@@ -41,17 +50,23 @@ INSTALLED_APPS = [
     "converter",
 ]
 
+# Add MIME types for WOFF/WOFF2 and other file types
+mimetypes.add_type("application/font-woff", ".woff", True)
+mimetypes.add_type("font/woff2", ".woff2", True)
+mimetypes.add_type("text/css", ".css", True)
+mimetypes.add_type("application/javascript", ".js", True)
+
+# WhiteNoise settings
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Must be after SecurityMiddleware
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.locale.LocaleMiddleware",  # For translation
+    "django.middleware.locale.LocaleMiddleware",  # Only ONE instance
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = "toin.urls"
@@ -74,8 +89,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "toin.wsgi.application"
 
 # Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -84,8 +97,6 @@ DATABASES = {
 }
 
 # Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -102,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
 LANGUAGE_CODE = "vi"  # default language
 USE_I18N = True
 USE_L10N = True
@@ -123,6 +133,4 @@ LOCALE_PATHS = [
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-SECURE_SSL_REDIRECT = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
