@@ -15,8 +15,8 @@ staticfiles/
 *.env
 
 # If you use Django collectstatic output folder
-/static/
-/staticfiles/
+# /static/
+# /staticfiles/
 
 # Local settings (if you split settings)
 local_settings.py
