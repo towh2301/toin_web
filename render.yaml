@@ -8,14 +8,23 @@ services:
       startCommand: gunicorn toin.wsgi:application
       envVars:
           - key: PYTHON_VERSION
-            value: 3.12.x
+            value: 3.11.x
           - key: DEBUG
             value: 'False'
           - key: SECRET_KEY
-            value: 'your-secure-secret-key-here' # Generate a new secure key
+            value: 'your-secure-secret-key'
           - key: ALLOWED_HOSTS
             value: 'toin.onrender.com'
       headers:
           - path: /static/*
             headers:
                 Cache-Control: public, max-age=31536000, immutable
+                Content-Type:
+                    - path: /static/fonts/*.woff
+                      value: application/font-woff
+                    - path: /static/fonts/*.woff2
+                      value: font/woff2
+                    - path: /static/*.css
+                      value: text/css
+                    - path: /static/*.js
+                      value: application/javascript
