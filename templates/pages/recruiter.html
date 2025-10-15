@@ -1,0 +1,375 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block pages %}
+    <style>
+        .icon-large {
+            font-size: 2rem;
+        }
+        .toin-accent {
+            color: var(--accent-color) !important;
+        }
+        .toin-bg-accent {
+            background-color: var(--accent-color) !important;
+        }
+        .toin-border-accent {
+            border-color: var(--accent-color) !important;
+        }
+        .btn-toin {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--contrast-color);
+        }
+        .btn-toin:hover {
+            background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+            border-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+            color: var(--contrast-color);
+        }
+        .btn-outline-toin {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        .btn-outline-toin:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--contrast-color);
+        }
+        .badge-toin {
+            background-color: var(--accent-color);
+            color: var(--contrast-color);
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        .icon-circle i {
+            color: var(--accent-color);
+        }
+        .cv-form {
+            background-color: var(--surface-color);
+            border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
+            border-radius: 8px;
+            padding: 30px;
+        }
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--accent-color), transparent 75%);
+        }
+        .form-label {
+            color: var(--heading-color);
+            font-weight: 600;
+        }
+    </style>
+    <section id="recruiter" class="recruiter portfolio section light-background">
+        <div class="container section-title" data-aos="fade-up">
+            <h2>{% trans "CAREER OPPORTUNITIES" %}</h2>
+            <p>
+                <span>{% trans "Join Our Team" %}</span>
+                <span class="description-title">{% trans "Build Your Future with TOIN" %}</span>
+            </p>
+        </div>
+        <div class="container">
+            {% if recruiters %}
+                <div class="row gy-3" data-aos="fade-up" data-aos-delay="200">
+                    {% for recruiter in recruiters %}
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card shadow-sm border-0 rounded-3 overflow-hidden h-100">
+                                {% if recruiter.image %}
+                                    <div class="ratio ratio-16x9">
+                                        <img src="{{ recruiter.image.url }}"
+                                             class="card-img-top object-fit-cover"
+                                             alt="{{ recruiter.get_title }}">
+                                    </div>
+                                {% endif %}
+                                <div class="card-body bg-white d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <h4 class="card-title fw-bold text-dark mb-0">{{ recruiter.get_title }}</h4>
+                                        <span class="badge badge-toin">{{ recruiter.get_employment_type_display }}</span>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <small class="text-muted d-block">{% trans "Department" %}</small>
+                                            <span class="fw-semibold toin-accent">{{ recruiter.department|default:_("N/A") }}</span>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <small class="text-muted d-block">{% trans "Experience" %}</small>
+                                            <span class="fw-semibold toin-accent">{{ recruiter.get_experience_level_display }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        {% if recruiter.location %}
+                                            <div class="col-6">
+                                                <small class="text-muted d-block">{% trans "Location" %}</small>
+                                                <span class="fw-semibold toin-accent">
+                                                    <i class="bi bi-geo-alt-fill toin-accent me-1"></i>{{ recruiter.location }}
+                                                </span>
+                                            </div>
+                                        {% endif %}
+                                        {% if recruiter.salary_range %}
+                                            <div class="col-6 text-end">
+                                                <small class="text-muted d-block">{% trans "Salary Range" %}</small>
+                                                <span class="fw-semibold toin-accent">
+                                                    <i class="bi bi-currency-dollar toin-accent me-1"></i>{{ recruiter.salary_range }}
+                                                </span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="mt-auto">
+                                        <button class="btn btn-outline-toin btn-sm me-2"
+                                                type="button"
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#jobDetails{{ recruiter.id }}"
+                                                aria-expanded="false">{% trans "View Details" %}</button>
+                                        <button class="btn btn-toin btn-sm"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#cvModal"
+                                                data-job-title="{{ recruiter.get_title }}">
+                                            {% trans "Apply Now" %}
+                                        </button>
+                                    </div>
+                                    <!-- Collapsible Details -->
+                                    <div class="collapse mt-3" id="jobDetails{{ recruiter.id }}">
+                                        <div class="border-top pt-3">
+                                            <div class="mb-3">
+                                                <h6 class="fw-semibold text-dark">{% trans "Full Description" %}</h6>
+                                                <p class="text-secondary">{{ recruiter.get_description }}</p>
+                                            </div>
+                                            {% if recruiter.get_requirements != "No requirements available" %}
+                                                <div class="mb-3">
+                                                    <h6 class="fw-semibold text-dark">{% trans "Requirements" %}</h6>
+                                                    <div class="text-secondary">{{ recruiter.get_requirements|linebreaks }}</div>
+                                                </div>
+                                            {% endif %}
+                                            {% if recruiter.get_benefits != "No benefits available" %}
+                                                <div class="mb-3">
+                                                    <h6 class="fw-semibold text-dark">{% trans "Benefits" %}</h6>
+                                                    <div class="text-secondary">{{ recruiter.get_benefits|linebreaks }}</div>
+                                                </div>
+                                            {% endif %}
+                                            <div class="d-flex justify-content-between align-items-center text-muted small">
+                                                <span>{% trans "Posted" %}: {{ recruiter.created_at|date:"M d, Y" }}</span>
+                                                <span>{% trans "Updated" %}: {{ recruiter.updated_at|date:"M d, Y" }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <div class="card shadow-sm border-0 rounded-3">
+                            <div class="card-body py-5">
+                                <i class="bi bi-briefcase toin-accent icon-large"></i>
+                                <h4 class="mt-3 mb-3">{% trans "No Open Positions" %}</h4>
+                                <p class="text-muted mb-4">
+                                    {% trans "We don't have any open positions at the moment, but we're always looking for talented individuals to join our team." %}
+                                </p>
+                                <p class="text-muted">{% trans "Please check back later or send us your resume for future opportunities." %}</p>
+                                <button class="btn btn-toin" data-bs-toggle="modal" data-bs-target="#cvModal">{% trans "Send Resume" %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+    <!-- CV Submission Modal -->
+    <div class="modal fade"
+         id="cvModal"
+         tabindex="-1"
+         aria-labelledby="cvModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cvModalLabel">{% trans "Submit Your CV" %}</h5>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="cvForm" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="cv-form">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="applicant_name" class="form-label">{% trans "Full Name" %} *</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="applicant_name"
+                                           name="applicant_name"
+                                           required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="applicant_email" class="form-label">{% trans "Email Address" %} *</label>
+                                    <input type="email"
+                                           class="form-control"
+                                           id="applicant_email"
+                                           name="applicant_email"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="applicant_phone" class="form-label">{% trans "Phone Number" %}</label>
+                                    <input type="tel"
+                                           class="form-control"
+                                           id="applicant_phone"
+                                           name="applicant_phone">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="position_applied" class="form-label">{% trans "Position Applied For" %}</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="position_applied"
+                                           name="position_applied"
+                                           readonly>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cover_letter" class="form-label">{% trans "Cover Letter" %}</label>
+                                <textarea class="form-control"
+                                          id="cover_letter"
+                                          name="cover_letter"
+                                          rows="4"
+                                          placeholder="{% trans 'Tell us why you want to join TOIN...' %}"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cv_file" class="form-label">{% trans "Upload CV/Resume" %} *</label>
+                                <input type="file"
+                                       class="form-control"
+                                       id="cv_file"
+                                       name="cv_file"
+                                       accept=".pdf,.doc,.docx"
+                                       required>
+                                <div class="form-text">{% trans "Accepted formats: PDF, DOC, DOCX (Max 5MB)" %}</div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-toin btn-lg">
+                                    <i class="bi bi-send me-2"></i>{% trans "Submit Application" %}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Section for Applications -->
+    <section id="recruiter-contact" class="recruiter-contact section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>{% trans "Interested in Joining Our Team?" %}</h2>
+                        <p>
+                            <span>{% trans "Get in Touch" %}</span>
+                            <span class="description-title">{% trans "We'd Love to Hear from You" %}</span>
+                        </p>
+                    </div>
+                    <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-envelope fs-2"></i>
+                                    </div>
+                                    <h5 class="fw-semibold">{% trans "Submit CV Online" %}</h5>
+                                    <p class="text-muted mb-3">{% trans "Use our online form to submit your CV and cover letter directly." %}</p>
+                                    <div class="col-12 text-center btn-group">
+                                        <button type="button"
+                                                class="btn btn-toin"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#cvModal">{% trans "Submit CV" %}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body text-center p-4">
+                                    <div class="icon-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-telephone fs-2"></i>
+                                    </div>
+                                    <h5 class="fw-semibold">{% trans "Call Us" %}</h5>
+                                    <p class="text-muted mb-3">{% trans "Speak directly with our HR team about career opportunities." %}</p>
+                                    <div class="col-12 text-center btn-group">
+                                        <a href="tel:+84123456789" class="btn btn-toin">{% trans "Call Now" %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Handle job title in modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const cvModal = document.getElementById('cvModal');
+            const positionInput = document.getElementById('position_applied');
+            const cvForm = document.getElementById('cvForm');
+            
+            cvModal.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget;
+                const jobTitle = button.getAttribute('data-job-title');
+                if (jobTitle) {
+                    positionInput.value = jobTitle;
+                } else {
+                    positionInput.value = '';
+                }
+            });
+            
+            // Handle form submission
+            cvForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = cvForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Submitting...';
+                submitBtn.disabled = true;
+                
+                const formData = new FormData(cvForm);
+                
+                fetch('{% url "pages:submit_cv" %}', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Show success message
+                        alert(data.message);
+                        // Reset form
+                        cvForm.reset();
+                        // Close modal
+                        const modal = bootstrap.Modal.getInstance(cvModal);
+                        modal.hide();
+                    } else {
+                        // Show error message
+                        alert(data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while submitting your CV. Please try again.');
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+            });
+        });
+    </script>
+{% endblock pages %}

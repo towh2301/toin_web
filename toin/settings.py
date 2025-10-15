@@ -2,6 +2,9 @@ import os
 from pathlib import Path
 import mimetypes
 import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -139,3 +142,25 @@ else:
             CSRF_TRUSTED_ORIGINS.append(f"https://{host}")
         elif host and host != "*":
             CSRF_TRUSTED_ORIGINS.append(f"https://{host}")
+
+# Email Configuration
+# Use console backend in DEBUG mode unless FORCE_SMTP is explicitly enabled
+if DEBUG and os.getenv("FORCE_SMTP", "").lower() != "true":
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "noreply@example.com")
+else:
+    EMAIL_BACKEND = os.getenv(
+        "EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend"
+    )
+    EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
+    EMAIL_PORT = int(os.getenv("EMAIL_PORT", "587"))
+    EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "true").lower() == "true"
+    EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", "false").lower() == "true"
+    EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL" or "toin-vn@toin-vn.com.vn")
+
+    # Safety fallback: avoid crashing if credentials are missing in production
+    if not DEBUG and (not EMAIL_HOST_USER or not EMAIL_HOST_PASSWORD):
+        EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+        print("⚠️ WARNING: Missing email credentials — using console backend instead.")

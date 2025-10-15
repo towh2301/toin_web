@@ -1,0 +1,393 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+{% load i18n %}
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        .cv-admin-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .cv-form-header {
+            background: linear-gradient(135deg, #006953 0%, #004d3a 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .cv-applicant-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .cv-info-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .cv-info-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .cv-info-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+        }
+        .cv-file-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .cv-file-preview {
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .cv-file-link {
+            display: inline-block;
+            background: #006953;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 5px;
+        }
+        .cv-file-link:hover {
+            background: #004d3a;
+            color: white;
+        }
+        .cv-cover-letter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .cv-cover-letter-content {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #006953;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .cv-actions-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .cv-action-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .cv-action-btn {
+            background: #006953;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .cv-action-btn:hover {
+            background: #004d3a;
+            color: white;
+        }
+        .cv-action-btn.secondary {
+            background: #6c757d;
+        }
+        .cv-action-btn.secondary:hover {
+            background: #5a6268;
+        }
+        .cv-action-btn.danger {
+            background: #dc3545;
+        }
+        .cv-action-btn.danger:hover {
+            background: #c82333;
+        }
+        .cv-status-indicator {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .cv-status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .cv-status-processed {
+            background: #d4edda;
+            color: #155724;
+        }
+        .cv-timeline {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .cv-timeline-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .cv-timeline-item:last-child {
+            border-bottom: none;
+        }
+        .cv-timeline-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 0.9rem;
+        }
+        .cv-timeline-icon.submitted {
+            background: #006953;
+            color: white;
+        }
+        .cv-timeline-icon.processed {
+            background: #28a745;
+            color: white;
+        }
+        .cv-timeline-content {
+            flex: 1;
+        }
+        .cv-timeline-title {
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        .cv-timeline-time {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .cv-notes-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .cv-notes-textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+    </style>
+{% endblock extrahead %}
+{% block content %}
+    <div class="cv-admin-form">
+        <div class="cv-form-header">
+            <h1>📋 CV Submission Management</h1>
+            <div class="cv-status-indicator cv-status-{% if original.is_processed %}processed{% else %}pending{% endif %}">
+                {% if original.is_processed %}
+                    ✅ Processed
+                {% else %}
+                    📋 Pending Review
+                {% endif %}
+            </div>
+        </div>
+        <div class="cv-applicant-info">
+            <div class="cv-info-card">
+                <div class="cv-info-label">Applicant Name</div>
+                <div class="cv-info-value">{{ original.applicant_name }}</div>
+            </div>
+            <div class="cv-info-card">
+                <div class="cv-info-label">Email Address</div>
+                <div class="cv-info-value">
+                    <a href="mailto:{{ original.applicant_email }}">{{ original.applicant_email }}</a>
+                </div>
+            </div>
+            <div class="cv-info-card">
+                <div class="cv-info-label">Phone Number</div>
+                <div class="cv-info-value">{{ original.applicant_phone|default:"Not provided" }}</div>
+            </div>
+            <div class="cv-info-card">
+                <div class="cv-info-label">Position Applied</div>
+                <div class="cv-info-value">{{ original.position_applied|default:"General Application" }}</div>
+            </div>
+            <div class="cv-info-card">
+                <div class="cv-info-label">Submitted Date</div>
+                <div class="cv-info-value">{{ original.submitted_at|date:"M d, Y H:i" }}</div>
+            </div>
+            <div class="cv-info-card">
+                <div class="cv-info-label">File Size</div>
+                <div class="cv-info-value">{{ original.get_file_size }}</div>
+            </div>
+        </div>
+        <div class="cv-file-section">
+            <h3>📄 CV File</h3>
+            {% if original.cv_file %}
+                <div class="cv-file-preview">
+                    <p>
+                        <strong>File:</strong> {{ original.cv_file.name }}
+                    </p>
+                    <p>
+                        <strong>Size:</strong> {{ original.get_file_size }}
+                    </p>
+                    <a href="{{ original.cv_file.url }}"
+                       target="_blank"
+                       class="cv-file-link">👁️ View CV File</a>
+                    <a href="{{ original.cv_file.url }}" download class="cv-file-link">📥 Download CV</a>
+                </div>
+            {% else %}
+                <div class="cv-file-preview">
+                    <p>No CV file available</p>
+                </div>
+            {% endif %}
+        </div>
+        {% if original.cover_letter %}
+            <div class="cv-cover-letter-section">
+                <h3>📝 Cover Letter</h3>
+                <div class="cv-cover-letter-content">{{ original.cover_letter }}</div>
+            </div>
+        {% endif %}
+        <div class="cv-actions-panel">
+            <h3>⚡ Quick Actions</h3>
+            <div class="cv-action-buttons">
+                <a href="mailto:{{ original.applicant_email }}?subject=Re: Your Application to TOIN Vietnam"
+                   class="cv-action-btn">📧 Reply to Applicant</a>
+                <a href="mailto:{{ original.applicant_email }}?subject=Interview Invitation - TOIN Vietnam"
+                   class="cv-action-btn">📅 Send Interview Invitation</a>
+                <a href="mailto:{{ original.applicant_email }}?subject=Thank you for your application - TOIN Vietnam"
+                   class="cv-action-btn">🙏 Send Thank You</a>
+                {% if not original.is_processed %}
+                    <button class="cv-action-btn" onclick="markProcessed()">✅ Mark as Processed</button>
+                {% else %}
+                    <button class="cv-action-btn secondary" onclick="markPending()">📋 Mark as Pending</button>
+                {% endif %}
+                <button class="cv-action-btn danger" onclick="deleteSubmission()">🗑️ Delete Submission</button>
+            </div>
+        </div>
+        <div class="cv-timeline">
+            <h3>📅 Timeline</h3>
+            <div class="cv-timeline-item">
+                <div class="cv-timeline-icon submitted">📋</div>
+                <div class="cv-timeline-content">
+                    <div class="cv-timeline-title">CV Submitted</div>
+                    <div class="cv-timeline-time">{{ original.submitted_at|date:"M d, Y H:i" }}</div>
+                </div>
+            </div>
+            {% if original.is_processed %}
+                <div class="cv-timeline-item">
+                    <div class="cv-timeline-icon processed">✅</div>
+                    <div class="cv-timeline-content">
+                        <div class="cv-timeline-title">Marked as Processed</div>
+                        <div class="cv-timeline-time">Recently</div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="cv-notes-section">
+            <h3>📝 Internal Notes</h3>
+            <textarea class="cv-notes-textarea"
+                      name="notes"
+                      placeholder="Add internal notes about this application...">{{ original.notes|default:"" }}</textarea>
+        </div>
+    </div>
+    {{ block.super }}
+{% endblock content %}
+{% block extrajs %}
+    {{ block.super }}
+    <script>
+        function markProcessed() {
+            if (confirm('Mark this submission as processed?')) {
+                fetch(window.location.pathname + 'mark-processed/', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                });
+            }
+        }
+
+        function markPending() {
+            if (confirm('Mark this submission as pending?')) {
+                fetch(window.location.pathname + 'mark-pending/', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                });
+            }
+        }
+
+        function deleteSubmission() {
+            if (confirm('Are you sure you want to delete this submission? This action cannot be undone.')) {
+                fetch(window.location.pathname + 'delete/', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.location.href = '/admin/pages/cvsubmission/';
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                });
+            }
+        }
+
+        // Auto-save notes
+        const notesTextarea = document.querySelector('textarea[name="notes"]');
+        if (notesTextarea) {
+            notesTextarea.addEventListener('blur', function() {
+                fetch(window.location.pathname + 'update-notes/', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        notes: this.value
+                    })
+                });
+            });
+        }
+    </script>
+{% endblock extrajs %}

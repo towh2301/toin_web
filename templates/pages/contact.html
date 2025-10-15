@@ -11,10 +11,12 @@
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-6 d-flex flex-column gap-3">
-                    <div class="info-item d-flex align-items-start"
+                    <div class="info-item d-flex align-items-center"
                          data-aos="fade-up"
-                         data-aos-delay="100">
-                        <i class="bi bi-geo-alt fs-4"></i>
+                         data-aos-delay="200">
+                        <div class="icon-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-geo-alt fs-4"></i>
+                        </div>
                         <div>
                             <h3 class="fw-semibold mb-1">{% trans 'Address' %}</h3>
                             <p class="mb-0 text-muted">{{ company_profile.get_address }}</p>
@@ -41,7 +43,7 @@
                                         <i class="bi bi-envelope fs-4"></i>
                                         <div>
                                             <h3 class="fw-semibold mb-1">{% trans 'Email' %}</h3>
-                                            <a href="mailto:{{ contact.contact_email }} class="mb-0 text-muted">{{ contact.contact_email }}</a>
+                                            <a href="mailto:{{ contact.contact_email }}" class="mb-0 text-muted">{{ contact.contact_email }}</a>
                                         </div>
                                     </div>
                                 {% endif %}

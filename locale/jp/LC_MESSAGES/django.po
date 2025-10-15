@@ -1,16 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# TOIN Website Japanese Translation.
+# Copyright (C) 2025 TOIN VIETNAM CO.,LTD.
+# This file is distributed under the same license as the TOIN package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: TOIN 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 15:58+0700\n"
-"PO-Revision-Date: 2025-10-13 16:00+0700\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2025-10-15 11:18+0700\n"
+"PO-Revision-Date: 2025-10-15 16:00+0700\n"
+"Last-Translator: Japanese Translator <ja@toin.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -20,12 +19,13 @@ msgstr ""
 
 #: .\templates\converter\converter.html:13
 msgid "TOIN Word Converter"
-msgstr "トーイン Word コンバーター"
+msgstr "TOIN Word コンバーター"
 
 #: .\templates\converter\converter.html:15
 msgid ""
 "Upload your PDF file below to convert it into an editable Word document."
-msgstr "下にPDFファイルをアップロードして、編集可能なWordドキュメントに変換してください。"
+msgstr ""
+"下にPDFファイルをアップロードして、編集可能なWordドキュメントに変換してください。"
 
 #: .\templates\converter\converter.html:22
 msgid "Select a PDF file"
@@ -48,7 +48,8 @@ msgid ""
 "JAPANESE STANDARDS IN MANUFACTURING TOIN VIETNAM CO.,LTD. produces highly "
 "value-added packages under quality and manufacturing control systems with "
 "Japanese standards."
-msgstr "TOIN VIETNAM CO.,LTD. は、日本の基準による品質・製造管理体制のもと、付加価値の高いパッケージ製品を生産しています。"
+msgstr ""
+"TOIN VIETNAM CO.,LTD.は、日本の基準による品質・製造管理体制のもと、高付加価値のパッケージ製品を生産しています。"
 
 #: .\templates\footer.html:25
 msgid "OUR BUSINESSES"
@@ -78,7 +79,7 @@ msgstr "特徴"
 
 #: .\templates\footer.html:65
 msgid "CONTACT"
-msgstr "接触"
+msgstr "お問い合わせ"
 
 #: .\templates\header.html:33 .\templates\pages\features.html:6
 #: .\templates\pages\features.html:8
@@ -86,9 +87,9 @@ msgid "Features"
 msgstr "特徴"
 
 #: .\templates\header.html:42 .\templates\pages\about.html:107
-#: .\templates\pages\about.html:169 .\templates\pages\contact.html:9
+#: .\templates\pages\about.html:169 .\templates\pages\contact.html:6
 msgid "Contact"
-msgstr "接触"
+msgstr "お問い合わせ"
 
 #: .\templates\header.html:50
 msgid "Others"
@@ -104,11 +105,11 @@ msgstr "ブログ"
 
 #: .\templates\header.html:57
 msgid "Crecruit"
-msgstr "採用"
+msgstr "採用情報"
 
 #: .\templates\pages\about.html:8
 msgid "Discover"
-msgstr "発見する"
+msgstr "発見"
 
 #: .\templates\pages\about.html:8
 msgid "Our Story"
@@ -128,18 +129,18 @@ msgstr "ベトナムオフィス"
 
 #: .\templates\pages\about.html:30
 msgid "Explore key milestones of TOIN CO., LTD."
-msgstr "株式会社トーインの主要なマイルストーンをご覧ください。"
+msgstr "TOIN CO., LTD.の主要なマイルストーンをご覧ください。"
 
 #: .\templates\pages\about.html:51
 msgid "Discover some information of TOIN VIETNAM CO,. LTD."
-msgstr "TOIN VIETNAM CO,. LTD. の詳細情報をご覧ください。"
+msgstr "TOIN VIETNAM CO., LTD.の情報をご覧ください。"
 
 #: .\templates\pages\about.html:55
 msgid "Company Name"
 msgstr "会社名"
 
 #: .\templates\pages\about.html:63 .\templates\pages\about.html:153
-#: .\templates\pages\contact.html:22
+#: .\templates\pages\contact.html:19
 msgid "Address"
 msgstr "住所"
 
@@ -149,11 +150,11 @@ msgstr "設立"
 
 #: .\templates\pages\about.html:79
 msgid "Capital"
-msgstr "資本"
+msgstr "資本金"
 
 #: .\templates\pages\about.html:87
 msgid "Industry"
-msgstr "業界"
+msgstr "業種"
 
 #: .\templates\pages\about.html:95
 msgid "Mission"
@@ -163,45 +164,45 @@ msgstr "ミッション"
 msgid "Parent Companies"
 msgstr "親会社"
 
-#: .\templates\pages\contact.html:11
+#: .\templates\pages\contact.html:8 .\templates\pages\recruiter.html:131
 msgid "Get in Touch"
-msgstr "連絡を取る"
+msgstr "お問い合わせ"
 
-#: .\templates\pages\contact.html:11
+#: .\templates\pages\contact.html:8
 msgid "With Us"
-msgstr "私たちと"
+msgstr "ください"
 
-#: .\templates\pages\contact.html:37
+#: .\templates\pages\contact.html:34
 msgid "Phone"
 msgstr "電話"
 
-#: .\templates\pages\contact.html:46
+#: .\templates\pages\contact.html:43
 msgid "Email"
 msgstr "メール"
 
-#: .\templates\pages\contact.html:67
+#: .\templates\pages\contact.html:64
 msgid "Your Name"
-msgstr "あなたの名前"
+msgstr "お名前"
 
-#: .\templates\pages\contact.html:74
+#: .\templates\pages\contact.html:71
 msgid "Your Email"
-msgstr "あなたのメール"
+msgstr "メールアドレス"
 
-#: .\templates\pages\contact.html:81
+#: .\templates\pages\contact.html:78
 msgid "Subject"
 msgstr "件名"
 
-#: .\templates\pages\contact.html:88
+#: .\templates\pages\contact.html:85
 msgid "Message"
 msgstr "メッセージ"
 
-#: .\templates\pages\contact.html:92
+#: .\templates\pages\contact.html:89
 msgid "Send Message"
 msgstr "メッセージを送信"
 
 #: .\templates\pages\features.html:8 .\templates\pages\product.html:8
 msgid "Explore Our"
-msgstr "探索する"
+msgstr "私たちの"
 
 #: .\templates\pages\hero.html:10
 msgid "Welcome to"
@@ -209,29 +210,144 @@ msgstr "ようこそ"
 
 #: .\templates\pages\hero.html:16
 msgid "Explore"
-msgstr "探検する"
+msgstr "探検"
 
 #: .\templates\pages\product.html:13
 msgid "All"
 msgstr "全て"
 
+#: .\templates\pages\recruiter.html:12
+msgid "CAREER OPPORTUNITIES"
+msgstr "キャリア機会"
+
+#: .\templates\pages\recruiter.html:14
+msgid "Join Our Team"
+msgstr "私たちのチームに加わる"
+
+#: .\templates\pages\recruiter.html:15
+msgid "Build Your Future with TOIN"
+msgstr "TOINで未来を築く"
+
+#: .\templates\pages\recruiter.html:38
+msgid "Department"
+msgstr "部署"
+
+#: .\templates\pages\recruiter.html:39
+msgid "N/A"
+msgstr "なし"
+
+#: .\templates\pages\recruiter.html:42
+msgid "Experience"
+msgstr "経験"
+
+#: .\templates\pages\recruiter.html:48
+msgid "Location"
+msgstr "勤務地"
+
+#: .\templates\pages\recruiter.html:56
+msgid "Salary Range"
+msgstr "給与範囲"
+
+#: .\templates\pages\recruiter.html:63
+msgid "Job Description"
+msgstr "業務内容"
+
+#: .\templates\pages\recruiter.html:71
+msgid "View Details"
+msgstr "詳細を見る"
+
+#: .\templates\pages\recruiter.html:72
+msgid "Apply Now"
+msgstr "今すぐ応募"
+
+#: .\templates\pages\recruiter.html:78
+msgid "Full Description"
+msgstr "詳細説明"
+
+#: .\templates\pages\recruiter.html:83
+msgid "Requirements"
+msgstr "応募資格"
+
+#: .\templates\pages\recruiter.html:89
+msgid "Benefits"
+msgstr "福利厚生"
+
+#: .\templates\pages\recruiter.html:94
+msgid "Posted"
+msgstr "掲載日"
+
+#: .\templates\pages\recruiter.html:95
+msgid "Updated"
+msgstr "更新日"
+
+#: .\templates\pages\recruiter.html:110
+msgid "No Open Positions"
+msgstr "募集中のポジションなし"
+
+#: .\templates\pages\recruiter.html:112
+msgid ""
+"We don't have any open positions at the moment, but we're always looking for "
+"talented individuals to join our team."
+msgstr ""
+"現在募集中のポジションはありませんが、常に優秀な人材をチームに迎え入れたいと考えています。"
+
+#: .\templates\pages\recruiter.html:114
+msgid ""
+"Please check back later or send us your resume for future opportunities."
+msgstr ""
+"後日またご確認いただくか、将来の機会のために履歴書をお送りください。"
+
+#: .\templates\pages\recruiter.html:115
+msgid "Send Resume"
+msgstr "履歴書を送信"
+
+#: .\templates\pages\recruiter.html:129
+msgid "Interested in Joining Our Team?"
+msgstr "私たちのチームに加わりたいですか？"
+
+#: .\templates\pages\recruiter.html:132
+msgid "We'd Love to Hear from You"
+msgstr "ぜひご連絡ください"
+
+#: .\templates\pages\recruiter.html:140
+msgid "Email Your Resume"
+msgstr "履歴書をメール送信"
+
+#: .\templates\pages\recruiter.html:141
+msgid ""
+"Send us your resume and cover letter for any position that interests you."
+msgstr ""
+"ご興味のあるポジションに応募するために、履歴書とカバーレターをお送りください。"
+
+#: .\templates\pages\recruiter.html:142
+msgid "Send Email"
+msgstr "メールを送信"
+
+#: .\templates\pages\recruiter.html:150
+msgid "Call Us"
+msgstr "お電話ください"
+
+#: .\templates\pages\recruiter.html:151
+msgid "Speak directly with our HR team about career opportunities."
+msgstr "キャリア機会について人事チームと直接お話しください。"
+
+#: .\templates\pages\recruiter.html:152
+msgid "Call Now"
+msgstr "今すぐ電話"
+
 #: .\templates\pages\team.html:8
 msgid "Meet"
 msgstr "会う"
 
-#: .\templates\pages\team.html:26
-#, fuzzy
-#| msgid "Address"
+#: .\templates\pages\team.html:28
 msgid "Address: "
 msgstr "住所："
 
 #~ msgid "ABOUT"
 #~ msgstr "について"
 
-#, fuzzy
-#~| msgid "History"
 #~ msgid "History"
-#~ msgstr "歴史"
+#~ msgstr "沿革"
 
 #~ msgid "admin/"
 #~ msgstr "admin/"

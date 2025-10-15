@@ -1,0 +1,292 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+    CV Submission Dashboard
+{% endblock title %}
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        .dashboard-container {
+            padding: 20px;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        .dashboard-header {
+            background: linear-gradient(135deg, #006953 0%, #004d3a 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #006953;
+            margin-bottom: 10px;
+        }
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .dashboard-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #006953;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #006953;
+        }
+        .recent-submissions {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .submission-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+        .submission-item:hover {
+            background-color: #f8f9fa;
+        }
+        .submission-info {
+            flex: 1;
+        }
+        .submission-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .submission-position {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .submission-date {
+            color: #999;
+            font-size: 0.8rem;
+        }
+        .submission-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .status-processed {
+            background: #d4edda;
+            color: #155724;
+        }
+        .position-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .position-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #006953;
+        }
+        .position-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .position-count {
+            color: #006953;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .dashboard-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .action-btn {
+            background: #006953;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s;
+        }
+        .action-btn:hover {
+            background: #004d3a;
+            color: white;
+        }
+        .action-btn.secondary {
+            background: #6c757d;
+        }
+        .action-btn.secondary:hover {
+            background: #5a6268;
+        }
+        .filter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .filter-row {
+            display: flex;
+            gap: 20px;
+            align-items: end;
+            flex-wrap: wrap;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 150px;
+        }
+        .filter-label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .filter-input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        .filter-btn {
+            background: #006953;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .filter-btn:hover {
+            background: #004d3a;
+        }
+    </style>
+{% endblock extrahead %}
+{% block content %}
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>📊 CV Submission Dashboard</h1>
+            <p>Comprehensive overview of CV submissions and analytics</p>
+        </div>
+        <div class="dashboard-actions">
+            <a href="{% url 'admin:pages_cvsubmission_changelist' %}"
+               class="action-btn">📋 View All Submissions</a>
+            <a href="{% url 'admin:pages_cvsubmission_changelist' %}?is_processed__exact=0"
+               class="action-btn">⏳ Pending Review</a>
+            <a href="{% url 'admin:pages_cvsubmission_changelist' %}?is_processed__exact=1"
+               class="action-btn">✅ Processed</a>
+            <a href="{% url 'cv_admin:export_submissions' %}"
+               class="action-btn secondary">📤 Export Data</a>
+            <a href="{% url 'cv_admin:analytics' %}" class="action-btn secondary">📈 Analytics</a>
+        </div>
+        <div class="filter-section">
+            <h3>📅 Filter by Date Range</h3>
+            <form method="get" class="filter-row">
+                <div class="filter-group">
+                    <label class="filter-label">From Date</label>
+                    <input type="date"
+                           name="date_from"
+                           class="filter-input"
+                           value="{{ date_from }}">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">To Date</label>
+                    <input type="date" name="date_to" class="filter-input" value="{{ date_to }}">
+                </div>
+                <div class="filter-group">
+                    <button type="submit" class="filter-btn">Apply Filter</button>
+                </div>
+            </form>
+        </div>
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-number">{{ total_submissions }}</div>
+                <div class="stat-label">Total Submissions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ pending_submissions }}</div>
+                <div class="stat-label">Pending Review</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{{ processed_submissions }}</div>
+                <div class="stat-label">Processed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">
+                    {{ pending_submissions|floatformat:0|add:0|div:total_submissions|mul:100|floatformat:1|default:"0" }}%
+                </div>
+                <div class="stat-label">Pending Rate</div>
+            </div>
+        </div>
+        <div class="dashboard-section">
+            <h3 class="section-title">📋 Recent Submissions</h3>
+            <div class="recent-submissions">
+                {% for submission in recent_submissions %}
+                    <div class="submission-item">
+                        <div class="submission-info">
+                            <div class="submission-name">{{ submission.applicant_name }}</div>
+                            <div class="submission-position">{{ submission.position_applied|default:"General Application" }}</div>
+                            <div class="submission-date">{{ submission.submitted_at|date:"M d, Y H:i" }}</div>
+                        </div>
+                        <div>
+                            <span class="submission-status status-{% if submission.is_processed %}processed{% else %}pending{% endif %}">
+                                {% if submission.is_processed %}
+                                    ✅ Processed
+                                {% else %}
+                                    ⏳ Pending
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No recent submissions found.</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dashboard-section">
+            <h3 class="section-title">📊 Applications by Position</h3>
+            <div class="position-stats">
+                {% for position in positions %}
+                    <div class="position-item">
+                        <div class="position-name">{{ position.position_applied|default:"General Application" }}</div>
+                        <div class="position-count">{{ position.count }} applications</div>
+                    </div>
+                {% empty %}
+                    <p>No position data available.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

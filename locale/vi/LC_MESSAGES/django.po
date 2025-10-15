@@ -1,16 +1,15 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# TOIN Website Vietnamese Translation.
+# Copyright (C) 2025 TOIN VIETNAM CO.,LTD.
+# This file is distributed under the same license as the TOIN package.
+# Vietnamese Translator <vi@toin.com>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: TOIN 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 15:58+0700\n"
-"PO-Revision-Date: 2025-10-13 10:45+0700\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2025-10-15 11:18+0700\n"
+"PO-Revision-Date: 2025-10-15 16:00+0700\n"
+"Last-Translator: Vietnamese Translator <vi@toin.com>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
@@ -20,14 +19,13 @@ msgstr ""
 
 #: .\templates\converter\converter.html:13
 msgid "TOIN Word Converter"
-msgstr "Bộ Chuyển đổi Word TOIN"
+msgstr "Bộ chuyển đổi Word TOIN"
 
 #: .\templates\converter\converter.html:15
 msgid ""
 "Upload your PDF file below to convert it into an editable Word document."
 msgstr ""
-"Tải lên tệp PDF của bạn dưới đây để chuyển đổi thành tài liệu Word có thể "
-"chỉnh sửa."
+"Tải lên tệp PDF của bạn dưới đây để chuyển đổi thành tài liệu Word có thể chỉnh sửa."
 
 #: .\templates\converter\converter.html:22
 msgid "Select a PDF file"
@@ -51,13 +49,11 @@ msgid ""
 "value-added packages under quality and manufacturing control systems with "
 "Japanese standards."
 msgstr ""
-"Vận hành theo Tiêu chuẩn Nhật Bản trong sản xuất, CÔNG TY TNHH TOIN VIỆT NAM "
-"tạo ra các sản phẩm bao bì với giá trị vượt trội dưới sự kiểm soát chặt chẽ "
-"của hệ thống quản lý chất lượng và sản xuất."
+"Hoạt động theo Tiêu chuẩn Nhật Bản trong sản xuất, CÔNG TY TNHH TOIN VIỆT NAM sản xuất các sản phẩm bao bì có giá trị gia tăng cao dưới hệ thống kiểm soát chất lượng và sản xuất đạt chuẩn Nhật Bản."
 
 #: .\templates\footer.html:25
 msgid "OUR BUSINESSES"
-msgstr "TẬP ĐOÀN"
+msgstr "NGÀNH NGHỀ KINH DOANH"
 
 #: .\templates\footer.html:28 .\templates\header.html:30
 msgid "About Us"
@@ -70,16 +66,16 @@ msgstr "Dịch vụ"
 #: .\templates\footer.html:34 .\templates\header.html:36
 #: .\templates\pages\product.html:7 .\templates\pages\product.html:8
 msgid "Portfolio"
-msgstr "Thông tin"
+msgstr "Danh mục sản phẩm"
 
 #: .\templates\footer.html:37 .\templates\header.html:39
 #: .\templates\pages\team.html:6 .\templates\pages\team.html:8
 msgid "Our Businesses"
-msgstr "Tập đoàn"
+msgstr "Ngành nghề kinh doanh"
 
 #: .\templates\footer.html:43
 msgid "FEATURES"
-msgstr "ĐẶC TRƯNG"
+msgstr "ĐẶC ĐIỂM NỔI BẬT"
 
 #: .\templates\footer.html:65
 msgid "CONTACT"
@@ -88,10 +84,10 @@ msgstr "LIÊN HỆ"
 #: .\templates\header.html:33 .\templates\pages\features.html:6
 #: .\templates\pages\features.html:8
 msgid "Features"
-msgstr "Đặc trưng"
+msgstr "Đặc điểm nổi bật"
 
 #: .\templates\header.html:42 .\templates\pages\about.html:107
-#: .\templates\pages\about.html:169 .\templates\pages\contact.html:9
+#: .\templates\pages\about.html:169 .\templates\pages\contact.html:6
 msgid "Contact"
 msgstr "Liên hệ"
 
@@ -101,7 +97,7 @@ msgstr "Khác"
 
 #: .\templates\header.html:55
 msgid "PDF - Converter"
-msgstr "PDF - Bộ Chuyển đổi"
+msgstr "PDF - Chuyển đổi"
 
 #: .\templates\header.html:56
 msgid "Blog"
@@ -113,23 +109,23 @@ msgstr "Tuyển dụng"
 
 #: .\templates\pages\about.html:8
 msgid "Discover"
-msgstr "Hành trình"
+msgstr "Khám phá"
 
 #: .\templates\pages\about.html:8
 msgid "Our Story"
-msgstr "của Chúng tôi"
+msgstr "Hành trình của chúng tôi"
 
 #: .\templates\pages\about.html:19 .\templates\pages\about.html:29
 msgid "Company History"
-msgstr "Lịch sử Công ty"
+msgstr "Lịch sử hình thành"
 
 #: .\templates\pages\about.html:20 .\templates\pages\about.html:50
 msgid "Company Information"
-msgstr "Thông tin chung"
+msgstr "Thông tin công ty"
 
 #: .\templates\pages\about.html:21
 msgid "Vietnam Offices"
-msgstr "Văn phòng ở Việt Nam"
+msgstr "Văn phòng tại Việt Nam"
 
 #: .\templates\pages\about.html:30
 msgid "Explore key milestones of TOIN CO., LTD."
@@ -137,20 +133,20 @@ msgstr "Khám phá những cột mốc quan trọng của TOIN CO., LTD."
 
 #: .\templates\pages\about.html:51
 msgid "Discover some information of TOIN VIETNAM CO,. LTD."
-msgstr "Khám phá một số thông tin về CÔNG TY TNHH TOIN VIỆT NAM."
+msgstr "Tìm hiểu thông tin về CÔNG TY TNHH TOIN VIỆT NAM."
 
 #: .\templates\pages\about.html:55
 msgid "Company Name"
 msgstr "Tên công ty"
 
 #: .\templates\pages\about.html:63 .\templates\pages\about.html:153
-#: .\templates\pages\contact.html:22
+#: .\templates\pages\contact.html:19
 msgid "Address"
 msgstr "Địa chỉ"
 
 #: .\templates\pages\about.html:71
 msgid "Founded"
-msgstr "Được thành lập"
+msgstr "Thành lập"
 
 #: .\templates\pages\about.html:79
 msgid "Capital"
@@ -158,51 +154,51 @@ msgstr "Vốn điều lệ"
 
 #: .\templates\pages\about.html:87
 msgid "Industry"
-msgstr "Ngành công nghiệp"
+msgstr "Lĩnh vực"
 
 #: .\templates\pages\about.html:95
 msgid "Mission"
-msgstr "Nhiệm vụ"
+msgstr "Sứ mệnh"
 
 #: .\templates\pages\about.html:122
 msgid "Parent Companies"
-msgstr "Tập đoàn"
+msgstr "Công ty mẹ"
 
-#: .\templates\pages\contact.html:11
+#: .\templates\pages\contact.html:8 .\templates\pages\recruiter.html:131
 msgid "Get in Touch"
-msgstr "Kết nối với"
+msgstr "Liên hệ với Chúng tôi."
 
-#: .\templates\pages\contact.html:11
+#: .\templates\pages\contact.html:8
 msgid "With Us"
-msgstr "Chúng tôi"
+msgstr "chúng tôi"
 
-#: .\templates\pages\contact.html:37
+#: .\templates\pages\contact.html:34
 msgid "Phone"
 msgstr "Điện thoại"
 
-#: .\templates\pages\contact.html:46
+#: .\templates\pages\contact.html:43
 msgid "Email"
-msgstr "Hộp thư"
+msgstr "Email"
 
-#: .\templates\pages\contact.html:67
+#: .\templates\pages\contact.html:64
 msgid "Your Name"
-msgstr "Tên của bạn / doanh nghiệp"
+msgstr "Họ và tên"
 
-#: .\templates\pages\contact.html:74
+#: .\templates\pages\contact.html:71
 msgid "Your Email"
-msgstr "Hộp thư của bạn / doanh nghiệp"
+msgstr "Email của bạn"
 
-#: .\templates\pages\contact.html:81
+#: .\templates\pages\contact.html:78
 msgid "Subject"
 msgstr "Tiêu đề"
 
-#: .\templates\pages\contact.html:88
+#: .\templates\pages\contact.html:85
 msgid "Message"
-msgstr "Lời nhắn"
+msgstr "Nội dung"
 
-#: .\templates\pages\contact.html:92
+#: .\templates\pages\contact.html:89
 msgid "Send Message"
-msgstr "Gửi đi"
+msgstr "Gửi tin nhắn"
 
 #: .\templates\pages\features.html:8 .\templates\pages\product.html:8
 msgid "Explore Our"
@@ -220,23 +216,137 @@ msgstr "Khám phá"
 msgid "All"
 msgstr "Tất cả"
 
+#: .\templates\pages\recruiter.html:12
+msgid "CAREER OPPORTUNITIES"
+msgstr "CƠ HỘI NGHỀ NGHIỆP"
+
+#: .\templates\pages\recruiter.html:14
+msgid "Join Our Team"
+msgstr "Gia nhập đội ngũ"
+
+#: .\templates\pages\recruiter.html:15
+msgid "Build Your Future with TOIN"
+msgstr "Xây dựng tương lai cùng TOIN"
+
+#: .\templates\pages\recruiter.html:38
+msgid "Department"
+msgstr "Phòng ban"
+
+#: .\templates\pages\recruiter.html:39
+msgid "N/A"
+msgstr "Không áp dụng"
+
+#: .\templates\pages\recruiter.html:42
+msgid "Experience"
+msgstr "Kinh nghiệm"
+
+#: .\templates\pages\recruiter.html:48
+msgid "Location"
+msgstr "Địa điểm làm việc"
+
+#: .\templates\pages\recruiter.html:56
+msgid "Salary Range"
+msgstr "Mức lương"
+
+#: .\templates\pages\recruiter.html:63
+msgid "Job Description"
+msgstr "Mô tả công việc"
+
+#: .\templates\pages\recruiter.html:71
+msgid "View Details"
+msgstr "Xem chi tiết"
+
+#: .\templates\pages\recruiter.html:72
+msgid "Apply Now"
+msgstr "Ứng tuyển ngay"
+
+#: .\templates\pages\recruiter.html:78
+msgid "Full Description"
+msgstr "Mô tả chi tiết"
+
+#: .\templates\pages\recruiter.html:83
+msgid "Requirements"
+msgstr "Yêu cầu"
+
+#: .\templates\pages\recruiter.html:89
+msgid "Benefits"
+msgstr "Quyền lợi"
+
+#: .\templates\pages\recruiter.html:94
+msgid "Posted"
+msgstr "Ngày đăng"
+
+#: .\templates\pages\recruiter.html:95
+msgid "Updated"
+msgstr "Cập nhật"
+
+#: .\templates\pages\recruiter.html:110
+msgid "No Open Positions"
+msgstr "Chưa có vị trí tuyển dụng"
+
+#: .\templates\pages\recruiter.html:112
+msgid ""
+"We don't have any open positions at the moment, but we're always looking for "
+"talented individuals to join our team."
+msgstr ""
+"Hiện tại chúng tôi chưa có vị trí tuyển dụng nào, nhưng luôn tìm kiếm những ứng viên tài năng để gia nhập đội ngũ."
+
+#: .\templates\pages\recruiter.html:114
+msgid ""
+"Please check back later or send us your resume for future opportunities."
+msgstr ""
+"Vui lòng kiểm tra lại sau hoặc gửi CV của bạn để chúng tôi xem xét cho các cơ hội trong tương lai."
+
+#: .\templates\pages\recruiter.html:115
+msgid "Send Resume"
+msgstr "Gửi CV"
+
+#: .\templates\pages\recruiter.html:129
+msgid "Interested in Joining Our Team?"
+msgstr "Bạn muốn gia nhập đội ngũ của chúng tôi?"
+
+#: .\templates\pages\recruiter.html:132
+msgid "We'd Love to Hear from You"
+msgstr "Chúng tôi rất mong nhận được thông tin từ bạn"
+
+#: .\templates\pages\recruiter.html:140
+msgid "Email Your Resume"
+msgstr "Gửi CV qua Email"
+
+#: .\templates\pages\recruiter.html:141
+msgid ""
+"Send us your resume and cover letter for any position that interests you."
+msgstr ""
+"Gửi CV và thư xin việc của bạn cho bất kỳ vị trí nào bạn quan tâm."
+
+#: .\templates\pages\recruiter.html:142
+msgid "Send Email"
+msgstr "Gửi Email"
+
+#: .\templates\pages\recruiter.html:150
+msgid "Call Us"
+msgstr "Gọi cho chúng tôi"
+
+#: .\templates\pages\recruiter.html:151
+msgid "Speak directly with our HR team about career opportunities."
+msgstr ""
+"Nói chuyện trực tiếp với đội ngũ Nhân sự về các cơ hội nghề nghiệp."
+
+#: .\templates\pages\recruiter.html:152
+msgid "Call Now"
+msgstr "Gọi ngay"
+
 #: .\templates\pages\team.html:8
 msgid "Meet"
-msgstr "Gặp"
+msgstr "Gặp gỡ"
 
-#: .\templates\pages\team.html:26
-#, fuzzy
-#| msgid "Address"
+#: .\templates\pages\team.html:28
 msgid "Address: "
-msgstr "Địa chỉ"
+msgstr "Địa chỉ: "
 
-#, fuzzy
-#~| msgid "ABOUT US"
 #~ msgid "ABOUT"
 #~ msgstr "VỀ CHÚNG TÔI"
 
-#, fuzzy
-#~| msgid "History"
 #~ msgid "History"
 #~ msgstr "Lịch sử"
 

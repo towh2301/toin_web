@@ -15,9 +15,11 @@
                          data-aos="fade-up"
                          data-aos-delay="100">
                         <div class="team-member">
-                            <div class="member-img">
-                                <img src="{{ partner.image.url }}" class="img-fluid" alt="">
-                            </div>
+                            <a href="{{ partner.link }}">
+                                <div class="member-img">
+                                    <img src="{{ partner.image.url }}" class="img-fluid" alt="">
+                                </div>
+                            </a>
                             <div class="member-info text-start">
                                 <h4>{{ partner.get_name }}</h4>
                                 <span>{{ partner.get_description }}</span>

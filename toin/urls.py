@@ -16,6 +16,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path("admin/", admin.site.urls),
+    path("admin/pages/cvsubmission/", include("pages.admin_urls")),  # CV admin routes
     path("", include("pages.urls")),  #  pages app routes
     path("converter/", include("converter.urls")),  # converter app routes
 )

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 15:58+0700\n"
+"POT-Creation-Date: 2025-10-15 11:18+0700\n"
 "PO-Revision-Date: 2025-10-13 10:43+0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English <en@li.org>\n"
@@ -90,7 +90,7 @@ msgid "Features"
 msgstr "Features"
 
 #: .\templates\header.html:42 .\templates\pages\about.html:107
-#: .\templates\pages\about.html:169 .\templates\pages\contact.html:9
+#: .\templates\pages\about.html:169 .\templates\pages\contact.html:6
 msgid "Contact"
 msgstr "Contact"
 
@@ -143,7 +143,7 @@ msgid "Company Name"
 msgstr "Company Name"
 
 #: .\templates\pages\about.html:63 .\templates\pages\about.html:153
-#: .\templates\pages\contact.html:22
+#: .\templates\pages\contact.html:19
 msgid "Address"
 msgstr "Address"
 
@@ -167,45 +167,43 @@ msgstr "Mission"
 msgid "Parent Companies"
 msgstr "Parent Companies"
 
-#: .\templates\pages\contact.html:11
+#: .\templates\pages\contact.html:8 .\templates\pages\recruiter.html:131
 msgid "Get in Touch"
 msgstr "Get in Touch"
 
-#: .\templates\pages\contact.html:11
+#: .\templates\pages\contact.html:8
 msgid "With Us"
 msgstr "With Us"
 
-#: .\templates\pages\contact.html:37
+#: .\templates\pages\contact.html:34
 msgid "Phone"
 msgstr "Phone"
 
-#: .\templates\pages\contact.html:46
+#: .\templates\pages\contact.html:43
 msgid "Email"
 msgstr "Email"
 
-#: .\templates\pages\contact.html:67
+#: .\templates\pages\contact.html:64
 msgid "Your Name"
 msgstr "Your Name"
 
-#: .\templates\pages\contact.html:74
+#: .\templates\pages\contact.html:71
 msgid "Your Email"
 msgstr "Your Email"
 
-#: .\templates\pages\contact.html:81
+#: .\templates\pages\contact.html:78
 msgid "Subject"
 msgstr "Subject"
 
-#: .\templates\pages\contact.html:88
+#: .\templates\pages\contact.html:85
 msgid "Message"
 msgstr "Message"
 
-#: .\templates\pages\contact.html:92
+#: .\templates\pages\contact.html:89
 msgid "Send Message"
 msgstr "Send Message"
 
 #: .\templates\pages\features.html:8 .\templates\pages\product.html:8
-#, fuzzy
-#| msgid "Explore Our"
 msgid "Explore Our"
 msgstr "Explore Our"
 
@@ -221,23 +219,130 @@ msgstr "Explore"
 msgid "All"
 msgstr "All"
 
+#: .\templates\pages\recruiter.html:12
+msgid "CAREER OPPORTUNITIES"
+msgstr "CAREER OPPORTUNITIES"
+
+#: .\templates\pages\recruiter.html:14
+msgid "Join Our Team"
+msgstr "Join Our Team"
+
+#: .\templates\pages\recruiter.html:15
+msgid "Build Your Future with TOIN"
+msgstr "Build Your Future with TOIN"
+
+#: .\templates\pages\recruiter.html:38
+msgid "Department"
+msgstr "Department"
+
+#: .\templates\pages\recruiter.html:39
+msgid "N/A"
+msgstr "N/A"
+
+#: .\templates\pages\recruiter.html:42
+msgid "Experience"
+msgstr "Experience"
+
+#: .\templates\pages\recruiter.html:48
+msgid "Location"
+msgstr "Location"
+
+#: .\templates\pages\recruiter.html:56
+msgid "Salary Range"
+msgstr "Salary Range"
+
+#: .\templates\pages\recruiter.html:63
+msgid "Job Description"
+msgstr "Job Description"
+
+#: .\templates\pages\recruiter.html:71
+msgid "View Details"
+msgstr "View Details"
+
+#: .\templates\pages\recruiter.html:72
+msgid "Apply Now"
+msgstr "Apply Now"
+
+#: .\templates\pages\recruiter.html:78
+msgid "Full Description"
+msgstr "Full Description"
+
+#: .\templates\pages\recruiter.html:83
+msgid "Requirements"
+msgstr "Requirements"
+
+#: .\templates\pages\recruiter.html:89
+msgid "Benefits"
+msgstr "Benefits"
+
+#: .\templates\pages\recruiter.html:94
+msgid "Posted"
+msgstr "Posted"
+
+#: .\templates\pages\recruiter.html:95
+msgid "Updated"
+msgstr "Updated"
+
+#: .\templates\pages\recruiter.html:110
+msgid "No Open Positions"
+msgstr "No Open Positions"
+
+#: .\templates\pages\recruiter.html:112
+msgid ""
+"We don't have any open positions at the moment, but we're always looking for "
+"talented individuals to join our team."
+msgstr ""
+"We don't have any open positions at the moment, but we're always looking for "
+"talented individuals to join our team."
+
+#: .\templates\pages\recruiter.html:114
+msgid ""
+"Please check back later or send us your resume for future opportunities."
+msgstr ""
+"Please check back later or send us your resume for future opportunities."
+
+#: .\templates\pages\recruiter.html:115
+msgid "Send Resume"
+msgstr "Send Resume"
+
+#: .\templates\pages\recruiter.html:129
+msgid "Interested in Joining Our Team?"
+msgstr "Interested in Joining Our Team?"
+
+#: .\templates\pages\recruiter.html:132
+msgid "We'd Love to Hear from You"
+msgstr "We'd Love to Hear from You"
+
+#: .\templates\pages\recruiter.html:140
+msgid "Email Your Resume"
+msgstr "Email Your Resume"
+
+#: .\templates\pages\recruiter.html:141
+msgid ""
+"Send us your resume and cover letter for any position that interests you."
+msgstr ""
+"Send us your resume and cover letter for any position that interests you."
+
+#: .\templates\pages\recruiter.html:142
+msgid "Send Email"
+msgstr "Send Email"
+
+#: .\templates\pages\recruiter.html:150
+msgid "Call Us"
+msgstr "Call Us"
+
+#: .\templates\pages\recruiter.html:151
+msgid "Speak directly with our HR team about career opportunities."
+msgstr "Speak directly with our HR team about career opportunities."
+
+#: .\templates\pages\recruiter.html:152
+msgid "Call Now"
+msgstr "Call Now"
+
 #: .\templates\pages\team.html:8
 msgid "Meet"
 msgstr "Meet"
 
-#: .\templates\pages\team.html:26
-#, fuzzy
-#| msgid "Address"
+#: .\templates\pages\team.html:28
 msgid "Address: "
-msgstr "Address"
-
-#~ msgid "ABOUT"
-#~ msgstr "ABOUT"
-
-#, fuzzy
-#~| msgid "History"
-#~ msgid "History"
-#~ msgstr "History"
-
-#~ msgid "admin/"
-#~ msgstr "admin/"
+msgstr "Address: "
