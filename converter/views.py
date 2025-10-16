@@ -3,11 +3,17 @@ from django.http import FileResponse, HttpResponse
 from pdf2docx import Converter
 import os, tempfile, uuid
 
+from pages.models import CompanyProfile
+
 app_name = "converter"
 
 
 def index(request):
-    return render(request, "converter/index.html")
+    company_profile = CompanyProfile.objects.first()
+    context = {
+        "company_profile": company_profile,
+    }
+    return render(request, "converter/index.html", context)
 
 
 def convert_pdf(request):

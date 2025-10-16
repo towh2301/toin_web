@@ -1,5 +1,7 @@
 {% load i18n %}
 {% load static %}
+{% load custom_tags %}
+
 <header id="header" class="header sticky-top">
     {% comment %} <div class="topbar d-flex align-items-center">
         <div class="container d-flex justify-content-center justify-content-md-between">
@@ -26,39 +28,51 @@
             </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li class="nav-item">
-                        <a class="nav-link" data-section="about" href="">{% trans 'About Us' %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-section="services" href="">{% trans 'Features' %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-section="portfolio" href="">{% trans 'Portfolio' %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-section="team" href="">{% trans 'Our Businesses' %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-section="contact" href="">{% trans 'Contact' %}</a>
-                    </li>
+                    {% is_locale_root request.path as locale_root %}
+                    {% if not locale_root %}
+                        <li class="nav-item">
+                            <a class="nav-link" data-section="about" href="">{% trans 'About Us' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-section="services" href="">{% trans 'Features' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-section="portfolio" href="">{% trans 'Portfolio' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-section="team" href="">{% trans 'Our Businesses' %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-section="contact" href="">{% trans 'Contact' %}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="{% url 'pages:index' %}">
+                                {% trans 'Home' %}
+                            </a>
+                        </li>
+
+                    {% endif %}
+                    <!-- Dropdown for Others -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle"
                            href="#"
                            id="navbarOthersDropdown"
                            role="button"
                            data-bs-toggle="dropdown"
-                           aria-expanded="false">{% trans 'Others' %}</a>
-                        <div class="dropdown-menu custom-dropdown"
-                             aria-labelledby="navbarOthersDropdown">
-                            <div class="dropdown-inner">
-                                <div class="dropdown-column">
-                                    <a class="dropdown-item" href={% url 'converter:index' %}>{% trans 'PDF - Converter' %}  <span>›</span></a>
-                                    <a class="dropdown-item" href={% url 'pages:recruiter' %}>{% trans 'Blog' %} <span>›</span></a>
-                                    <a class="dropdown-item" href={% url 'pages:recruiter' %}>{% trans 'Crecruit' %} <span>›</span></a>
-                                </div>
-                            </div>
-                        </div>
+                           aria-expanded="false">
+                            {% trans 'Others' %}
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="navbarOthersDropdown">
+                            <li><a class="dropdown-item"
+                                   href="{% url 'converter:index' %}">{% trans 'PDF - Converter' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'pages:recruiter' %}">{% trans 'Blog' %}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'pages:recruiter' %}">{% trans 'Recruiter' %}</a>
+                            </li>
+                        </ul>
                     </li>
+
                     <!-- Divider -->
                     <li class="nav-item me-3">
                         <span class="vr"></span> <!-- Bootstrap vertical rule -->
@@ -70,13 +84,16 @@
                              aria-label="Language switch">
                             <button type="button"
                                     class="btn {% if request.LANGUAGE_CODE == 'vi' %}active{% endif %}"
-                                    data-lang="vi">VI</button>
+                                    data-lang="vi">VI
+                            </button>
                             <button type="button"
                                     class="btn {% if request.LANGUAGE_CODE == 'jp' %}active{% endif %}"
-                                    data-lang="jp">JP</button>
+                                    data-lang="jp">JP
+                            </button>
                             <button type="button"
                                     class="btn {% if request.LANGUAGE_CODE == 'en' %}active{% endif %}"
-                                    data-lang="en">EN</button>
+                                    data-lang="en">EN
+                            </button>
                         </div>
                     </li>
                 </ul>

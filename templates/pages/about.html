@@ -10,19 +10,72 @@
         </div>
         <div class="container">
             <div class="isotope-layout"
-                 data-default-filter=".filter-history"
+                 data-default-filter=".filter-offices"
                  data-layout="masonry"
                  data-sort="original-order">
                 <ul class="portfolio-filters isotope-filters"
                     data-aos="fade-up"
                     data-aos-delay="100">
-                    <li data-filter=".filter-history" class="filter-active">{% trans "Company History" %}</li>
+                    <li data-filter=".filter-offices" class="filter-active">{% trans "Vietnam Offices" %}</li>
+                    <li data-filter=".filter-history">{% trans "Company History" %}</li>
                     <li data-filter=".filter-company">{% trans "Company Information" %}</li>
-                    <li data-filter=".filter-offices">{% trans "Vietnam Offices" %}</li>
                 </ul>
                 <div class="row gy-4 isotope-container"
                      data-aos="fade-up"
                      data-aos-delay="200">
+                    <!-- Offices Item -->
+                    {% for addr in company_profile.office_addresses.all %}
+                        <div class="col-lg-6 col-md-6 col-sm-12 portfolio-item isotope-item filter-offices">
+                            <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
+                                <div class="ratio ratio-4x3">
+                                    <iframe src="{{ addr.address_link }}"
+                                            allowfullscreen
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                </div>
+                                <div class="card-body bg-white">
+                                    <h4 class="fw-bold text-uppercase mb-2 text-dark">{{ addr.get_name }}</h4>
+                                    <p class="mb-2">
+                                        <strong>{% trans "Address" %}:</strong>
+                                        <br>
+                                        {{ addr.get_address }}
+                                    </p>
+                                    {% if addr.contact_number %}
+                                        <p class="mb-1">
+                                            <strong>TEL:</strong> {{ addr.contact_number }}
+                                        </p>
+                                    {% endif %}
+                                    {% if addr.fax_number %}
+                                        <p class="mb-1">
+                                            <strong>FAX:</strong> {{ addr.fax_number }}
+                                        </p>
+                                    {% endif %}
+                                    {% if addr.contact_addresses.all %}
+                                        <div class="mt-2">
+                                            <strong>{% trans "Contact" %}:</strong>
+                                            <ul class="list-unstyled mb-0">
+                                                {% for contact in addr.contact_addresses.all %}
+                                                    <li>
+                                                        {% if contact.contact_name != "TOIN" %}
+                                                            <span class="fw-semibold">{{ contact.get_full_details }}</span>
+                                                        {% else %}
+                                                            <span class="fw-semibold">{{ contact.get_contact }}</span>
+                                                        {% endif %}
+                                                        {% if contact.contact_email != "No Data" %}
+                                                            -
+                                                            <a href="mailto:{{ contact.contact_email }}">{{ contact.contact_email }}</a>
+                                                            <br/>
+                                                        {% endif %}
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                     <!-- History Item -->
                     <div class="isotope-item filter-history bg-white rounded-3 shadow-sm p-4 transition">
                         <div class="portfolio-info d-flex flex-column gap-3">
@@ -136,59 +189,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Offices Item -->
-                    {% for addr in company_profile.office_addresses.all %}
-                        <div class="col-lg-6 col-md-6 col-sm-12 portfolio-item isotope-item filter-offices">
-                            <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
-                                <div class="ratio ratio-4x3">
-                                    <iframe src="{{ addr.address_link }}"
-                                            allowfullscreen
-                                            loading="lazy"
-                                            referrerpolicy="no-referrer-when-downgrade">
-                                    </iframe>
-                                </div>
-                                <div class="card-body bg-white">
-                                    <h4 class="fw-bold text-uppercase mb-2 text-dark">{{ addr.get_name }}</h4>
-                                    <p class="mb-2">
-                                        <strong>{% trans "Address" %}:</strong>
-                                        <br>
-                                        {{ addr.get_address }}
-                                    </p>
-                                    {% if addr.contact_number %}
-                                        <p class="mb-1">
-                                            <strong>TEL:</strong> {{ addr.contact_number }}
-                                        </p>
-                                    {% endif %}
-                                    {% if addr.fax_number %}
-                                        <p class="mb-1">
-                                            <strong>FAX:</strong> {{ addr.fax_number }}
-                                        </p>
-                                    {% endif %}
-                                    {% if addr.contact_addresses.all %}
-                                        <div class="mt-2">
-                                            <strong>{% trans "Contact" %}:</strong>
-                                            <ul class="list-unstyled mb-0">
-                                                {% for contact in addr.contact_addresses.all %}
-                                                    <li>
-                                                        {% if contact.contact_name != "TOIN" %}
-                                                            <span class="fw-semibold">{{ contact.get_full_details }}</span>
-                                                        {% else %}
-                                                            <span class="fw-semibold">{{ contact.get_contact }}</span>
-                                                        {% endif %}
-                                                        {% if contact.contact_email != "No Data" %}
-                                                            -
-                                                            <a href="mailto:{{ contact.contact_email }}">{{ contact.contact_email }}</a>
-                                                            <br />
-                                                        {% endif %}
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
+
                 </div>
             </div>
         </div>

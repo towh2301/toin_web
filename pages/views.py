@@ -1,35 +1,15 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.utils.translation import get_language
-from django.core.mail import send_mail, EmailMessage
-from django.conf import settings
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST
 import os
-from .models import (
-    Hero,
-    Partner,
-    Post,
-    Business,
-    Feature,
-    Product,
-    CompanyProfile,
-    History,
-    Progress,
-    Type,
-    Recruiter,
-    CVSubmission,
-)
-
-from django.views.decorators.http import require_POST
-from django.http import JsonResponse
-from django.core.mail import EmailMessage, send_mail
-from django.conf import settings
 from threading import Thread
-import os
+
+from django.conf import settings
+from django.core.mail import EmailMessage, send_mail
+from django.http import JsonResponse
+from django.shortcuts import render
+from django.utils.translation import get_language
+from django.views.decorators.http import require_POST
 
 from .models import CVSubmission
+from .models import CompanyProfile, Progress, Type, Post, Hero, Product, History, Feature, Partner, Recruiter, Business
 
 app_name = "pages"
 
@@ -70,8 +50,12 @@ def index(request):
 def recruiter(request):
     current_language = get_language()
     recruiters = Recruiter.objects.filter(is_active=True).order_by("-created_at")
+    company_profile = (
+        CompanyProfile.objects.first()
+    )  # Use .first() if expecting a single profile
 
     context = {
+        "company_profile": company_profile,
         "current_language": current_language,
         "recruiters": recruiters,
     }
