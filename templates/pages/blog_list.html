@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block pages %}
+    <section class="section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Blog</h2>
+                <p>Latest news and articles</p>
+            </div>
+            <div class="row">
+                {% for post in posts %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            {% if post.image %}
+                                <img src="{{ post.image.url }}"
+                                     class="card-img-top"
+                                     alt="{{ post.get_title }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.get_title }}</h5>
+                                <p class="card-text">{{ post.get_description|truncatewords:30 }}</p>
+                                <a href="{% url 'pages:blog_detail' post.id %}" class="btn btn-toin">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No posts yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock pages %}

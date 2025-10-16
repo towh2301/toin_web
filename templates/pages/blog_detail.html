@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block pages %}
+    <section class="section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>{{ post.get_title }}</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}"
+                             class="img-fluid mb-3"
+                             alt="{{ post.get_title }}">
+                    {% endif %}
+                    <div class="content text-secondary">{{ post.get_description|linebreaks }}</div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card p-3">
+                        <h6>Other posts</h6>
+                        <ul class="list-unstyled">
+                            {% for p in recent_posts %}
+                                <li>
+                                    <a href="{% url 'pages:blog_detail' p.id %}">{{ p.get_title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock pages %}

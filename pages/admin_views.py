@@ -175,7 +175,7 @@ def cv_dashboard(request):
         # Get submissions by position
         positions = (
             queryset.values("position_applied")
-            .annotate(count=models.Count("id"))
+            .annotate(count=Count("id"))
             .order_by("-count")[:10]
         )
 

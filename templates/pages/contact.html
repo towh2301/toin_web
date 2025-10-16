@@ -88,10 +88,52 @@
                                           required></textarea>
                             </div>
                             <div class="col-12 text-center btn-group">
-                                <button type="submit" class="btn active">{% trans "Send Message" %}</button>
+                                <button type="submit" id="keepInTouchSubmit" class="btn active">{% trans "Send Message" %}</button>
                             </div>
                         </div>
                     </form>
+                    <div id="keepInTouchAlert" class="mt-3 hidden"></div>
+                    <script>
+                        (function(){
+                            const form = document.querySelector('.contact-form');
+                            const alertBox = document.getElementById('keepInTouchAlert');
+                            form.addEventListener('submit', function(e){
+                                e.preventDefault();
+                                const btn = document.getElementById('keepInTouchSubmit');
+                                const originalText = btn.innerHTML;
+                                btn.disabled = true;
+                                btn.innerHTML = 'Sending...';
+
+                                const formData = new FormData(form);
+
+                                fetch('{% url "pages:keep_in_touch" %}', {
+                                    method: 'POST',
+                                    body: formData,
+                                    headers: {
+                                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                                    }
+                                }).then(r => r.json())
+                                .then(data => {
+                                    alertBox.style.display = 'block';
+                                    if (data.success) {
+                                        alertBox.className = 'alert alert-success';
+                                        alertBox.textContent = data.message || 'Message sent successfully.';
+                                        form.reset();
+                                    } else {
+                                        alertBox.className = 'alert alert-danger';
+                                        alertBox.textContent = data.message || 'An error occurred.';
+                                    }
+                                }).catch(err => {
+                                    alertBox.style.display = 'block';
+                                    alertBox.className = 'alert alert-danger';
+                                    alertBox.textContent = 'An unexpected error occurred.';
+                                }).finally(() => {
+                                    btn.disabled = false;
+                                    btn.innerHTML = originalText;
+                                });
+                            });
+                        })();
+                    </script>
                 </div>
             </div>
         </div>

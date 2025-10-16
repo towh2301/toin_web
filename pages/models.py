@@ -37,6 +37,12 @@ class Post(models.Model):
     vi_description = models.TextField(null=True, blank=True)
     jp_description = models.TextField(null=True, blank=True)
     image = models.FileField(upload_to="post/", blank=True, null=True)
+    is_published = models.BooleanField(
+        default=False, help_text="Publish this post to make it visible on the blog"
+    )
+    publish_date = models.DateTimeField(
+        null=True, blank=True, help_text="Date and time when this post was published"
+    )
 
     def __str__(self):
         return self.en_title or self.vi_title or self.jp_title or "Unnamed Post"
@@ -50,6 +56,10 @@ class Post(models.Model):
             or getattr(self, "jp_description", None)
             or "No description available"
         )
+
+    def get_title(self):
+        language = get_language()
+        return getattr(self, f"{language}_title", None)
 
 
 # Business model for business-related content

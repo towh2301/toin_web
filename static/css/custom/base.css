@@ -1,14 +1,60 @@
 .lang-switch .btn {
-    padding: 5px 10px;
-    font-size: 0.8rem;
+	padding: 5px 10px;
+	font-size: 0.8rem;
 }
 
 .lang-switch .btn.active {
-    background-color: #006953; /* green */
-    color: #fff;
+	background-color: #006953; /* green */
+	color: #fff;
 }
 
 .lang-switch .btn:not(.active) {
-    background-color: #e0e0e0; /* gray */
-    color: #333;
+	background-color: #e0e0e0; /* gray */
+	color: #333;
+}
+
+/* Theme variables and sensible defaults for templates */
+:root {
+	--accent-color: #006953;
+	--contrast-color: #ffffff;
+	--surface-color: #ffffff;
+	--default-color: #e0e0e0;
+	--heading-color: #222222;
+}
+
+/* small utility classes */
+.hidden {
+	display: none !important;
+}
+.visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+/* Admin dashboard card styles */
+.admin-dashboard-module {
+	margin-top: 20px;
+}
+.admin-dashboard-cards {
+	display: flex;
+	gap: 16px;
+	flex-wrap: wrap;
+	margin-top: 12px;
+}
+.admin-dashboard-card {
+	background: #fff;
+	border: 1px solid #e5e5e5;
+	padding: 16px;
+	border-radius: 8px;
+	min-width: 220px;
+}
+.admin-dashboard-card h3 {
+	margin-top: 0;
 }

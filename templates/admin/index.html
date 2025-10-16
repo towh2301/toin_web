@@ -1,0 +1,17 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% block content %}
+    {{ block.super }}
+    <div class="module admin-dashboard-module">
+        <h2>{% trans "Custom Dashboards" %}</h2>
+        <div class="admin-dashboard-cards">
+            <div class="admin-dashboard-card">
+                <h3>CV Submissions</h3>
+                <p class="small">Overview and management tools for CV submissions.</p>
+                <p>
+                    <a class="button" href="{% url 'cv_admin:dashboard' %}">{% trans "Open Dashboard" %}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

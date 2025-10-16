@@ -52,7 +52,8 @@
             gap: 5px;
         }
         .cv-action-btn:hover {
-            background: color-mix(in srgb, var(--accent-color, #006953), transparent 15%);
+            /* color-mix fallback */
+            background: rgba(0,105,83,0.85);
             color: white;
         }
         .cv-submission-card {
@@ -65,7 +66,7 @@
         }
         .cv-submission-header {
             display: flex;
-            justify-content: between;
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }

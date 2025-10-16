@@ -143,12 +143,21 @@ else:
         elif host and host != "*":
             CSRF_TRUSTED_ORIGINS.append(f"https://{host}")
 
-# Email Configuration
-# Use console backend in DEBUG mode unless FORCE_SMTP is explicitly enabled
+# Email Configuration for Render & Production
+# See RENDER_DEPLOYMENT.md for setup instructions
+# Supports: Console (dev), Gmail SMTP, SendGrid, and other SMTP providers
+#
+# Required environment variables:
+#   EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, DEFAULT_FROM_EMAIL
+#
+# Optional: Set FORCE_SMTP=true to use SMTP even in DEBUG mode (for testing)
+
 if DEBUG and os.getenv("FORCE_SMTP", "").lower() != "true":
+    # Development: use console backend (outputs to stdout/logs)
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "noreply@example.com")
+    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "noreply@toin-vn.com")
 else:
+    # Production or forced SMTP: use configured SMTP backend
     EMAIL_BACKEND = os.getenv(
         "EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend"
     )
@@ -158,9 +167,19 @@ else:
     EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", "false").lower() == "true"
     EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
-    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL" or "toin-vn@toin-vn.com.vn")
+    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "noreply@toin-vn.com")
 
-    # Safety fallback: avoid crashing if credentials are missing in production
+    # Safety fallback: gracefully degrade if credentials are missing in production
+    # This prevents crashes but allows inspection via logs
     if not DEBUG and (not EMAIL_HOST_USER or not EMAIL_HOST_PASSWORD):
         EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-        print("⚠️ WARNING: Missing email credentials — using console backend instead.")
+        print(
+            "⚠️ WARNING: Missing email credentials (EMAIL_HOST_USER or EMAIL_HOST_PASSWORD). "
+            "Using console backend instead. Configure email in Render environment variables."
+        )
+
+# Error Page Handlers
+# Custom error views with styled templates using header and footer
+# These provide branded 404 and 500 error pages instead of Django defaults
+handler404 = "pages.views.page_not_found"  # 404 - Page not found
+handler500 = "pages.views.server_error"  # 500 - Server error

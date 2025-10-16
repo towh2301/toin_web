@@ -9,7 +9,19 @@ from django.utils.translation import get_language
 from django.views.decorators.http import require_POST
 
 from .models import CVSubmission
-from .models import CompanyProfile, Progress, Type, Post, Hero, Product, History, Feature, Partner, Recruiter, Business
+from .models import (
+    CompanyProfile,
+    Progress,
+    Type,
+    Post,
+    Hero,
+    Product,
+    History,
+    Feature,
+    Partner,
+    Recruiter,
+    Business,
+)
 
 app_name = "pages"
 
@@ -60,6 +72,91 @@ def recruiter(request):
         "recruiters": recruiters,
     }
     return render(request, "pages/recruiter.html", context)
+
+
+def blog_list(request):
+    """Simple blog listing using Post model."""
+    posts = Post.objects.filter(is_published=True).order_by("-publish_date")
+    return render(request, "pages/blog_list.html", {"posts": posts})
+
+
+def blog_detail(request, post_id):
+    post = Post.objects.filter(id=post_id, is_published=True).first()
+    company_profile = CompanyProfile.objects.first()
+    recent_posts = (
+        Post.objects.filter(is_published=True)
+        .exclude(id=post_id)
+        .order_by("-publish_date")[:5]
+    )
+    if not post:
+        from django.http import Http404
+
+        raise Http404("Post not found")
+    return render(
+        request,
+        "pages/blog_detail.html",
+        {
+            "post": post,
+            "recent_posts": recent_posts,
+            "company_profile": company_profile,
+        },
+    )
+
+
+@require_POST
+def keep_in_touch(request):
+    """Handle Keep-in-touch contact submissions from the contact form.
+
+    Expects: name, email, subject, message
+    Sends an email to site contact and a confirmation to the sender.
+    Returns JSON.
+    """
+    try:
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        if not all([name, email, subject, message]):
+            return JsonResponse(
+                {"success": False, "message": "Please fill in all required fields."}
+            )
+
+        # Compose email to site contact
+        from django.conf import settings
+
+        hr_subject = f"Keep in touch: {subject} - from {name}"
+        hr_body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+
+        email_hr = EmailMessage(
+            subject=hr_subject,
+            body=hr_body,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[settings.DEFAULT_FROM_EMAIL],
+            reply_to=[email],
+        )
+
+        # Send asynchronously
+        send_async_email(email_hr)
+
+        # Send confirmation to the sender
+        conf_subject = "Thanks for contacting TOIN Vietnam"
+        conf_message = f"Dear {name},\n\nThank you for reaching out. We received your message and will reply as soon as possible.\n\nBest regards,\nTOIN Vietnam"
+        Thread(
+            target=send_mail,
+            args=(conf_subject, conf_message, settings.DEFAULT_FROM_EMAIL, [email]),
+            kwargs={"fail_silently": True},
+            daemon=True,
+        ).start()
+
+        return JsonResponse(
+            {"success": True, "message": "Thank you — your message has been sent."}
+        )
+
+    except Exception as e:
+        return JsonResponse(
+            {"success": False, "message": f"An error occurred: {str(e)}"}
+        )
 
 
 def send_async_email(email_obj):
@@ -188,7 +285,7 @@ TOIN Vietnam HR Team
             return JsonResponse(
                 {
                     "success": True,
-                    "message": "Your CV was submitted, but we couldn’t send confirmation email right now.",
+                    "message": "Your CV was submitted, but we couldn't send confirmation email right now.",
                 }
             )
 
@@ -199,3 +296,21 @@ TOIN Vietnam HR Team
                 "message": f"An unexpected error occurred: {str(e)}",
             }
         )
+
+
+# Error Handler Views
+# These views provide styled error pages with header and footer
+def page_not_found(request, exception=None):
+    """Handle 404 Page Not Found errors.
+
+    Renders a branded 404 error page with header and footer.
+    """
+    return render(request, "404.html", status=404)
+
+
+def server_error(request):
+    """Handle 500 Server Error.
+
+    Renders a branded 500 error page with header and footer.
+    """
+    return render(request, "500.html", status=500)
