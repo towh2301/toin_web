@@ -1,4 +1,5 @@
 import os
+import logging
 from threading import Thread
 
 from django.conf import settings
@@ -24,6 +25,8 @@ from .models import (
 )
 
 app_name = "pages"
+
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -249,26 +252,27 @@ Thank you for your interest in joining TOIN Vietnam!
 
 We have received your CV submission for the position: {position_applied or 'General Application'}.
 
-Our HR team will review your application and contact you if there’s a suitable match.
+Our HR team will review your application and contact you if there's a suitable match.
 
 Best regards,
 TOIN Vietnam HR Team
 """
 
-        # === Send both emails asynchronously ===
+        # === Send both emails (NOT as daemon threads) ===
         try:
-            send_async_email(email_hr)
-            Thread(
-                target=send_mail,
-                args=(
-                    subject_applicant,
-                    message_applicant,
-                    settings.DEFAULT_FROM_EMAIL,
-                    [applicant_email],
-                ),
-                kwargs={"fail_silently": False},
-                daemon=True,
-            ).start()
+            # Send HR email
+            email_hr.send(fail_silently=False)
+            logger.info(f"HR email sent for submission {cv_submission.id}")
+
+            # Send applicant confirmation email
+            send_mail(
+                subject_applicant,
+                message_applicant,
+                settings.DEFAULT_FROM_EMAIL,
+                [applicant_email],
+                fail_silently=False,
+            )
+            logger.info(f"Confirmation email sent to {applicant_email}")
 
             return JsonResponse(
                 {
@@ -278,8 +282,10 @@ TOIN Vietnam HR Team
             )
 
         except Exception as e:
-            # Email failed — still save record
-            cv_submission.notes = f"Email sending failed: {str(e)}"
+            # Email failed — log and save error
+            error_msg = f"Email sending failed: {str(e)}"
+            logger.error(error_msg, exc_info=True)
+            cv_submission.notes = error_msg
             cv_submission.save()
 
             return JsonResponse(
@@ -290,6 +296,7 @@ TOIN Vietnam HR Team
             )
 
     except Exception as e:
+        logger.error(f"CV submission error: {str(e)}", exc_info=True)
         return JsonResponse(
             {
                 "success": False,
