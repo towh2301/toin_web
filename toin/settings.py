@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
+    "anymail",
     "pages",
     "converter",
 ]
@@ -143,21 +144,67 @@ else:
         elif host and host != "*":
             CSRF_TRUSTED_ORIGINS.append(f"https://{host}")
 
-# Email Configuration for Render & Production
-# See RENDER_DEPLOYMENT.md for setup instructions
-# Supports: Console (dev), Gmail SMTP, SendGrid, and other SMTP providers
-#
-# Required environment variables:
-#   EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, DEFAULT_FROM_EMAIL
-#
-# Optional: Set FORCE_SMTP=true to use SMTP even in DEBUG mode (for testing)
+"""
+Email Configuration
+-------------------
+We avoid SMTP on Render by using HTTP API providers via django-anymail.
+Supported providers: sendgrid, resend. Fallbacks: console (dev) or SMTP (legacy).
 
-if DEBUG and os.getenv("FORCE_SMTP", "").lower() != "true":
-    # Development: use console backend (outputs to stdout/logs)
+Environment variables:
+  EMAIL_PROVIDER=sendgrid|resend   # choose API provider (optional). If set, used in all envs.
+  DEFAULT_FROM_EMAIL=...           # required for all email scenarios
+
+  # For SendGrid
+  SENDGRID_API_KEY=...
+
+  # For Resend
+  RESEND_API_KEY=...
+
+  # Legacy SMTP fallback (only used if EMAIL_PROVIDER not set)
+  EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD,
+  EMAIL_USE_TLS, EMAIL_USE_SSL
+
+  # Optional
+  ANYMAIL_DEBUG=true|false         # log request/response
+  FORCE_SMTP=true                  # force SMTP even in DEBUG (not recommended on Render)
+"""
+
+EMAIL_PROVIDER = os.getenv("EMAIL_PROVIDER", "").strip().lower()
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "tuyendung@toin.com.vn")
+DEFAULT_TO_EMAIL = os.getenv("DEFAULT_TO_EMAIL", "h_huy@toin-vn.com")
+
+if EMAIL_PROVIDER in {"sendgrid", "resend"}:
+    # Configure django-anymail for HTTP API sending
+    ANYMAIL = {
+        "DEBUG_API_REQUESTS": os.getenv("ANYMAIL_DEBUG", "false").lower() == "true",
+    }
+    if EMAIL_PROVIDER == "sendgrid":
+        ANYMAIL["SENDGRID_API_KEY"] = os.getenv("SENDGRID_API_KEY", "")
+        EMAIL_BACKEND = "anymail.backends.sendgrid.EmailBackend"
+    elif EMAIL_PROVIDER == "resend":
+        ANYMAIL["RESEND_API_KEY"] = os.getenv("RESEND_API_KEY", "")
+        EMAIL_BACKEND = "anymail.backends.resend.EmailBackend"
+
+    # Basic validation to avoid silent misconfigurations in production
+    if not DEBUG:
+        api_key = (
+            ANYMAIL.get("SENDGRID_API_KEY")
+            if EMAIL_PROVIDER == "sendgrid"
+            else ANYMAIL.get("RESEND_API_KEY")
+        )
+        if not api_key:
+            print(
+                "⚠️ WARNING: EMAIL_PROVIDER is set to",
+                EMAIL_PROVIDER,
+                "but the corresponding API key env var is missing. Falling back to console backend.",
+            )
+            EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+elif DEBUG and os.getenv("FORCE_SMTP", "").lower() != "true":
+    # Development default: use console backend (outputs to stdout/logs)
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "noreply@toin-vn.com")
 else:
-    # Production or forced SMTP: use configured SMTP backend
+    # Legacy SMTP (kept for backwards compatibility or when explicitly required)
     EMAIL_BACKEND = os.getenv(
         "EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend"
     )
@@ -167,15 +214,13 @@ else:
     EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", "false").lower() == "true"
     EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
-    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "noreply@toin-vn.com")
 
     # Safety fallback: gracefully degrade if credentials are missing in production
-    # This prevents crashes but allows inspection via logs
     if not DEBUG and (not EMAIL_HOST_USER or not EMAIL_HOST_PASSWORD):
         EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
         print(
-            "⚠️ WARNING: Missing email credentials (EMAIL_HOST_USER or EMAIL_HOST_PASSWORD). "
-            "Using console backend instead. Configure email in Render environment variables."
+            "⚠️ WARNING: Missing SMTP credentials (EMAIL_HOST_USER or EMAIL_HOST_PASSWORD). "
+            "Using console backend instead. Configure EMAIL_PROVIDER and API key to avoid SMTP on Render."
         )
 
 # Error Page Handlers

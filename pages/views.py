@@ -238,7 +238,7 @@ Please check the attached CV file.
             subject=subject_hr,
             body=message_hr,
             from_email=settings.DEFAULT_FROM_EMAIL,
-            to=["huy.buihoang.cit20@eiu.edu.vn"],
+            to=[settings.DEFAULT_TO_EMAIL],
             reply_to=[applicant_email],
         )
         email_hr.attach_file(cv_submission.cv_file.path)
