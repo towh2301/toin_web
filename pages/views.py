@@ -134,8 +134,8 @@ def keep_in_touch(request):
         email_hr = EmailMessage(
             subject=hr_subject,
             body=hr_body,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[settings.DEFAULT_FROM_EMAIL],
+            from_email="contact@toin.com.vn",
+            to=[settings.DEFAULT_TO_EMAIL],
             reply_to=[email],
         )
 
