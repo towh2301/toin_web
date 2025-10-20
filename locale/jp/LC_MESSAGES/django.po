@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TOIN 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 15:01+0700\n"
+"POT-Creation-Date: 2025-10-20 11:23+0700\n"
 "PO-Revision-Date: 2025-10-15 16:00+0700\n"
 "Last-Translator: Japanese Translator <ja@toin.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
@@ -17,21 +17,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\templates\404.html:11 .\templates\404.html:112
+#: .\templates\404.html:9
 msgid "Page Not Found"
-msgstr ""
+msgstr "Page Not Found"
 
-#: .\templates\404.html:114
+#: .\templates\404.html:11
 msgid ""
 "Sorry, the page you are looking for does not exist or has been moved. It "
 "might have been replaced with something better."
 msgstr ""
 
-#: .\templates\404.html:118 .\templates\500.html:117
+#: .\templates\404.html:15 .\templates\500.html:117
 msgid "Go to Home"
 msgstr "ホームへ戻る"
 
-#: .\templates\404.html:121 .\templates\500.html:120
+#: .\templates\404.html:18 .\templates\500.html:120
 msgid "Go Back"
 msgstr "戻る"
 
@@ -91,65 +91,63 @@ msgstr ""
 "TOIN VIETNAM CO.,LTD.は、日本の基準による品質・製造管理体制のもと、高付加価値"
 "のパッケージ製品を生産しています。"
 
-#: .\templates\footer.html:25
+#: .\templates\footer.html:26
 msgid "OUR BUSINESSES"
 msgstr "当社の事業"
 
-#: .\templates\footer.html:28 .\templates\header.html:34
+#: .\templates\footer.html:29 .\templates\header.html:19
 msgid "About Us"
 msgstr "私たちについて"
 
-#: .\templates\footer.html:31
+#: .\templates\footer.html:32
 msgid "Services"
 msgstr "サービス"
 
-#: .\templates\footer.html:34 .\templates\header.html:40
+#: .\templates\footer.html:35 .\templates\header.html:25
 #: .\templates\pages\product.html:7 .\templates\pages\product.html:8
 msgid "Portfolio"
 msgstr "ポートフォリオ"
 
-#: .\templates\footer.html:37 .\templates\header.html:43
+#: .\templates\footer.html:38 .\templates\header.html:28
 #: .\templates\pages\team.html:6 .\templates\pages\team.html:8
 msgid "Our Businesses"
 msgstr "当社の事業"
 
-#: .\templates\footer.html:43
+#: .\templates\footer.html:44
 msgid "FEATURES"
 msgstr "特徴"
 
-#: .\templates\footer.html:65
+#: .\templates\footer.html:47 .\templates\header.html:42
+#: .\templates\header.html:57 .\templates\pages\blog_list.html:7
+msgid "Blog"
+msgstr "ブログ"
+
+#: .\templates\footer.html:50 .\templates\header.html:45
+#: .\templates\header.html:60
+msgid "Career"
+msgstr "キャリア"
+
+#: .\templates\footer.html:60
 msgid "CONTACT"
 msgstr "お問い合わせ"
 
-#: .\templates\header.html:37 .\templates\pages\features.html:6
+#: .\templates\header.html:22 .\templates\pages\features.html:6
 #: .\templates\pages\features.html:8
 msgid "Features"
 msgstr "特徴"
 
-#: .\templates\header.html:46 .\templates\pages\about.html:56
+#: .\templates\header.html:31 .\templates\pages\about.html:56
 #: .\templates\pages\about.html:160 .\templates\pages\contact.html:6
 msgid "Contact"
 msgstr "お問い合わせ"
 
-#: .\templates\header.html:50
+#: .\templates\header.html:35
 msgid "Home"
 msgstr "家"
 
-#: .\templates\header.html:60
+#: .\templates\header.html:54
 msgid "Others"
 msgstr "その他"
-
-#: .\templates\header.html:63
-msgid "PDF - Converter"
-msgstr "PDF - コンバーター"
-
-#: .\templates\header.html:66
-msgid "Blog"
-msgstr "ブログ"
-
-#: .\templates\header.html:69
-msgid "Career"
-msgstr "キャリア"
 
 #: .\templates\pages\about.html:8
 msgid "Discover"
@@ -207,6 +205,18 @@ msgstr "ミッション"
 #: .\templates\pages\about.html:175
 msgid "Parent Companies"
 msgstr "親会社"
+
+#: .\templates\pages\blog_list.html:8
+msgid "Latest news and articles"
+msgstr "最新のニュースと記事"
+
+#: .\templates\pages\blog_list.html:25
+msgid "READ MORE"
+msgstr "続きを読む"
+
+#: .\templates\pages\blog_list.html:30
+msgid "No posts yet."
+msgstr "まだ投稿はありません。"
 
 #: .\templates\pages\contact.html:8 .\templates\pages\recruiter.html:277
 msgid "Get in Touch"
@@ -343,7 +353,7 @@ msgstr "履歴書を送信"
 
 #: .\templates\pages\recruiter.html:195
 msgid "Submit Your CV"
-msgstr ""
+msgstr "履歴書を送信"
 
 #: .\templates\pages\recruiter.html:207
 #, fuzzy
@@ -359,31 +369,31 @@ msgstr "住所"
 
 #: .\templates\pages\recruiter.html:225
 msgid "Phone Number"
-msgstr ""
+msgstr "電話番号"
 
 #: .\templates\pages\recruiter.html:232
 msgid "Position Applied For"
-msgstr ""
+msgstr "応募職種"
 
 #: .\templates\pages\recruiter.html:241
 msgid "Cover Letter"
-msgstr ""
+msgstr "カバーレター"
 
 #: .\templates\pages\recruiter.html:246
 msgid "Tell us why you want to join TOIN..."
-msgstr ""
+msgstr "TOIN に参加したい理由を教えてください。"
 
 #: .\templates\pages\recruiter.html:249
 msgid "Upload CV/Resume"
-msgstr ""
+msgstr "履歴書をアップロード"
 
 #: .\templates\pages\recruiter.html:256
 msgid "Accepted formats: PDF, DOC, DOCX (Max 5MB)"
-msgstr ""
+msgstr "受け入れ可能な形式: PDF、DOC、DOCX (最大 5MB)"
 
 #: .\templates\pages\recruiter.html:260
 msgid "Submit Application"
-msgstr ""
+msgstr "申請を提出する"
 
 #: .\templates\pages\recruiter.html:275
 msgid "Interested in Joining Our Team?"
@@ -395,15 +405,15 @@ msgstr "ぜひご連絡ください"
 
 #: .\templates\pages\recruiter.html:288
 msgid "Submit CV Online"
-msgstr ""
+msgstr "履歴書をオンラインで提出"
 
 #: .\templates\pages\recruiter.html:289
 msgid "Use our online form to submit your CV and cover letter directly."
-msgstr ""
+msgstr "当社のオンラインフォームを使用して、履歴書とカバーレターを直接送信してください。"
 
 #: .\templates\pages\recruiter.html:294
 msgid "Submit CV"
-msgstr ""
+msgstr "履歴書を送信"
 
 #: .\templates\pages\recruiter.html:305
 msgid "Call Us"
@@ -424,6 +434,9 @@ msgstr "会う"
 #: .\templates\pages\team.html:28
 msgid "Address: "
 msgstr "住所："
+
+#~ msgid "PDF - Converter"
+#~ msgstr "PDF - コンバーター"
 
 #, fuzzy
 #~| msgid "Recruiter"

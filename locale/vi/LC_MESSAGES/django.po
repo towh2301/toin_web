@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TOIN 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 15:01+0700\n"
+"POT-Creation-Date: 2025-10-20 11:23+0700\n"
 "PO-Revision-Date: 2025-10-15 16:00+0700\n"
 "Last-Translator: Vietnamese Translator <vi@toin.com>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\templates\404.html:11 .\templates\404.html:112
+#: .\templates\404.html:9
 msgid "Page Not Found"
 msgstr "Không tìm thấy trang"
 
-#: .\templates\404.html:114
+#: .\templates\404.html:11
 msgid ""
 "Sorry, the page you are looking for does not exist or has been moved. It "
 "might have been replaced with something better."
@@ -29,11 +29,11 @@ msgstr ""
 "Rất tiếc, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển. Có thể "
 "trang đó đã được thay thế bằng trang khác tốt hơn."
 
-#: .\templates\404.html:118 .\templates\500.html:117
+#: .\templates\404.html:15 .\templates\500.html:117
 msgid "Go to Home"
 msgstr "Về trang chủ"
 
-#: .\templates\404.html:121 .\templates\500.html:120
+#: .\templates\404.html:18 .\templates\500.html:120
 msgid "Go Back"
 msgstr "Quay lại"
 
@@ -94,65 +94,63 @@ msgstr ""
 "NAM sản xuất các sản phẩm bao bì có giá trị gia tăng cao dưới hệ thống kiểm "
 "soát chất lượng và sản xuất đạt chuẩn Nhật Bản."
 
-#: .\templates\footer.html:25
+#: .\templates\footer.html:26
 msgid "OUR BUSINESSES"
 msgstr "TẬP ĐOÀN"
 
-#: .\templates\footer.html:28 .\templates\header.html:34
+#: .\templates\footer.html:29 .\templates\header.html:19
 msgid "About Us"
 msgstr "Về chúng tôi"
 
-#: .\templates\footer.html:31
+#: .\templates\footer.html:32
 msgid "Services"
 msgstr "Dịch vụ"
 
-#: .\templates\footer.html:34 .\templates\header.html:40
+#: .\templates\footer.html:35 .\templates\header.html:25
 #: .\templates\pages\product.html:7 .\templates\pages\product.html:8
 msgid "Portfolio"
 msgstr "Sản phẩm"
 
-#: .\templates\footer.html:37 .\templates\header.html:43
+#: .\templates\footer.html:38 .\templates\header.html:28
 #: .\templates\pages\team.html:6 .\templates\pages\team.html:8
 msgid "Our Businesses"
 msgstr "Tập đoàn"
 
-#: .\templates\footer.html:43
+#: .\templates\footer.html:44
 msgid "FEATURES"
 msgstr "ĐẶC ĐIỂM NỔI BẬT"
 
-#: .\templates\footer.html:65
+#: .\templates\footer.html:47 .\templates\header.html:42
+#: .\templates\header.html:57 .\templates\pages\blog_list.html:7
+msgid "Blog"
+msgstr "Blog"
+
+#: .\templates\footer.html:50 .\templates\header.html:45
+#: .\templates\header.html:60
+msgid "Career"
+msgstr "Việc làm"
+
+#: .\templates\footer.html:60
 msgid "CONTACT"
 msgstr "LIÊN HỆ"
 
-#: .\templates\header.html:37 .\templates\pages\features.html:6
+#: .\templates\header.html:22 .\templates\pages\features.html:6
 #: .\templates\pages\features.html:8
 msgid "Features"
 msgstr "Đặc điểm nổi bật"
 
-#: .\templates\header.html:46 .\templates\pages\about.html:56
+#: .\templates\header.html:31 .\templates\pages\about.html:56
 #: .\templates\pages\about.html:160 .\templates\pages\contact.html:6
 msgid "Contact"
 msgstr "Liên hệ"
 
-#: .\templates\header.html:50
+#: .\templates\header.html:35
 msgid "Home"
-msgstr ""
+msgstr "Trang chủ"
 
-#: .\templates\header.html:60
+#: .\templates\header.html:54
 msgid "Others"
 msgstr "Khác"
-
-#: .\templates\header.html:63
-msgid "PDF - Converter"
-msgstr "PDF - Chuyển đổi"
-
-#: .\templates\header.html:66
-msgid "Blog"
-msgstr "Blog"
-
-#: .\templates\header.html:69
-msgid "Career"
-msgstr "Việc làm"
 
 #: .\templates\pages\about.html:8
 msgid "Discover"
@@ -210,6 +208,18 @@ msgstr "Sứ mệnh"
 #: .\templates\pages\about.html:175
 msgid "Parent Companies"
 msgstr "Công ty mẹ"
+
+#: .\templates\pages\blog_list.html:8
+msgid "Latest news and articles"
+msgstr "Bài đăng mới nhất"
+
+#: .\templates\pages\blog_list.html:25
+msgid "READ MORE"
+msgstr "XEM THÊM"
+
+#: .\templates\pages\blog_list.html:30
+msgid "No posts yet."
+msgstr "Chưa có bài đăng"
 
 #: .\templates\pages\contact.html:8 .\templates\pages\recruiter.html:277
 msgid "Get in Touch"
@@ -344,11 +354,11 @@ msgstr ""
 
 #: .\templates\pages\recruiter.html:178
 msgid "Send Resume"
-msgstr "Gửi CV"
+msgstr "Gửi Resume"
 
 #: .\templates\pages\recruiter.html:195
 msgid "Submit Your CV"
-msgstr ""
+msgstr "Gửi CV"
 
 #: .\templates\pages\recruiter.html:207
 #, fuzzy
@@ -364,31 +374,31 @@ msgstr "Địa chỉ"
 
 #: .\templates\pages\recruiter.html:225
 msgid "Phone Number"
-msgstr ""
+msgstr "Số điện thoại"
 
 #: .\templates\pages\recruiter.html:232
 msgid "Position Applied For"
-msgstr ""
+msgstr "Vị trí ứng tuyển"
 
 #: .\templates\pages\recruiter.html:241
 msgid "Cover Letter"
-msgstr ""
+msgstr "Thư giới thiệu"
 
 #: .\templates\pages\recruiter.html:246
 msgid "Tell us why you want to join TOIN..."
-msgstr ""
+msgstr "Tại sao bạn chọn TOIN..."
 
 #: .\templates\pages\recruiter.html:249
 msgid "Upload CV/Resume"
-msgstr ""
+msgstr "Tải lên CV/Resume"
 
 #: .\templates\pages\recruiter.html:256
 msgid "Accepted formats: PDF, DOC, DOCX (Max 5MB)"
-msgstr ""
+msgstr "Định dạng file được cho phép: PDF, DOC, DOCX (Tối đa 5MB)"
 
 #: .\templates\pages\recruiter.html:260
 msgid "Submit Application"
-msgstr ""
+msgstr "Gửi đơn ứng tuyển"
 
 #: .\templates\pages\recruiter.html:275
 msgid "Interested in Joining Our Team?"
@@ -400,15 +410,15 @@ msgstr "Chúng tôi rất mong nhận được thông tin từ bạn"
 
 #: .\templates\pages\recruiter.html:288
 msgid "Submit CV Online"
-msgstr ""
+msgstr "Gửi CV online"
 
 #: .\templates\pages\recruiter.html:289
 msgid "Use our online form to submit your CV and cover letter directly."
-msgstr ""
+msgstr "Sử dụng mẫu trực tuyến của chúng tôi để gửi CV và thư xin việc trực tiếp."
 
 #: .\templates\pages\recruiter.html:294
 msgid "Submit CV"
-msgstr ""
+msgstr "Gửi CV"
 
 #: .\templates\pages\recruiter.html:305
 msgid "Call Us"
@@ -429,6 +439,9 @@ msgstr "Gặp gỡ"
 #: .\templates\pages\team.html:28
 msgid "Address: "
 msgstr "Địa chỉ: "
+
+#~ msgid "PDF - Converter"
+#~ msgstr "PDF - Chuyển đổi"
 
 #, fuzzy
 #~| msgid "Recruiter"

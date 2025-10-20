@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 15:01+0700\n"
+"POT-Creation-Date: 2025-10-20 11:23+0700\n"
 "PO-Revision-Date: 2025-10-13 10:43+0700\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: English <en@li.org>\n"
@@ -18,41 +18,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\templates\404.html:11 .\templates\404.html:112
+#: .\templates\404.html:9
 msgid "Page Not Found"
-msgstr ""
+msgstr "Page Not Found"
 
-#: .\templates\404.html:114
+#: .\templates\404.html:11
 msgid ""
 "Sorry, the page you are looking for does not exist or has been moved. It "
 "might have been replaced with something better."
 msgstr ""
+"Sorry, the page you are looking for does not exist or has been moved. It "
+"might have been replaced with something better."
 
-#: .\templates\404.html:118 .\templates\500.html:117
+#: .\templates\404.html:15 .\templates\500.html:117
 msgid "Go to Home"
-msgstr ""
+msgstr "Go to Home"
 
-#: .\templates\404.html:121 .\templates\500.html:120
+#: .\templates\404.html:18 .\templates\500.html:120
 msgid "Go Back"
-msgstr ""
+msgstr "Go Back"
 
 #: .\templates\500.html:10 .\templates\500.html:111
 msgid "Server Error"
-msgstr ""
+msgstr "Server Error"
 
 #: .\templates\500.html:113
 msgid ""
 "Something went wrong on our end. Our team has been notified and we are "
 "working to fix the issue."
 msgstr ""
+"Something went wrong on our end. Our team has been notified and we are "
+"working to fix the issue."
 
 #: .\templates\admin\index.html:6
 msgid "Custom Dashboards"
-msgstr ""
+msgstr "Custom Dashboards"
 
 #: .\templates\admin\index.html:12
 msgid "Open Dashboard"
-msgstr ""
+msgstr "Open Dashboard"
 
 #: .\templates\converter\converter.html:13
 msgid "TOIN Word Converter"
@@ -90,65 +94,63 @@ msgstr ""
 "value-added packages under quality and manufacturing control systems with "
 "Japanese standards."
 
-#: .\templates\footer.html:25
+#: .\templates\footer.html:26
 msgid "OUR BUSINESSES"
 msgstr "OUR BUSINESSES"
 
-#: .\templates\footer.html:28 .\templates\header.html:34
+#: .\templates\footer.html:29 .\templates\header.html:19
 msgid "About Us"
 msgstr "About Us"
 
-#: .\templates\footer.html:31
+#: .\templates\footer.html:32
 msgid "Services"
 msgstr "Services"
 
-#: .\templates\footer.html:34 .\templates\header.html:40
+#: .\templates\footer.html:35 .\templates\header.html:25
 #: .\templates\pages\product.html:7 .\templates\pages\product.html:8
 msgid "Portfolio"
 msgstr "Portfolio"
 
-#: .\templates\footer.html:37 .\templates\header.html:43
+#: .\templates\footer.html:38 .\templates\header.html:28
 #: .\templates\pages\team.html:6 .\templates\pages\team.html:8
 msgid "Our Businesses"
 msgstr "Our Businesses"
 
-#: .\templates\footer.html:43
+#: .\templates\footer.html:44
 msgid "FEATURES"
 msgstr "FEATURES"
 
-#: .\templates\footer.html:65
+#: .\templates\footer.html:47 .\templates\header.html:42
+#: .\templates\header.html:57 .\templates\pages\blog_list.html:7
+msgid "Blog"
+msgstr "Blog"
+
+#: .\templates\footer.html:50 .\templates\header.html:45
+#: .\templates\header.html:60
+msgid "Career"
+msgstr "Career"
+
+#: .\templates\footer.html:60
 msgid "CONTACT"
 msgstr "CONTACT"
 
-#: .\templates\header.html:37 .\templates\pages\features.html:6
+#: .\templates\header.html:22 .\templates\pages\features.html:6
 #: .\templates\pages\features.html:8
 msgid "Features"
 msgstr "Features"
 
-#: .\templates\header.html:46 .\templates\pages\about.html:56
+#: .\templates\header.html:31 .\templates\pages\about.html:56
 #: .\templates\pages\about.html:160 .\templates\pages\contact.html:6
 msgid "Contact"
 msgstr "Contact"
 
-#: .\templates\header.html:50
+#: .\templates\header.html:35
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
-#: .\templates\header.html:60
+#: .\templates\header.html:54
 msgid "Others"
 msgstr "Others"
-
-#: .\templates\header.html:63
-msgid "PDF - Converter"
-msgstr "PDF - Converter"
-
-#: .\templates\header.html:66
-msgid "Blog"
-msgstr "Blog"
-
-#: .\templates\header.html:69
-msgid "Career"
-msgstr "Career"
 
 #: .\templates\pages\about.html:8
 msgid "Discover"
@@ -206,6 +208,18 @@ msgstr "Mission"
 #: .\templates\pages\about.html:175
 msgid "Parent Companies"
 msgstr "Parent Companies"
+
+#: .\templates\pages\blog_list.html:8
+msgid "Latest news and articles"
+msgstr ""
+
+#: .\templates\pages\blog_list.html:25
+msgid "READ MORE"
+msgstr "READ MORE"
+
+#: .\templates\pages\blog_list.html:30
+msgid "No posts yet."
+msgstr "No posts yet."
 
 #: .\templates\pages\contact.html:8 .\templates\pages\recruiter.html:277
 msgid "Get in Touch"
@@ -424,6 +438,9 @@ msgstr "Meet"
 #: .\templates\pages\team.html:28
 msgid "Address: "
 msgstr "Address: "
+
+#~ msgid "PDF - Converter"
+#~ msgstr "PDF - Converter"
 
 #, fuzzy
 #~| msgid "Crecruit"
