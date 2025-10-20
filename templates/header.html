@@ -16,27 +16,35 @@
                     {% is_locale_root request.path as locale_root %}
                     {% if not locale_root %}
                         <li class="nav-item">
-                            <a class="nav-link" data-section="about" href="">{% trans 'About Us' %}</a>
+                            <a class="nav-link" data-section="about" href="#about">{% trans 'About Us' %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-section="services" href="">{% trans 'Features' %}</a>
+                            <a class="nav-link" data-section="services" href="#services">{% trans 'Features' %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-section="portfolio" href="">{% trans 'Portfolio' %}</a>
+                            <a class="nav-link" data-section="portfolio" href="#portfolio">{% trans 'Portfolio' %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-section="team" href="">{% trans 'Our Businesses' %}</a>
+                            <a class="nav-link" data-section="team" href="#team">{% trans 'Our Businesses' %}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-section="contact" href="">{% trans 'Contact' %}</a>
+                            <a class="nav-link" data-section="contact" href="#contact">{% trans 'Contact' %}</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
                             <a href="{% url 'pages:index' %}">{% trans 'Home' %}</a>
                         </li>
                     {% endif %}
-                    <!-- Dropdown for Others -->
-                    <li class="nav-item dropdown">
+                    {% comment %} ========== MOBILE vs DESKTOP using BOOTSTRAP CLASSES ========== {% endcomment %}
+                    <!-- MOBILE/TABLET: Show as SEPARATE nav items (d-xl-none) -->
+                    <li class="nav-item d-xl-none">
+                        <a href="{% url 'pages:blog_list' %}">{% trans 'Blog' %}</a>
+                    </li>
+                    <li class="nav-item d-xl-none">
+                        <a href="{% url 'pages:recruiter' %}">{% trans 'Career' %}</a>
+                    </li>
+                    <!-- DESKTOP: Show as DROPDOWN (d-none d-xl-block) -->
+                    <li class="nav-item dropdown d-none d-xl-block">
                         <a class="nav-link dropdown-toggle"
                            href="#"
                            id="navbarOthersDropdown"
@@ -44,9 +52,6 @@
                            data-bs-toggle="dropdown"
                            aria-expanded="false">{% trans 'Others' %}</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarOthersDropdown">
-                            <li>
-                                <a class="dropdown-item" href="{% url 'converter:index' %}">{% trans 'PDF - Converter' %}</a>
-                            </li>
                             <li>
                                 <a class="dropdown-item" href="{% url 'pages:blog_list' %}">{% trans 'Blog' %}</a>
                             </li>
@@ -85,27 +90,38 @@
     <script src="{% static 'js/custom/lang-switch.js' %}"></script>
     <script src="{% static 'js/custom/custom-header.js' %}"></script>
     <script>
-        // Make text of ul li uppercase
-        document.addEventListener('DOMContentLoaded', function () {
-            // Select all relevant text elements inside #navmenu
-            const navLinks = document.querySelectorAll(
-                '#navmenu a, #navmenu .dropdown-item, #navmenu .btn-group.lang-switch button'
-            );
+    // Make text of ul li uppercase
+    document.addEventListener('DOMContentLoaded', function () {
+        // Select all relevant text elements inside #navmenu
+        const navLinks = document.querySelectorAll(
+            '#navmenu a, #navmenu .dropdown-item, #navmenu .btn-group.lang-switch button'
+        );
 
-            navLinks.forEach((link) => {
-                // Convert visible text to uppercase
-                link.textContent = link.textContent.toUpperCase();
-            });
+        navLinks.forEach((link) => {
+            // Convert visible text to uppercase
+            link.textContent = link.textContent.toUpperCase();
         });
 
-        // Make the header floating when scrolling down
-        window.addEventListener('scroll', function () {
-            const header = document.getElementById('header');
-            if (window.scrollY > 0) {
-                header.classList.add('floating-header');
-            } else {
-                header.classList.remove('floating-header');
-            }
-        });
+        // Force show dropdown on mobile/tablet
+        {% if request.user_agent.is_mobile or request.user_agent.is_tablet %}
+        const dropdown = document.querySelector('#navbarOthersDropdown');
+        const dropdownMenu = document.querySelector('#navbarOthersDropdown + .dropdown-menu');
+        if (dropdown && dropdownMenu) {
+            dropdown.classList.add('show');
+            dropdownMenu.classList.add('show');
+            dropdown.setAttribute('aria-expanded', 'true');
+        }
+        {% endif %}
+    });
+
+    // Make the header floating when scrolling down
+    window.addEventListener('scroll', function () {
+        const header = document.getElementById('header');
+        if (window.scrollY > 0) {
+            header.classList.add('floating-header');
+        } else {
+            header.classList.remove('floating-header');
+        }
+    });
     </script>
 {% endblock script %}
