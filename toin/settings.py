@@ -16,8 +16,9 @@ DEBUG = os.getenv("DEBUG", "True").lower() == "true"
 _default_allowed_hosts = [
     "127.0.0.1",
     "localhost",
-    "192.168.61.147",
     "toin.onrender.com",
+    "toinvn.onrender.com",
+    "toin.com.vn",
 ]
 _env_allowed_hosts = os.getenv("ALLOWED_HOSTS", "")
 if _env_allowed_hosts:
